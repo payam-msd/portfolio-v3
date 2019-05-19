@@ -1,0 +1,28 @@
+.container {
+  @include padding(5rem, 5rem, 1rem, 5rem);
+  font-size: 1.8rem;
+  font-family: product-sans-bold;
+}
+.heading-primary {
+  max-width: 60%;
+  &__sub {
+    font-size: 3.5rem;
+  }
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  height: 100vh;
+}
+.text-box {
+  padding: 3rem;
+  font-family: product-sans-regular;
+}
+.text-wrapper {
+  max-width: 80%;
+  color: $blue-grey-700;
+}
+.svg-holder {
+  height: 90%;
+  max-width: 100%;
+}

@@ -48,9 +48,9 @@ export default {
   styleResources: {
     // your settings here
     scss: [
-        "~assets/scss/main.scss"
-    //   "~assets/scss/abstracts/*.scss",
-    //   "~assets/scss/base/*.scss",
+        "~assets/scss/main.scss",
+      "~assets/scss/abstracts/*.scss",
+      "~assets/scss/base/*.scss",
     //   "~assets/scss/components/*.scss",
     //   "~assets/scss/layout/*.scss",
     //   "~assets/scss/pages/*.scss"

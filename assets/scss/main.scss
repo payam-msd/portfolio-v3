@@ -10,10 +10,14 @@
 
 //* Objects
 @import "layout/header";
+@import "layout/index";
+@import "layout/about";
+@import "layout/contact";
 
 //* Components
 @import "layout/navigation";
 @import "layout/footer";
+@import "components/buttons";
 
 //* Utilities
 @import "base/utilities";

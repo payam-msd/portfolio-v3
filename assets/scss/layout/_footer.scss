@@ -1,0 +1,31 @@
+.footer {
+  opacity: 0.6;
+  border-top: 1px solid $blue-grey-700;
+}
+.social-media {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  list-style: none;
+  li {
+    @include margin(4rem, 1.3rem, 1rem, 1.3rem);
+    opacity: 0.6;
+    width: 20px;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+.text-svg-holder {
+  display: flex;
+  position: absolute;
+  justify-content: flex-start;
+}
+.text-svg {
+  @include margin(3rem, null, null, -2rem);
+  opacity: 0.6;
+  &:hover {
+    opacity: 1;
+  }
+}

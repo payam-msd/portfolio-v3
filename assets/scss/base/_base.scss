@@ -8,13 +8,13 @@
   -webkit-touch-callout: none;
   /* "turn off" link highlight */
   -webkit-tap-highlight-color: transparent;
-  font-size: 62.5%;
   box-sizing: inherit;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 html {
+  font-size: 62.5%;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -28,6 +28,7 @@ h1,
 h2,
 h3 {
   text-rendering: optimizeLegibility;
+  letter-spacing: 2px;
 }
 a:focus {
   // Firefox (remove border on link click)

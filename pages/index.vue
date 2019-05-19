@@ -1,10 +1,92 @@
 <template>
-  <div></div>
+  <div class="container">
+    <div class="wrapper">
+      <div class="text-box">
+        <div class="heading-primary">
+          <h1>
+            better design
+            <span class="heading-primary__sub">better results</span>
+          </h1>
+        </div>
+        <div class="text-wrapper u-mt-large">
+          <p>Combining the fields of design and development, I understand the possibilities of the web. That’s how I create valuable marketing focused websites and shops with a strong user experience, aiming to get more online results.</p>
+          <p>I strive to make unique websites that look good and work even better.</p>
+        </div>
+        <div class="btn-holder u-mt-large">
+          <a href="#" class="btn">More about me</a>
+          <div class="btn">show me some work</div>
+        </div>
+      </div>
+      <div class="wrapper_second">
+        <mainSvg :class="'svg-holder'"/>
+        <!-- <div class="text-box">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo eaque recusandae harum porro, voluptas saepe nostrum repellendus ex dolor, aliquid rem modi beatae velit animi pariatur, numquam cupiditate non aut.</p>
+        </div>-->
+      </div>
+    </div>
+    <div class="footer">
+      <div class="text-svg-holder">
+        <textSVG :class="'text-svg'"/>
+      </div>
+      <ul class="social-media">
+        <li class="twitter">
+          <a href="https://twitter.com/payam_msd" rel="noopener" target="_blank">
+            <svg
+              viewBox="0 0 25 20"
+              xmlns="http://www.w3.org/2000/svg"
+              xml:space="preserve"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <path
+                d="M7.7,20c9.3,0,14.4-7.7,14.4-14.4c0-0.2,0-0.4,0-0.7c1-0.7,1.8-1.6,2.5-2.6c-0.9,0.4-1.9,0.7-2.9,0.8                                            c1-0.6,1.8-1.6,2.2-2.8c-1,0.6-2.1,1-3.2,1.2C19.8,0.6,18.5,0,17,0c-2.8,0-5,2.3-5,5c0,0.4,0,0.8,0.1,1.2C7.9,6,4.2,4,1.7,0.9                                            C1.3,1.7,1,2.5,1,3.5c0,1.8,0.9,3.3,2.2,4.2C2.4,7.6,1.7,7.4,1,7c0,0,0,0,0,0.1C1,9.5,2.7,11.6,5,12c-0.4,0.1-0.9,0.2-1.3,0.2                                            c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.5,3.5,4.7,3.5c-1.7,1.4-3.9,2.2-6.3,2.2c-0.4,0-0.8,0-1.2-0.1C2.2,19.2,4.9,20,7.7,20"
+              ></path>
+            </svg>
+          </a>
+        </li>
+        <li class="linkedin">
+          <a href="https://linkedin.com/in/payamdev" rel="noopener" target="_blank">
+            <svg
+              viewBox="0 0 21 20"
+              xmlns="http://www.w3.org/2000/svg"
+              xml:space="preserve"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <path
+                d="M0.8,6.6h4.2V20H0.8V6.6z M2.9,0c1.3,0,2.4,1.1,2.4,2.4c0,1.3-1.1,2.4-2.4,2.4c-1.3,0-2.4-1.1-2.4-2.4                                            C0.5,1.1,1.5,0,2.9,0"
+              ></path>
+              <path
+                d="M7.5,6.6h4v1.8h0.1c0.6-1.1,1.9-2.2,3.9-2.2c4.2,0,5,2.8,5,6.4V20h-4.2v-6.5c0-1.5,0-3.5-2.2-3.5                                            c-2.2,0-2.5,1.7-2.5,3.4V20H7.5V6.6z"
+              ></path>
+            </svg>
+          </a>
+        </li>
+        <li class="dribbble">
+          <a href="https://dribbble.com/payam-dev" rel="noopener" target="_blank">
+            <svg
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+              xml:space="preserve"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <path
+                d="M5,18.7c1.5,0.9,3.2,1.3,5,1.3s3.5-0.4,5-1.3c1.5-0.9,2.7-2.1,3.6-3.6c0.9-1.5,1.3-3.2,1.3-5                                            c0-1.8-0.4-3.5-1.3-5c-0.9-1.5-2.1-2.8-3.6-3.6C13.5,0.4,11.8,0,10,0S6.5,0.4,5,1.3S2.3,3.4,1.4,5C0.5,6.5,0,8.2,0,10                                            c0,1.8,0.4,3.5,1.3,5C2.3,16.6,3.5,17.8,5,18.7z M10,18.5c-2,0-3.8-0.7-5.4-2l0.2,0.1c0.3-0.7,0.8-1.3,1.3-1.9s1.2-1.1,1.7-1.5                                            c0.5-0.4,1.1-0.7,1.8-1.1c0.6-0.3,1.1-0.5,1.3-0.6s0.4-0.2,0.6-0.2l0,0h0c0.9,2.2,1.5,4.4,1.8,6.5C12.3,18.3,11.2,18.5,10,18.5z                                             M17.2,14.6c-0.6,1-1.4,1.8-2.4,2.5c-0.4-2-0.9-4-1.7-6.1c1.7-0.3,3.5-0.1,5.3,0.4C18.3,12.5,17.9,13.6,17.2,14.6z M16.4,4.9                                            c0.1-0.1,0.2-0.2,0.2-0.3l0,0c1.3,1.5,1.9,3.3,1.9,5.3l-0.1,0c-0.1,0-0.2,0-0.3-0.1c-0.1,0-0.3,0-0.5-0.1S17.2,9.7,17,9.7                                            c-0.2,0-0.5,0-0.7-0.1c-0.3,0-0.5,0-0.8-0.1c-0.3,0-0.6,0-0.9,0c-0.3,0-0.6,0-1,0c-0.3,0-0.7,0-1,0.1c0,0-0.1-0.1-0.1-0.2                                            c0-0.1-0.1-0.2-0.1-0.2c-0.2-0.4-0.4-0.8-0.6-1.2c0.6-0.2,1.2-0.5,1.7-0.8s1-0.6,1.3-0.8c0.3-0.2,0.6-0.5,0.9-0.8                                            C16.1,5.2,16.3,5,16.4,4.9z M10,1.5c2.2,0,4,0.7,5.6,2.1l-0.2,0.2c-0.1,0.1-0.2,0.3-0.5,0.5c-0.3,0.3-0.5,0.5-0.9,0.7                                            c-0.3,0.2-0.7,0.5-1.3,0.8c-0.5,0.3-1.1,0.6-1.7,0.8c-1-1.8-2.1-3.5-3.2-5C8.7,1.5,9.4,1.5,10,1.5z M3.3,4.7c0.8-1.1,1.8-1.9,3-2.4                                            c1.1,1.4,2.1,3.1,3.2,4.9c-2.6,0.7-5.3,1-7.9,1C1.9,6.9,2.5,5.8,3.3,4.7z M1.5,9.7c3.1,0,6.1-0.4,8.8-1.2c0.3,0.5,0.5,1,0.7,1.4                                            c0,0-0.1,0-0.2,0.1c-0.1,0-0.1,0-0.2,0l-0.5,0.2c-0.3,0.1-0.8,0.3-1.3,0.6c-0.5,0.3-1.1,0.6-1.7,1.1c-0.6,0.4-1.2,0.9-1.9,1.6                                            c-0.6,0.7-1.2,1.4-1.6,2.2c-0.7-0.8-1.2-1.6-1.6-2.6c-0.4-1-0.6-2-0.6-3.1C1.5,9.9,1.5,9.8,1.5,9.7z"
+              ></path>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </template>
 
 <script>
+import mainSvg from "~/layouts/mainSVG";
+import textSVG from "~/layouts/textSVG";
 export default {
-  components: {}
+  components: {
+    mainSvg,
+    textSVG
+  }
 };
 </script>
 

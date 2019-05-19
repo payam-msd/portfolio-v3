@@ -1,0 +1,30 @@
+.btn {
+  display: inline-block;
+  text-transform: capitalize;
+  font-size: 1.8rem;
+  border-radius: 10rem;
+  @include padding(1.5rem, 2rem, 1.5rem, 2rem);
+  text-decoration: none;
+  color: $blue-grey-700;
+  background: $blue-grey-050;
+  font-family: inherit;
+  margin-right: 5%;
+
+  /* mouse, touch pad */
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transition: background 0.3s;
+      background: $blue-grey-700;
+      color: $blue-grey-050;
+    }
+  }
+  /* smartphones, touchscreens */
+  @media (hover: none) and (pointer: coarse) {
+    &:link,
+    &:active,
+    &:visited {
+      background: $blue-grey-700;
+      color: $blue-grey-050;
+    }
+  }
+}
