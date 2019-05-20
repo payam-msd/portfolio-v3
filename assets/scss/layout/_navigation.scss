@@ -1,6 +1,59 @@
 .toggle-wrapper {
   position: fixed;
-  right: 0;
-  top: 48%;
   display: flex;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.navbar {
+  display: grid;
+  grid-template-columns: 20% 20% 60%;
+  grid-auto-columns: minmax(100px, 100px);
+  align-items: center;
+
+  &__brand {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    font-size: 2.8rem;
+    margin: 1rem;
+    color: $blue-300;
+    font-weight: 600;
+    letter-spacing: 1.7px;
+  }
+
+  &__list {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    list-style: none;
+    font-size: 1.8rem;
+
+    li {
+      cursor: pointer;
+      padding: 1rem;
+      opacity: 0.8;
+      &:hover {
+        transition: transform 0.25s ease-in-out;
+        transform: translateX(8px);
+        opacity: 1;
+      }
+    }
+  }
+
+  &__item {
+    text-transform: capitalize;
+    color: $blue-050;
+    margin: 1rem;
+    letter-spacing: 1.7px;
+    &::before {
+      content: "\2014";
+      position: absolute;
+      left: -1rem;
+      margin-right: 0.25rem;
+      opacity: 0;
+      transition: all 0.25s ease-in-out;
+    }
+    &:hover::before {
+      opacity: 1;
+    }
+  }
 }

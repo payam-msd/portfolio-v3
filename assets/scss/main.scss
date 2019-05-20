@@ -2,11 +2,11 @@
 @import "base/base";
 @import "abstracts/variables";
 @import "abstracts/mixins";
+@import "base/typography";
 @import "layout/mediaQuery";
 @import "layout/grid";
 
 //* Elements
-@import "base/typography";
 
 //* Objects
 @import "layout/header";

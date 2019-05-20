@@ -34,7 +34,16 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ["@nuxtjs/pwa", "@nuxtjs/style-resources"],
+  modules: [
+    "@nuxtjs/pwa",
+    "@nuxtjs/style-resources",
+    [
+      "@nuxtjs/google-analytics",
+      {
+        id: "UA-139424150-1"
+      }
+    ]
+  ],
 
   /*
    ** Build configuration
@@ -48,12 +57,14 @@ export default {
   styleResources: {
     // your settings here
     scss: [
-        "~assets/scss/main.scss",
-      "~assets/scss/abstracts/*.scss",
-      "~assets/scss/base/*.scss",
-    //   "~assets/scss/components/*.scss",
-    //   "~assets/scss/layout/*.scss",
-    //   "~assets/scss/pages/*.scss"
+      "~assets/scss/main.scss",
+     // "~assets/scss/base/*.scss",
+     //  "~assets/scss/abstracts/*.scss",
+     //  "~assets/scss/layout/_mediaQuery.scss",
+
+      //   "~assets/scss/components/*.scss",
+      //   "~assets/scss/layout/*.scss",
+      //   "~assets/scss/pages/*.scss"
     ]
-  },
+  }
 };

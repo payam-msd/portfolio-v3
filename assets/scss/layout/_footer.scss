@@ -23,7 +23,7 @@
   justify-content: flex-start;
 }
 .text-svg {
-  @include margin(3rem, null, null, -2rem);
+  @include margin(3rem, null, null, -5rem);
   opacity: 0.6;
   &:hover {
     opacity: 1;

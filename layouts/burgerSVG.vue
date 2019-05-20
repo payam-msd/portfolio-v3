@@ -2,7 +2,7 @@
   <svg
     class="burger burger__rotate burger__props"
     viewBox="0 0 100 100"
-    width="100"
+    width="90%"
     onclick="this.classList.toggle('active')"
   >
     <path
@@ -24,9 +24,10 @@ export default {
 </script>
 <style lang="scss">
 .burger {
+  position: absolute;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  transition: transform 400ms;
+  transition: transform 800ms;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;

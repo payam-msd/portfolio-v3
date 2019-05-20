@@ -1,5 +1,5 @@
 .container {
-  @include padding(5rem, 5rem, 1rem, 5rem);
+  @include padding(5rem, 5rem, 5rem, 5rem);
   font-size: 1.8rem;
   font-family: product-sans-bold;
 }
@@ -15,7 +15,7 @@
   height: 100vh;
 }
 .text-box {
-  padding: 3rem;
+  @include padding(3rem, 3rem, 3rem, null);
   font-family: product-sans-regular;
 }
 .text-wrapper {

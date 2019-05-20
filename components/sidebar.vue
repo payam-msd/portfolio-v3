@@ -1,6 +1,7 @@
 <template>
   <div :class="'sidebar'">
     <component :is="component"/>
+    <slot></slot>
   </div>
 </template>
 
@@ -37,11 +38,12 @@ export default {
 <style lang="scss">
 .sidebar {
   position: fixed;
-  right: 0;
+  right: 5.2rem;
   top: 0;
   height: 100vh;
-
-  @include padding(5rem, null, 5rem, 5rem);
-  background-color: $teal-vivid-600;
+  width: 95vw;
+  z-index: 100;
+  backface-visibility: hidden;
+  background-color: white;
 }
 </style>

@@ -1,13 +1,25 @@
 <template>
-  <button :class="[open ? $style.active : '', $style.button]" @click="handleClick">
+  <a :class="[open ? $style.butt : '', $style.butt]" @click="handleClick">
     <component :is="icon"/>
-  </button>
+  </a>
 </template>
 
 <script>
 export default {
   name: "sidebar-toggle",
   props: ["sidebarComponent", "icon"],
+  head() {
+    return {
+      title: "toggler",
+      meta: [
+        {
+          hid: "desc",
+          name: "desc",
+          content: "this is a desc"
+        }
+      ]
+    };
+  },
   computed: {
     open() {
       return (
@@ -27,24 +39,47 @@ export default {
 </script>
 
 <style  lang="scss" module>
-.button {
-  padding: 0;
-  height: 50px;
-  width: 50px;
-  border: 3px solid transparent;
-  border-radius: 50%;
-  background-color: transparent;
-  color: $blue-900;
+.butt {
   cursor: pointer;
   display: flex;
+  height: 5.2rem;
+  width: 5.2rem;
+  border-radius: 50%;
   align-items: center;
   justify-content: center;
-  line-height: 0;
-  transition: transform 300ms ease-out, border-color 300ms ease-out;
+  transition: transform 300ms ease-out;
+  background-color: $blue-050;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    width: 100%;
+    height: 100%;
+    border: 1.5px solid $blue-800;
+    border-radius: 50%;
+    animation: pulse-ring 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -20s infinite;
+  visibility: visible;
+  }
+}
+@keyframes pulse-ring {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.4);
+  }
 }
 
-.button:focus {
-  outline: none;
-  border-color: $blue-grey-500;
-}
+
+
 </style>
