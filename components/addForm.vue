@@ -1,43 +1,55 @@
 <template>
   <div class="content-container">
     <nav class="navbar">
-      <h5 class="navbar__brand">menu</h5>
       <ul class="navbar__list">
-        <nuxt-link tag="li" to="/" active-class="active" exact>
-          <a class="navbar__item">Home</a>
+        <li class="navbar__title">Menu</li>
+        <nuxt-link class="navbar__item" tag="li" to="/">
+          <a nuxt-link-exact-active nuxt-link-active>Home</a>
         </nuxt-link>
-
-        <nuxt-link tag="li" to="/about" active-class="active" exact>
-          <a class="navbar__item">About</a>
+        <nuxt-link class="navbar__item" tag="li" to="/about">
+          <a nuxt-link-active>About</a>
         </nuxt-link>
-
-        <nuxt-link tag="li" to="/contact" active-class="active" exact>
-          <a class="navbar__item">Contact</a>
+        <nuxt-link class="navbar__item" tag="li" to="/contact">
+          <a nuxt-link-active>Contact</a>
         </nuxt-link>
       </ul>
-      <h5 class="navbar__brand">casses</h5>
       <ul class="navbar__list">
-        <nuxt-link to="/" tag="li" active-class="active" exact>
-          <a class="navbar__item">text</a>
+        <li class="navbar__title">Cases</li>
+        <nuxt-link class="navbar__item" to="/" tag="li">
+          <a>Dastan Iran</a>
         </nuxt-link>
-        <nuxt-link to="/" tag="li" active-class="active" exact>
-          <a class="navbar__item">text</a>
+        <nuxt-link class="navbar__item" to="/" tag="li">
+          <a>Sick Fit</a>
         </nuxt-link>
-        <nuxt-link to="/" tag="li" active-class="active" exact>
-          <a class="navbar__item">text</a>
+        <nuxt-link class="navbar__item" to="/" tag="li">
+          <a>Glozzom</a>
         </nuxt-link>
-        <nuxt-link to="/" tag="li" active-class="active" exact>
-          <a class="navbar__item">text</a>
-        </nuxt-link>
-        <nuxt-link to="/" tag="li" active-class="active" exact>
-          <a class="navbar__item">text</a>
-        </nuxt-link>
-        <nuxt-link to="/" tag="li" active-class="active" exact>
-          <a class="navbar__item">text</a>
-        </nuxt-link>
-        <nuxt-link to="/" tag="li" active-class="active" exact>
-          <a class="navbar__item">text</a>
-        </nuxt-link>
+      </ul>
+      <ul class="social-media">
+        <li class="twitter">
+          <a href="https://twitter.com/payam_m_" rel="noopener" target="_blank">
+            <img src="~assets/svgs/twitter.svg" />
+          </a>
+        </li>
+        <li class="linkedin">
+          <a
+            href="https://www.linkedin.com/in/payam-m"
+            rel="noopener"
+            target="_blank"
+          >
+            <img src="~assets/svgs/linkedin.svg" />
+          </a>
+        </li>
+        <li class="dribbble">
+          <a href="https://dribbble.com/payam_m" rel="noopener" target="_blank">
+            <img src="~assets/svgs/dribbble.svg" />
+          </a>
+        </li>
+        <li class="telegram">
+          <a href="https://t.me/payam_msd" rel="noopener" target="_blank">
+            <img src="~assets/svgs/telegram.svg" />
+          </a>
+        </li>
       </ul>
     </nav>
   </div>
@@ -49,14 +61,42 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped >
+<style lang="scss" scoped>
 .content-container {
   @include center(vertical);
-  background: $blue-grey-800;
-  left: 5.5rem;
+  background: $blue-grey-900;
+  left: 5.4rem;
   height: 86%;
   width: 110%;
-  padding: 8rem;
+  padding: 5rem;
+}
+.social-media {
+  position: absolute;
+  display: flex;
+  top: 150%;
+  justify-content: flex-start;
+  list-style: none;
+  transform: translateY(-150%);
+  li {
+    @include margin(4rem, 1.3rem, 1rem, 1.3rem);
+    opacity: 0.6;
+    width: 20px;
+    align-self: baseline;
+
+    a {
+      display: block;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.linkedin,
+.telegram,
+.instagram,
+.dribbble {
+  display: inline-block;
 }
 </style>
-

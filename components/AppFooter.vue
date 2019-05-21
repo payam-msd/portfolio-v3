@@ -20,6 +20,11 @@
             <img src="~assets/svgs/dribbble.svg">
           </a>
         </li>
+        <li class="telegram">
+          <a href="https://t.me/payam_msd" rel="noopener" target="_blank">
+            <img src="~assets/svgs/telegram.svg">
+          </a>
+        </li>
       </ul>
     </div>
   </div>

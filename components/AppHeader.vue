@@ -2,7 +2,7 @@
   <div class="nav-container">
     <sidebar>
       <div :class="'toggle-wrapper'">
-        <sidebar-toggle :sidebarComponent="addForm" :icon="addIcon"/>
+        <sidebar-toggle :sidebarComponent="addForm" :icon="addIcon" />
       </div>
     </sidebar>
   </div>
@@ -30,9 +30,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.nav-container {
-  z-index: 2;
-  background: white;
-}
-</style>
+<style lang="scss" scoped></style>

@@ -3,6 +3,8 @@
   border-top: 1px solid $blue-grey-700;
 }
 .social-media {
+  position: relative;
+  margin-top: 2rem;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -23,9 +25,16 @@
   justify-content: flex-start;
 }
 .text-svg {
-  @include margin(3rem, null, null, -5rem);
+  @include margin(3.5rem, null, null, -4rem);
+  z-index: 5;
   opacity: 0.6;
   &:hover {
     opacity: 1;
   }
+}
+.linkedin,
+.telegram,
+.instagram,
+.dribbble {
+  display: inline-block;
 }

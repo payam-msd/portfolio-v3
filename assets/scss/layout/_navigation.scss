@@ -6,54 +6,66 @@
   transform: translateY(-50%);
 }
 .navbar {
-  display: grid;
-  grid-template-columns: 20% 20% 60%;
-  grid-auto-columns: minmax(100px, 100px);
-  align-items: center;
+  margin-top: 2%;
+  font-family: effra;
+  display: flex;
+  @include center(vertical);
+  height: auto;
 
-  &__brand {
-    grid-row-start: 1;
-    grid-row-end: 2;
-    font-size: 2.8rem;
-    margin: 1rem;
-    color: $blue-300;
-    font-weight: 600;
+  &__title {
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: $teal-vivid-100;
     letter-spacing: 1.7px;
+
+    &::after {
+      content: " ";
+      display: block;
+      width: 2px;
+      height: 20px;
+      border-radius: 5px;
+      margin: 1.75rem 0;
+      background-color: $red-500;
+    }
   }
 
   &__list {
-    grid-row-start: 3;
-    grid-row-end: 4;
+    line-height: 2.25rem;
+    margin: 0;
     list-style: none;
     font-size: 1.8rem;
-
-    li {
-      cursor: pointer;
-      padding: 1rem;
-      opacity: 0.8;
-      &:hover {
-        transition: transform 0.25s ease-in-out;
-        transform: translateX(8px);
-        opacity: 1;
-      }
-    }
+    padding-right: 8rem;
   }
 
   &__item {
-    text-transform: capitalize;
-    color: $blue-050;
-    margin: 1rem;
-    letter-spacing: 1.7px;
-    &::before {
-      content: "\2014";
-      position: absolute;
-      left: -1rem;
-      margin-right: 0.25rem;
-      opacity: 0;
+    margin: 0 2rem 2rem 0;
+
+    a {
+      position: relative;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      margin-right: 2.5rem;
+      color: #fff;
+      text-decoration: none;
       transition: all 0.25s ease-in-out;
-    }
-    &:hover::before {
-      opacity: 1;
+      cursor: pointer;
+
+      &:hover {
+        padding-left: 2.5rem;
+        margin-right: 0;
+      }
+      &::before {
+        content: "\2014";
+        position: absolute;
+        left: -1.25rem;
+        margin-right: 0.55rem;
+        opacity: 0;
+        transition: all 0.25s ease-in-out;
+      }
+      &:hover::before {
+        opacity: 1;
+        left: 0;
+      }
     }
   }
 }

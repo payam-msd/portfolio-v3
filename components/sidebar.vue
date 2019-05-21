@@ -1,6 +1,6 @@
 <template>
   <div :class="'sidebar'">
-    <component :is="component"/>
+    <component :is="component" />
     <slot></slot>
   </div>
 </template>
@@ -43,7 +43,6 @@ export default {
   height: 100vh;
   width: 95vw;
   z-index: 100;
-  backface-visibility: hidden;
-  background-color: white;
+  background-color: white !important;
 }
 </style>
