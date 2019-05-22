@@ -3,8 +3,14 @@
     <nav class="navbar">
       <ul class="navbar__list">
         <li class="navbar__title">Menu</li>
-        <nuxt-link class="navbar__item" tag="li" to="/">
-          <a nuxt-link-exact-active nuxt-link-active>Home</a>
+        <nuxt-link
+          class="navbar__item"
+          tag="li"
+          to="/"
+          nuxt-link-exact-active
+          nuxt-link-active
+        >
+          <a>Home</a>
         </nuxt-link>
         <nuxt-link class="navbar__item" tag="li" to="/about">
           <a nuxt-link-active>About</a>
@@ -15,7 +21,13 @@
       </ul>
       <ul class="navbar__list">
         <li class="navbar__title">Cases</li>
-        <nuxt-link class="navbar__item" to="/" tag="li">
+        <nuxt-link
+          class="navbar__item"
+          to="/"
+          tag="li"
+          @mouseover.native="hover = true"
+          @mouseout.native="hover = false"
+        >
           <a>Dastan Iran</a>
         </nuxt-link>
         <nuxt-link class="navbar__item" to="/" tag="li">
@@ -52,12 +64,27 @@
         </li>
       </ul>
     </nav>
+    <div class="case-holder">
+      <div class="case-holder__hover">
+        <a href="#">
+          <img v-if="hover" :src="img1" alt="" />
+        </a>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "add-form"
+  name: "add-form",
+  data() {
+    return {
+      hover: false,
+      img1: "https://source.unsplash.com/random/",
+      img2: "https://source.unsplash.com/random/400x600",
+      img3: "https://source.unsplash.com/random/600x900"
+    };
+  }
 };
 </script>
 
@@ -98,5 +125,29 @@ export default {
 .instagram,
 .dribbble {
   display: inline-block;
+}
+.case-holder {
+  position: relative;
+  height: 100%;
+  float: right;
+  width: 45%;
+
+  &__hover {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    right: 5rem;
+    width: 100%;
+    height: 100%;
+    img {
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+.active {
+  background: url(https://source.unsplash.com/random/600x900);
 }
 </style>

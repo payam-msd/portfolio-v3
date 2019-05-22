@@ -29,7 +29,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ["~plugins/directives.js"],
 
   /*
    ** Nuxt.js modules
@@ -57,10 +57,10 @@ export default {
   styleResources: {
     // your settings here
     scss: [
-      "~assets/scss/main.scss",
-     // "~assets/scss/base/*.scss",
-     //  "~assets/scss/abstracts/*.scss",
-     //  "~assets/scss/layout/_mediaQuery.scss",
+      "~assets/scss/main.scss"
+      // "~assets/scss/base/*.scss",
+      //  "~assets/scss/abstracts/*.scss",
+      //  "~assets/scss/layout/_mediaQuery.scss",
 
       //   "~assets/scss/components/*.scss",
       //   "~assets/scss/layout/*.scss",

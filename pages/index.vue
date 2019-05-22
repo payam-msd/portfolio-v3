@@ -1,6 +1,6 @@
 <template>
   <div>
-    <app-header/>
+    <app-header />
     <div class="container">
       <div class="wrapper">
         <div class="text-box">
@@ -11,22 +11,34 @@
             </h1>
           </div>
           <div class="text-wrapper u-mt-large">
-            <p>Combining the fields of design and development, I understand the possibilities of the web. That’s how I create valuable marketing focused websites and shops with a strong user experience, aiming to get more online results.</p>
-            <p>I strive to make unique websites that look good and work even better.</p>
+            <p>
+              Combining the fields of design and development, I understand the
+              possibilities of the web. That’s how I create valuable marketing
+              focused websites and shops with a strong user experience, aiming
+              to get more online results.
+            </p>
+            <p>
+              I strive to make unique websites that look good and work even
+              better.
+            </p>
           </div>
           <div class="btn-holder u-mt-large">
-            <a href="#" class="btn">More about me</a>
-            <div class="btn">show me some work</div>
+            <nuxt-link to="/about">
+              <a class="btn">More about me</a>
+            </nuxt-link>
+            <nuxt-link to="/work">
+              <div class="btn">show me some work</div>
+            </nuxt-link>
           </div>
         </div>
         <div class="wrapper_second">
-          <mainSvg :class="'svg-holder'"/>
+          <mainSvg :class="'svg-holder'" />
           <!-- <div class="text-box">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo eaque recusandae harum porro, voluptas saepe nostrum repellendus ex dolor, aliquid rem modi beatae velit animi pariatur, numquam cupiditate non aut.</p>
           </div>-->
         </div>
       </div>
-      <AppFooter/>
+      <AppFooter />
     </div>
   </div>
 </template>
@@ -50,5 +62,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>
