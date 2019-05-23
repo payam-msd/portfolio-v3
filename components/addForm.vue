@@ -25,22 +25,34 @@
           class="navbar__item"
           to="/"
           tag="li"
-          @mouseover.native="hover = true"
-          @mouseout.native="hover = false"
+          @mouseover.native="(img = img1), (hover = true)"
+          @mouseout.native="(img = img1), (hover = true)"
         >
           <a>Dastan Iran</a>
         </nuxt-link>
-        <nuxt-link class="navbar__item" to="/" tag="li">
+        <nuxt-link
+          class="navbar__item"
+          to="/"
+          tag="li"
+          @mouseover.native="(img = img2), (hover = true)"
+          @mouseout.native="(img = img2), (hover = true)"
+        >
           <a>Sick Fit</a>
         </nuxt-link>
-        <nuxt-link class="navbar__item" to="/" tag="li">
+        <nuxt-link
+          class="navbar__item"
+          to="/"
+          tag="li"
+          @mouseover.native="(img = img3), (hover = true)"
+          @mouseout.native="(img = img3), (hover = true)"
+        >
           <a>Glozzom</a>
         </nuxt-link>
       </ul>
       <ul class="social-media">
         <li class="twitter">
           <a href="https://twitter.com/payam_m_" rel="noopener" target="_blank">
-            <img src="~assets/svgs/twitter.svg" />
+            <img src="~assets/svg/twitter.svg" />
           </a>
         </li>
         <li class="linkedin">
@@ -49,26 +61,31 @@
             rel="noopener"
             target="_blank"
           >
-            <img src="~assets/svgs/linkedin.svg" />
+            <img src="~assets/svg/linkedin.svg" />
           </a>
         </li>
         <li class="dribbble">
           <a href="https://dribbble.com/payam_m" rel="noopener" target="_blank">
-            <img src="~assets/svgs/dribbble.svg" />
+            <img src="~assets/svg/dribbble.svg" />
           </a>
         </li>
         <li class="telegram">
           <a href="https://t.me/payam_msd" rel="noopener" target="_blank">
-            <img src="~assets/svgs/telegram.svg" />
+            <img src="~assets/svg/telegram.svg" />
           </a>
         </li>
       </ul>
     </nav>
     <div class="case-holder">
       <div class="case-holder__hover">
-        <a href="#">
-          <img v-if="hover" :src="img1" alt="" />
-        </a>
+        <nuxt-link to="/">
+          <a>
+            <img
+              v-if="hover === false ? (img = img1) : (img = img)"
+              :src="`img/${img}`"
+            />
+          </a>
+        </nuxt-link>
       </div>
     </div>
   </div>
@@ -80,9 +97,10 @@ export default {
   data() {
     return {
       hover: false,
-      img1: "https://source.unsplash.com/random/",
-      img2: "https://source.unsplash.com/random/400x600",
-      img3: "https://source.unsplash.com/random/600x900"
+      img: "",
+      img1: "img1.jpg",
+      img2: "img2.jpg",
+      img3: "img3.jpg"
     };
   }
 };

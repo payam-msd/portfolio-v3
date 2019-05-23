@@ -7,6 +7,8 @@ const state = {
   sidebarComponent: null
 }
 
+
+
 // getters
 const getters = {
   sidebarOpen: state => state.sidebarOpen,

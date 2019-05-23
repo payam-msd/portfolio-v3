@@ -49,10 +49,11 @@ export default {
    ** Build configuration
    */
   build: {
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {}
+
+       /*
+        ** You can extend webpack config here
+        */
+
   },
   styleResources: {
     // your settings here
