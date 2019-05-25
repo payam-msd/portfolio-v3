@@ -1,40 +1,19 @@
 .footer {
   opacity: 0.6;
   border-top: 1px solid $blue-grey-700;
-}
-.social-media {
-  position: relative;
-  margin-top: 2rem;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  list-style: none;
-  li {
-    @include margin(4rem, 1.3rem, 1rem, 1.3rem);
-    opacity: 0.6;
-    width: 20px;
 
+  &__svg-holder {
+    display: flex;
+    position: absolute;
+    justify-content: flex-start;
+  }
+
+  &__svg {
+    @include margin(3.5rem, null, null, -4rem);
+    z-index: 5;
+    opacity: 0.6;
     &:hover {
       opacity: 1;
     }
   }
-}
-.text-svg-holder {
-  display: flex;
-  position: absolute;
-  justify-content: flex-start;
-}
-.text-svg {
-  @include margin(3.5rem, null, null, -4rem);
-  z-index: 5;
-  opacity: 0.6;
-  &:hover {
-    opacity: 1;
-  }
-}
-.linkedin,
-.telegram,
-.instagram,
-.dribbble {
-  display: inline-block;
 }

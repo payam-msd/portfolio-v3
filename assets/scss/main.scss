@@ -2,9 +2,8 @@
 @import "base/base";
 @import "abstracts/variables";
 @import "abstracts/mixins";
+@import "base/media-query";
 @import "base/typography";
-@import "layout/mediaQuery";
-@import "layout/grid";
 
 //* Elements
 
@@ -16,6 +15,7 @@
 
 //* Components
 @import "layout/navigation";
+@import "layout/social-media";
 @import "layout/footer";
 @import "components/buttons";
 

@@ -1,0 +1,24 @@
+.about {
+  background: $blue-grey-050;
+  margin: 5rem;
+  font-size: 1.8rem;
+  font-family: product-sans-bold;
+
+  &__container {
+    margin: 5rem;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    height: 100vh;
+  }
+
+  &__pre-title {
+    color: $red-500;
+  }
+
+  &__title {
+    color: $blue-grey-900;
+  }
+}

@@ -3,13 +3,15 @@
   text-transform: capitalize;
   font-size: 1.8rem;
   border-radius: 10rem;
-  @include padding(1.5rem, 2rem, 1.5rem, 2rem);
+  padding: 1.5rem 2rem;
   text-decoration: none;
+  font-family: inherit;
+}
+
+.index__btn {
   color: $blue-grey-700;
   background: $blue-grey-050;
-  font-family: inherit;
   margin-right: 5%;
-
   /* mouse, touch pad */
   @media (hover: hover) and (pointer: fine) {
     &:hover {

@@ -1,28 +1,21 @@
-.container {
-  @include padding(5rem, 5rem, 5rem, 5rem);
+.index {
   font-size: 1.8rem;
   font-family: product-sans-bold;
-}
-.heading-primary {
-  max-width: 60%;
-  &__sub {
-    font-size: 3.5rem;
+
+  &__container {
+    padding: 5rem;
   }
-}
-.wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 50%);
-  height: 100vh;
-}
-.text-box {
-  @include padding(3rem, 3rem, 3rem, null);
-  font-family: product-sans-regular;
-}
-.text-wrapper {
-  max-width: 80%;
-  color: $blue-grey-700;
-}
-.svg-holder {
-  height: 90%;
-  max-width: 100%;
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    height: 100vh;
+  }
+  &__svg-holder {
+    padding: 5rem 3rem;
+  }
+  &__svg {
+    height: 90%;
+    max-width: 100%;
+  }
 }

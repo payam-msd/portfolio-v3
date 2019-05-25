@@ -1,15 +1,13 @@
 <template>
   <div>
-    <app-header />
-    <div class="container">
-      <div class="wrapper">
+    <Navigation />
+    <div class="index index__container">
+      <div class="index__wrapper">
         <div class="text-box">
-          <div class="heading-primary">
-            <h1>
-              better design
-              <span class="heading-primary__sub">better results</span>
-            </h1>
-          </div>
+          <h1 class="heading-primary">
+            <span>better design</span>
+            <span>better results</span>
+          </h1>
           <div class="text-wrapper u-mt-large">
             <p>
               Combining the fields of design and development, I understand the
@@ -24,21 +22,18 @@
           </div>
           <div class="btn-holder u-mt-large">
             <nuxt-link to="/about">
-              <a class="btn">More about me</a>
+              <a class="btn index__btn">More about me</a>
             </nuxt-link>
             <nuxt-link to="/work">
-              <div class="btn">show me some work</div>
+              <div class="btn index__btn">show me some work</div>
             </nuxt-link>
           </div>
         </div>
-        <div class="wrapper_second">
-          <mainSvg :class="'svg-holder'" />
-          <!-- <div class="text-box">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo eaque recusandae harum porro, voluptas saepe nostrum repellendus ex dolor, aliquid rem modi beatae velit animi pariatur, numquam cupiditate non aut.</p>
-          </div>-->
+        <div class="index__svg-holder">
+          <mainSvg :class="'index-svg'" />
         </div>
       </div>
-      <AppFooter />
+      <Footer />
     </div>
   </div>
 </template>
@@ -46,15 +41,15 @@
 <script>
 import mainSvg from "~/layouts/mainSVG";
 import textSVG from "~/layouts/textSVG";
-import AppHeader from "~/components/AppHeader";
-import AppFooter from "~/components/AppFooter";
+import Navigation from "~/components/Navigation";
+import Footer from "~/components/Footer";
 
 export default {
   components: {
     mainSvg,
     textSVG,
-    AppHeader,
-    AppFooter
+    Navigation,
+    Footer
   },
   data() {
     return {};
