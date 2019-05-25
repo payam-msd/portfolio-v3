@@ -1,6 +1,10 @@
 # portfolio
+``
+version 3.0.0 [link](http://payam-dev.com)
+``
 
-> my portfolio app 
+
+> This repo contains my portfolio web application
 
 ## Build Setup
 
@@ -18,5 +22,3 @@ $ yarn start
 # generate static project
 $ yarn run generate
 ```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
