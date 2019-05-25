@@ -6,12 +6,12 @@
 
   &__container {
     margin: 5rem;
+    height: 100vh;
   }
 
   &__wrapper {
     display: grid;
     grid-template-columns: repeat(2, 50%);
-    height: 100vh;
   }
 
   &__pre-title {
@@ -20,5 +20,14 @@
 
   &__title {
     color: $blue-grey-900;
+  }
+
+  &__img-holder {
+    height: 100%;
+    width: 100%;
+    img {
+      width: 100%;
+      margin-top: 10rem;
+    }
   }
 }

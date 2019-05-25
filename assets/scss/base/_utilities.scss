@@ -1,4 +1,4 @@
-// * MARGINS
+// * margin
 .u-mt-small {
   margin-top: 2rem;
 }
@@ -10,4 +10,28 @@
 }
 .u-mt-xlarge {
   margin-top: 14rem;
+}
+
+// * padding
+.b-padding-small {
+  padding: 2.8rem 1.8rem;
+}
+.b-padding-medium {
+  padding: 5.8rem 2.8rem;
+}
+.b-padding-large {
+  padding: 9.8rem 4.8rem;
+}
+
+.u-pt-small {
+  padding-top: 2rem;
+}
+.u-pt-medium {
+  padding-top: 4rem;
+}
+.u-pt-large {
+  padding-top: 8rem;
+}
+.u-pt-xlarge {
+  padding-top: 14rem;
 }
