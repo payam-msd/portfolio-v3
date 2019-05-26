@@ -43,9 +43,9 @@
         </div>
       </div>
       <div class="focus__list u-mt-large">
-        <ul>
-          <li class="list-item">
-            <h3 class="list-title">
+        <ul class="ul-list">
+          <li class="ul-list__item">
+            <h3 class="ul-list__title">
               <span class="about__pre-title">—</span>
               User experience
             </h3>
@@ -54,8 +54,8 @@
               provide a relevant and meaningful experience to users.
             </p>
           </li>
-          <li class="list-item">
-            <h3 class="list-title">
+          <li class="ul-list__item">
+            <h3 class="ul-list__title">
               <span class="about__pre-title">—</span>
               Visual design
             </h3>
@@ -64,8 +64,8 @@
               ultimate user experience is what will make your website stand out.
             </p>
           </li>
-          <li class="list-item">
-            <h3 class="list-title">
+          <li class="ul-list__item">
+            <h3 class="ul-list__title">
               <span class="about__pre-title">—</span>
               Development
             </h3>
@@ -74,8 +74,8 @@
               exceptional front-end development for every device.
             </p>
           </li>
-          <li class="list-item">
-            <h3 class="list-title">
+          <li class="ul-list__item">
+            <h3 class="ul-list__title">
               <span class="about__pre-title">—</span>
               Visual identity
             </h3>
@@ -84,8 +84,8 @@
               modern branding. It’s all about communication.
             </p>
           </li>
-          <li class="list-item">
-            <h3 class="list-title">
+          <li class="ul-list__item">
+            <h3 class="ul-list__title">
               <span class="about__pre-title">—</span>
               Interaction
             </h3>
@@ -94,8 +94,8 @@
               websites that help users achieve their online goals.
             </p>
           </li>
-          <li class="list-item">
-            <h3 class="list-title">
+          <li class="ul-list__item">
+            <h3 class="ul-list__title">
               <span class="about__pre-title">—</span>
               E-commerce
             </h3>
@@ -105,6 +105,9 @@
             </p>
           </li>
         </ul>
+        <div class="svg-holder">
+          <div class="feather-svg"></div>
+        </div>
       </div>
     </section>
   </div>
