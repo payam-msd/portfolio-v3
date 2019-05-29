@@ -8,18 +8,6 @@
 export default {
   name: "sidebar-toggle",
   props: ["sidebarComponent", "icon"],
-  head() {
-    return {
-      title: "toggler",
-      meta: [
-        {
-          hid: "desc",
-          name: "desc",
-          content: "this is a desc"
-        }
-      ]
-    };
-  },
   computed: {
     open() {
       return (

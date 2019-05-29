@@ -2,17 +2,18 @@
 @import "base/base";
 @import "abstracts/variables";
 @import "abstracts/mixins";
+@import "components/family";
 @import "base/media-query";
-@import "base/typography";
 
 //* Elements
+@import "base/typography";
 
 //* Objects
 @import "layout/header";
-@import "layout/index";
-@import "layout/about";
+@import "pages/index";
+@import "pages/about";
 @import "layout/focus";
-@import "layout/contact";
+@import "pages/contact";
 
 //* Components
 @import "layout/navigation";

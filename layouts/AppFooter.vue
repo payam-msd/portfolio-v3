@@ -1,8 +1,9 @@
 <template>
   <div>
+    <nuxt />
     <div class="footer">
       <div class="footer__svg-holder">
-        <textSVG :class="'footer__svg'" />
+        <TextSVG :class="'footer__svg'" />
       </div>
       <SocialMedia />
     </div>
@@ -10,25 +11,28 @@
 </template>
 
 <script>
-import textSVG from "~/layouts/textSVG";
+import TextSVG from "~/components/TextSVG";
 import SocialMedia from "~/components/SocialMedia";
 export default {
   name: "AppFooter",
-  components: {
-    textSVG,
-    SocialMedia
-  },
   head() {
     return {
-      title: "toggler",
+      title: "",
       meta: [
         {
-          hid: "desc",
-          name: "desc",
-          content: "this is a desc"
+          hid: "",
+          name: "",
+          content: ""
         }
       ]
     };
+  },
+  data() {
+    return {};
+  },
+  components: {
+    SocialMedia,
+    TextSVG
   }
 };
 </script>

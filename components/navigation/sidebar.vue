@@ -1,7 +1,7 @@
 <template>
   <div :class="'sidebar'">
     <component :is="component" />
-    <slot></slot>
+    <slot />
   </div>
 </template>
 
@@ -15,6 +15,7 @@ export default {
       x: this.$el.offsetWidth
     });
   },
+
   computed: {
     open() {
       return this.$store.state.sidebarOpen;

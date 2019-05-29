@@ -48,9 +48,10 @@
         >
           <a>Glozzom</a>
         </nuxt-link>
-        <SocialMedia />
       </ul>
     </nav>
+    <social-media />
+
     <div class="case-holder">
       <div class="case-holder__hover">
         <nuxt-link to="/">
@@ -68,6 +69,7 @@
 
 <script>
 import SocialMedia from "~/components/SocialMedia";
+
 export default {
   name: "add-form",
   data() {
