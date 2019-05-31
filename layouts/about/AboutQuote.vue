@@ -2,13 +2,15 @@
   <div>
     <nuxt />
 
-    <!-- qoute section -->
-    <section id="qoute" class="qoute">
-      <div class="qoute-holder">
-        <div class="qoute-holder__content">
-          <div class="qoute-holder__content--text"></div>
+    <!-- quote section -->
+    <section id="quote" class="quote">
+      <div class="quote-holder b-padding-medium">
+        <div class="quote-holder__content">
+          <div class="quote-holder__content--text"></div>
         </div>
-        <div class="qoute-holer__bg"></div>
+        <div class="quote-holder__bg u-mt-xlarge">
+          <img class="quote-bg" src="~static/img/img3.jpg" alt="" />
+        </div>
       </div>
     </section>
   </div>

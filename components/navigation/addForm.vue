@@ -50,7 +50,6 @@
         </nuxt-link>
       </ul>
     </nav>
-    <social-media />
 
     <div class="case-holder">
       <div class="case-holder__hover">

@@ -15,6 +15,7 @@ export default {
       x: this.$el.offsetWidth
     });
   },
+  components: {},
 
   computed: {
     open() {
@@ -36,4 +37,4 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped></style>
