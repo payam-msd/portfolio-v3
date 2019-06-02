@@ -1,26 +1,29 @@
 //* Generics
+@import "~/node_modules/normalize.css/normalize.css";
 @import "base/base";
-@import "abstracts/variables";
-@import "abstracts/mixins";
-@import "components/family";
-@import "base/media-query";
+@import "base/colours";
+@import "base/shadows";
+@import "helpers/variables";
+@import "helpers/mixins";
+@import "helpers/family";
+@import "helpers/media-query";
 
 //* Elements
 @import "base/typography";
 
 //* Objects
-@import "layout/header";
+@import "layout/navigation";
 @import "pages/index";
+@import "layout/header";
 @import "pages/about";
 @import "layout/focus";
-@import "pages/contact";
 @import "layout/quote";
+@import "pages/contact";
 
 //* Components
-@import "layout/navigation";
 @import "layout/social-media";
 @import "layout/footer";
 @import "components/buttons";
 
 //* Utilities
-@import "base/utilities";
+@import "helpers/utilities";
