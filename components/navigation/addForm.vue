@@ -67,8 +67,6 @@
 </template>
 
 <script>
-import SocialMedia from "~/components/SocialMedia";
-
 export default {
   name: "add-form",
   data() {
@@ -80,9 +78,7 @@ export default {
       img3: "img3.jpg"
     };
   },
-  components: {
-    SocialMedia
-  }
+  components: {}
 };
 </script>
 

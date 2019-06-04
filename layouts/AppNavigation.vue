@@ -4,7 +4,7 @@
     <div class="nav-container">
       <sidebar>
         <div :class="'nav-toggler'">
-          <sidebar-toggle :sidebarComponent="addForm" :icon="addIcon" />
+          <sidebar-toggle :sidebarComponent="AddForm" :icon="AddIcon" />
         </div>
         <social-media :class="'social-media'" />
       </sidebar>
@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import AddIcon from "~/components/navigation/burgerSVG";
 import Sidebar from "~/components/navigation/sidebar";
 import SidebarToggle from "~/components/navigation/sidebarToggle";
+import AddIcon from "~/components/navigation/burgerSVG";
 import AddForm from "~/components/navigation/addForm";
 import SocialMedia from "~/components/SocialMedia";
 
@@ -35,8 +35,8 @@ export default {
   },
   data() {
     return {
-      addForm: AddForm,
-      addIcon: AddIcon
+      AddForm,
+      AddIcon
     };
   },
   components: {
@@ -55,5 +55,6 @@ export default {
   position: absolute;
   left: 9rem;
   bottom: 10rem;
+  fill: $blue-300 !important;
 }
 </style>

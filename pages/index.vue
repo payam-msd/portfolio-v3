@@ -1,7 +1,7 @@
 <template>
   <div>
     <app-navigation />
-    <index-header>
+    <index-header :mainText="text">
       <app-footer />
     </index-header>
   </div>
@@ -26,7 +26,10 @@ export default {
     };
   },
   data() {
-    return {};
+    return {
+      text:
+        " Combining the fields of design and development, I understand the possibilities of the web. That’s how I create valuable marketing focused websites and shops with a strong user experience, aiming to get more online results."
+    };
   },
   components: {
     IndexHeader,

@@ -9,12 +9,7 @@
             <span>better results</span>
           </h1>
           <div class="text-wrapper u-mt-large">
-            <p>
-              Combining the fields of design and development, I understand the
-              possibilities of the web. That’s how I create valuable marketing
-              focused websites and shops with a strong user experience, aiming
-              to get more online results.
-            </p>
+            <p>{{ mainText }}</p>
             <p>
               I strive to make unique websites that look good and work even
               better.
@@ -57,6 +52,7 @@ export default {
   data() {
     return {};
   },
+  props: ["mainText"],
   components: {
     MainSVG
   }
