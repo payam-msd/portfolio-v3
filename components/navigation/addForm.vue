@@ -25,8 +25,7 @@
           class="navbar__item"
           to="/"
           tag="li"
-          @mouseover.native="(img = img1), (hover = true)"
-          @mouseout.native="(img = img1), (hover = true)"
+          @mouseover.native="hover1 = true"
         >
           <a>Dastan Iran</a>
         </nuxt-link>
@@ -34,8 +33,7 @@
           class="navbar__item"
           to="/"
           tag="li"
-          @mouseover.native="(img = img2), (hover = true)"
-          @mouseout.native="(img = img2), (hover = true)"
+          @mouseover.native="(hover2 = true), (hover1 = false)"
         >
           <a>Sick Fit</a>
         </nuxt-link>
@@ -43,22 +41,18 @@
           class="navbar__item"
           to="/"
           tag="li"
-          @mouseover.native="(img = img3), (hover = true)"
-          @mouseout.native="(img = img3), (hover = true)"
+          @mouseover.native="(hover3 = true), (hover2 = false)"
         >
           <a>Glozzom</a>
         </nuxt-link>
       </ul>
     </nav>
 
-    <div class="case-holder">
+    <div class="case-holder" v-if="showImages">
       <div class="case-holder__hover">
         <nuxt-link to="/">
           <a>
-            <img
-              v-if="hover === false ? (img = img1) : (img = img)"
-              :src="`img/${img}`"
-            />
+            <img :src="`img/${img}`" />
           </a>
         </nuxt-link>
       </div>
@@ -71,12 +65,27 @@ export default {
   name: "add-form",
   data() {
     return {
-      hover: false,
+      hover1: true,
+      hover2: false,
+      hover3: false,
       img: "",
-      img1: "img1.jpg",
-      img2: "img2.jpg",
-      img3: "img3.jpg"
+      images: {
+        img1: "img1.jpg",
+        img2: "img2.jpg",
+        img3: "img3.jpg"
+      }
     };
+  },
+  computed: {
+    showImages(obj1, data) {
+      if (this.hover1 === true) {
+        return (this.img = this.images.img1);
+      } else if (this.hover2 === true) {
+        return (this.img = this.images.img2);
+      } else if (this.hover3 === true) {
+        return (this.img = this.images.img3);
+      }
+    }
   },
   components: {}
 };

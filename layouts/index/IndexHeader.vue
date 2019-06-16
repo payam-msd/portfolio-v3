@@ -35,6 +35,7 @@
 
 <script>
 import MainSVG from "~/components/MainSVG";
+
 export default {
   name: "IndexHeader",
   head() {
@@ -59,4 +60,6 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>

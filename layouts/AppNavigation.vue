@@ -1,14 +1,12 @@
 <template>
-  <div>
+  <div class="nav-container">
     <nuxt />
-    <div class="nav-container">
-      <sidebar>
-        <div :class="'nav-toggler'">
-          <sidebar-toggle :sidebarComponent="AddForm" :icon="AddIcon" />
-        </div>
-        <social-media :class="'social-media'" />
-      </sidebar>
-    </div>
+    <sidebar>
+      <div :class="'nav-toggler'">
+        <sidebar-toggle :sidebarComponent="AddForm" :icon="AddIcon" />
+      </div>
+      <social-media :class="'social-media'" />
+    </sidebar>
   </div>
 </template>
 
@@ -49,7 +47,8 @@ export default {
 
 <style lang="scss" scoped>
 .nav-container {
-  position: relative;
+  position: absolute;
+  overflow-y: hidden;
 }
 .social-media {
   position: absolute;
