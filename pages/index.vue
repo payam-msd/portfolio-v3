@@ -1,7 +1,7 @@
 <template>
   <div>
-    <app-navigation />
     <index-header :mainText="text">
+      <app-navigation />
       <app-footer />
     </index-header>
   </div>

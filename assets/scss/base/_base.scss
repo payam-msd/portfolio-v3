@@ -24,16 +24,30 @@ html {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   text-rendering: optimizeLegibility;
-  letter-spacing: 2px;
+  font-weight: normal;
 }
+
 a {
   text-decoration: none;
+  color: $blue-grey-500 !important;
+  transition: all 0.3s;
+
+  &:hover {
+    color: $blue-grey-900 !important;
+  }
 }
+
 a:focus {
   // Firefox (remove border on link click)
   outline: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
 }
 
 abbr,
@@ -110,4 +124,8 @@ video {
   outline: 0;
   vertical-align: baseline;
   background: transparent;
+}
+
+.root-container {
+  margin: 5rem !important;
 }

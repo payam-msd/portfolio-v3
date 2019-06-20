@@ -1,23 +1,23 @@
-.header {
-    font-size: 1.8rem;
-    font-family: product-sans-bold;
+.index {
+  font-size: 1.8rem;
+  font-family: product-sans-bold;
 
-    &__container {
-        padding: 5rem;
-    }
+  &__container {
+    padding: 5rem;
+  }
 
-    &__wrapper {
-        display: grid;
-        grid-template-columns: repeat(2, 50%);
-        height: 100vh;
-    }
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    height: 100vh;
+  }
 
-    &__svg-holder {
-        padding: 5rem 3rem;
-    }
+  &__svg-holder {
+    padding: 5rem 3rem;
+  }
 
-    &__svg {
-        height: 90%;
-        max-width: 100%;
-    }
+  &__svg {
+    height: 90%;
+    max-width: 100%;
+  }
 }

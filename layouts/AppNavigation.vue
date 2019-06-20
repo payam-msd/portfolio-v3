@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-container">
+  <div class="primary-navbar">
     <nuxt />
     <sidebar>
       <div :class="'nav-toggler'">
@@ -46,14 +46,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.nav-container {
-  position: absolute;
-  overflow-y: hidden;
-}
 .social-media {
   position: absolute;
   left: 9rem;
-  bottom: 10rem;
-  fill: $blue-300 !important;
+  bottom: 8rem;
 }
 </style>

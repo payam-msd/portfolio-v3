@@ -2,10 +2,10 @@
   background: $blue-grey-050;
   font-size: 1.8rem;
   font-family: product-sans-bold;
-  margin: 5rem;
-
+}
+.header {
   &__container {
-    height: 100vh;
+    height: auto;
   }
 
   &__wrapper {
@@ -24,6 +24,7 @@
   &__img-holder {
     height: 100%;
     width: 100%;
+
     img {
       width: 100%;
       margin-top: 10rem;

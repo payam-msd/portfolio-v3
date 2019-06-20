@@ -1,8 +1,8 @@
 <template>
   <div>
     <nuxt />
-    <header id="header" class="header header__container">
-      <div class="header__wrapper">
+    <header id="index" class="index index__container">
+      <div class="index__wrapper">
         <div class="text-box">
           <h1 class="heading-primary">
             <span>better design</span>
@@ -60,6 +60,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

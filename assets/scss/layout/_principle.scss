@@ -1,0 +1,38 @@
+.principle {
+    background: $blue-grey-900;
+    margin-top: 8rem;
+    color: $blue-050;
+    font-size: 1.8rem;
+
+    &__title {
+        padding-bottom: 2rem;
+        font-size: 4rem;
+    }
+
+    &__content {
+        font-size: 1.6rem;
+        padding-bottom: 15rem;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        list-style: none;
+
+        svg {
+            height: 64px;
+            width: 64px;
+            margin-bottom: 2rem;
+        }
+
+        span {
+            letter-spacing: 1px;
+        }
+
+        p {
+            padding: 3rem 0;
+            width: 80%;
+            font-size: 1.6rem;
+        }
+    }
+}

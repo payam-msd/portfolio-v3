@@ -1,13 +1,12 @@
 <template>
   <div>
     <nuxt />
-    <!-- about header -->
     <header id="about" class="about">
-      <div class="about__container">
-        <div class="about__wrapper">
+      <div class="header__container">
+        <div class="header__wrapper">
           <div class="text-box u-mt-large">
-            <span class="about__pre-title">—</span>
-            <span class="about__title">
+            <span class="header__pre-title">—</span>
+            <span class="header__title">
               I’m Payam Maghsodi
             </span>
             <h1 class="heading-primary u-mt-medium">
@@ -28,8 +27,8 @@
               </span>
             </div>
           </div>
-          <div class="about__img-holder">
-            <img src="~static/img/img2.jpg" alt="" />
+          <div class="header__img-holder">
+            <img src="" alt="" />
           </div>
         </div>
       </div>

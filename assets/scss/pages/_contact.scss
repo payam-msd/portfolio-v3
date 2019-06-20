@@ -1,0 +1,47 @@
+.contact {
+  background: $blue-grey-050;
+  font-size: 1.8rem;
+  font-family: product-sans-bold;
+  letter-spacing: 0.8px;
+  &__title {
+    font-size: 5rem;
+    padding-bottom: 2rem;
+    color: $blue-grey-800;
+  }
+  &__pre-title {
+    color: $blue-grey-900;
+  }
+  &__ul-list {
+    padding: 3rem 0;
+    font-size: 1.6rem;
+
+    li {
+      padding: 2rem 0;
+      letter-spacing: 1px;
+      display: inline-block;
+      @include from-end(2) {
+        padding: 2rem 0 0 8rem;
+      }
+      span {
+        margin-bottom: 1.5rem;
+        display: inline-block;
+        font-size: 1.8rem;
+      }
+      a {
+        color: $blue-grey-500;
+      }
+
+      svg {
+        height: 12px;
+        width: 12px;
+        fill: $red-600;
+        padding-right: 0.5rem;
+      }
+    }
+  }
+
+  &__list-item {
+    display: block !important;
+    padding: 1rem 0 !important;
+  }
+}
