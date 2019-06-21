@@ -3,7 +3,7 @@
   right: 5rem;
   top: 0;
   height: 100vh;
-  width: 95vw;
+  width: calc(100vw - 3.8vw);
   z-index: 100;
 }
 
@@ -16,7 +16,7 @@
 .content-container {
   @include center(vertical);
   background: $blue-grey-900;
-  left: 5.4rem;
+  left: 5.1rem;
   height: calc(100vh - 16%);
   width: 100vw;
 }
@@ -118,4 +118,11 @@
       height: 100%;
     }
   }
+}
+
+.hide-scroll {
+  overflow-y: hidden !important;
+}
+.show-scroll {
+  overflow-y: auto !important;
 }

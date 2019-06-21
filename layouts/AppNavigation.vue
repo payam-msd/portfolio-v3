@@ -1,5 +1,5 @@
 <template>
-  <div class="primary-navbar">
+  <div>
     <nuxt />
     <sidebar>
       <div :class="'nav-toggler'">

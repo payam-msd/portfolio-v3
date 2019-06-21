@@ -1,12 +1,23 @@
 <template>
-  <a :class="[open ? $style.butt : '', $style.butt]" @click="handleClick">
-    <component :is="icon" />
-  </a>
+  <div>
+    <a :class="[open ? $style.active : '', $style.butt]" @click="handleClick">
+      <component :is="icon" />
+    </a>
+  </div>
 </template>
 
 <script>
+import MainSVG from "~/components/navigation/burgerSVG.vue";
 export default {
   name: "sidebar-toggle",
+  data() {
+    return {
+      sidebar: false
+    };
+  },
+  components: {
+    MainSVG
+  },
   props: ["sidebarComponent", "icon"],
   computed: {
     open() {
@@ -27,46 +38,59 @@ export default {
 </script>
 
 <style lang="scss" module>
+.active {
+  transform: rotate(45deg) !important;
+  transition: transform 500ms 1.3s;
+}
 .butt {
+  position: relative;
+  transition: transform 500ms 1.3s;
+  transform: rotate(0deg);
+
   cursor: pointer;
   display: flex;
-  height: 5.2rem;
-  width: 5.2rem;
-  border-radius: 50%;
   align-items: center;
   justify-content: center;
-  transition: transform 300ms ease-out;
-  background-color: $blue-050;
+  height: 4.8rem;
+  width: 4.8rem;
+  border-radius: 50%;
+  background-color: $blue-grey-050;
+  z-index: 50;
+
+  &:hover {
+    background-color: #212121;
+  }
 
   &::before {
     content: "";
     position: absolute;
-    top: 0rem;
-    right: 0rem;
-    width: 100%;
+    top: -1px;
+    bottom: 0;
+    left: -1px;
     height: 100%;
-    border: 1.5px solid $blue-800;
+    @include accelerate();
+    width: 100%;
+    border: 1px solid $blue-grey-900;
     border-radius: 50%;
     @include animation(
-      "pulse-ring 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -20s infinite"
+      "pulse-ring 1.25s cubic-bezier(.455,.03,.515,.955) -20s infinite"
     );
-    visibility: visible;
   }
-}
-@include keyframes(pulse-ring) {
-  0% {
-    opacity: 0;
-    transform: scale(0);
-  }
-  40% {
-    opacity: 0;
-  }
-  60% {
-    opacity: 0.8;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.4);
+  @include keyframes(pulse-ring) {
+    0% {
+      opacity: 0;
+      transform: scale(0.4);
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 0.4;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.4);
+    }
   }
 }
 </style>
