@@ -5,7 +5,6 @@
       <div :class="'nav-toggler'">
         <sidebar-toggle :sidebarComponent="AddForm" :icon="AddIcon" />
       </div>
-      <social-media :class="'social-media'" />
     </sidebar>
   </div>
 </template>
@@ -45,10 +44,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.social-media {
-  position: absolute;
-  left: 9rem;
-  bottom: 8rem;
-}
-</style>
+<style lang="scss" scoped></style>

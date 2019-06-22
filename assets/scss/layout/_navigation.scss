@@ -3,7 +3,7 @@
   right: 5rem;
   top: 0;
   height: 100vh;
-  width: calc(100vw - 3.8vw);
+  width: calc(100vw - 3.7vw);
   z-index: 100;
 }
 
@@ -16,7 +16,7 @@
 .content-container {
   @include center(vertical);
   background: $blue-grey-900;
-  left: 5.1rem;
+  left: 5rem;
   height: calc(100vh - 16%);
   width: 100vw;
 }

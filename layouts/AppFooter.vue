@@ -5,7 +5,7 @@
       <div class="footer__svg-holder">
         <TextSVG :class="'footer__svg'" />
       </div>
-      <SocialMedia :class="'footer-social-media'" />
+      <SocialMedia />
     </div>
   </div>
 </template>
@@ -37,8 +37,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.footer-social-media svg {
-  fill: black !important;
-}
-</style>
+<style lang="scss" scoped></style>

@@ -46,7 +46,6 @@ export default {
   position: relative;
   transition: transform 500ms 1.3s;
   transform: rotate(0deg);
-
   cursor: pointer;
   display: flex;
   align-items: center;

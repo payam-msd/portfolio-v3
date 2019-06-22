@@ -24,8 +24,8 @@
             </nuxt-link>
           </div>
         </div>
-        <div class="header__svg-holder">
-          <MainSVG :class="'header__svg'" />
+        <div class="index__svg-holder">
+          <MainSVG :class="'index__svg'" />
         </div>
       </div>
       <slot />

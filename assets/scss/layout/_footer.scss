@@ -1,20 +1,23 @@
 .footer {
+  position: relative;
+  opacity: 0.6;
+  border-top: 1px solid $blue-grey-700;
+
+  &__svg-holder {
+    display: flex;
+    position: absolute;
+    left: 4rem;
+    top: 0;
+    justify-content: flex-start;
+  }
+
+  &__svg {
+    margin: 3rem 0 0 -4rem;
+    z-index: 5;
     opacity: 0.6;
-    border-top: 1px solid $blue-grey-700;
 
-    &__svg-holder {
-        display: flex;
-        position: absolute;
-        justify-content: flex-start;
+    &:hover {
+      opacity: 1;
     }
-
-    &__svg {
-        margin: 3.5rem 0 0 -4rem;
-        z-index: 5;
-        opacity: 0.6;
-
-        &:hover {
-            opacity: 1;
-        }
-    }
+  }
 }
