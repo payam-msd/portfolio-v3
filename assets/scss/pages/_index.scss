@@ -1,11 +1,7 @@
 .index {
   font-size: 1.8rem;
   font-family: product-sans-bold;
-
-  &__container {
-    padding: 5rem;
-  }
-
+  width: calc(100vw - 8vw) !important;
   &__wrapper {
     display: grid;
     grid-template-columns: repeat(2, 50%);
@@ -14,10 +10,5 @@
 
   &__svg-holder {
     padding: 5rem 3rem;
-  }
-
-  &__svg {
-    height: 90%;
-    max-width: 100%;
   }
 }

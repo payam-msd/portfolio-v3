@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import MainSVG from "~/components/MainSVG";
+import MainSVG from "~/components/index/MainSVG";
 
 export default {
   name: "IndexHeader",

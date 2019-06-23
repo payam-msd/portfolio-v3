@@ -7,16 +7,12 @@
 </template>
 
 <script>
-import MainSVG from "~/components/navigation/burgerSVG.vue";
 export default {
   name: "sidebar-toggle",
   data() {
     return {
       sidebar: false
     };
-  },
-  components: {
-    MainSVG
   },
   props: ["sidebarComponent", "icon"],
   computed: {
@@ -40,11 +36,11 @@ export default {
 <style lang="scss" module>
 .active {
   transform: rotate(45deg) !important;
-  transition: transform 500ms 1.3s;
+  transition: transform 500ms 1.75s;
 }
 .butt {
   position: relative;
-  transition: transform 500ms 1.3s;
+  transition: transform 500ms 1.75s;
   transform: rotate(0deg);
   cursor: pointer;
   display: flex;
@@ -52,6 +48,8 @@ export default {
   justify-content: center;
   height: 4.8rem;
   width: 4.8rem;
+  left: 0;
+  top: 50%;
   border-radius: 50%;
   background-color: $blue-grey-050;
   z-index: 50;

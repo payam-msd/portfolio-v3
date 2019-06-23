@@ -31,6 +31,10 @@ export default {
    */
   plugins: ["~plugins/directives.js"],
 
+  router: {
+      middleware: 'pages'
+  },
+
   /*
    ** Nuxt.js modules
    */

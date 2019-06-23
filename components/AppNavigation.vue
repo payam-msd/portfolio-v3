@@ -1,6 +1,5 @@
 <template>
   <div>
-    <nuxt />
     <sidebar>
       <div :class="'nav-toggler'">
         <sidebar-toggle :sidebarComponent="AddForm" :icon="AddIcon" />

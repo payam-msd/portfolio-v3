@@ -10,7 +10,7 @@
             :key="page.id"
             tag="li"
             :to="`${page.route}`"
-            nuxt-link-exact-active
+            exact
           >
             <a>{{ page.text }}</a>
           </nuxt-link>
@@ -19,7 +19,7 @@
           <li class="navbar__title">Cases</li>
           <nuxt-link
             class="navbar__item"
-            v-for="cases in hoverLinks"
+            v-for="cases in hoverCases"
             :key="cases.id"
             :to="`${cases.route}`"
             v-data-case="`${cases.title}`"
@@ -32,7 +32,7 @@
       <div class="case-holder">
         <div
           class="case-holder__hover"
-          v-for="data in hoverLinks"
+          v-for="data in hoverCases"
           :key="data.id"
           v-show="data.hover"
         >
@@ -52,9 +52,10 @@
 <script>
 export default {
   name: "add-form",
+
   data() {
     return {
-      hoverLinks: [
+      hoverCases: [
         {
           id: "0",
           route: "/dastaniran",
@@ -104,4 +105,9 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.active {
+  font-style: bold;
+  font-size: 2rem;
+}
+</style>

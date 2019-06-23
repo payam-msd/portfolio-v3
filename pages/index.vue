@@ -1,18 +1,36 @@
 <template>
   <div>
-    <index-header :mainText="text">
-      <app-navigation />
-      <app-footer />
-    </index-header>
+    <index-header :mainText="text" />
   </div>
 </template>
 
 <script>
-import IndexHeader from "~/layouts/index/IndexHeader";
-import AppNavigation from "~/layouts/AppNavigation";
-import AppFooter from "~/layouts/AppFooter";
+import { TweenMax, TimelineMax, Power4 } from "gsap";
+import IndexHeader from "~/components/index/IndexHeader";
 
 export default {
+  transition: {
+    name: "index",
+    mode: "out-in",
+    css: false,
+    enter(el, done) {
+      console.log("we are in");
+      let tl = new TimelineMax();
+
+      tl.to(el, 0.3, {
+        ease: Power4.easeInOut,
+        y: 100
+      });
+    },
+    leave(el, done) {
+      console.log("the leave log");
+      let tl = new TimelineMax({ onComplete: done });
+      tl.to(el, 0.75, {
+        y: 0,
+        opacity: 0.8
+      });
+    }
+  },
   head() {
     return {
       title: "",
@@ -32,9 +50,7 @@ export default {
     };
   },
   components: {
-    IndexHeader,
-    AppNavigation,
-    AppFooter
+    IndexHeader
   }
 };
 </script>

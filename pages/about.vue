@@ -1,23 +1,19 @@
 <template>
-  <div class="root-container">
-    <app-navigation />
+  <div>
     <about-header />
     <about-focus />
     <about-quote />
     <about-principle />
     <working-for />
-    <app-footer />
   </div>
 </template>
 
 <script>
-import AppNavigation from "~/layouts/AppNavigation";
-import AboutHeader from "~/layouts/about/AboutHeader";
-import AboutFocus from "~/layouts/about/AboutFocus";
-import AboutQuote from "~/layouts/about/AboutQuote";
-import AboutPrinciple from "~/layouts/about/AboutPrinciple";
-import WorkingFor from "~/components/WorkingFor";
-import AppFooter from "~/layouts/AppFooter";
+import AboutHeader from "~/components/about/AboutHeader";
+import AboutFocus from "~/components/about/AboutFocus";
+import AboutQuote from "~/components/about/AboutQuote";
+import AboutPrinciple from "~/components/about/AboutPrinciple";
+import WorkingFor from "~/components/about/WorkingFor";
 export default {
   head() {
     return {
@@ -35,13 +31,11 @@ export default {
     return {};
   },
   components: {
-    AppNavigation,
     AboutHeader,
     AboutFocus,
     AboutQuote,
     AboutPrinciple,
-    WorkingFor,
-    AppFooter
+    WorkingFor
   }
 };
 </script>

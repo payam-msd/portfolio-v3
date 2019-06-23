@@ -43,13 +43,11 @@ export default {
 
   &__line {
     fill: none;
-    transition: stroke-dasharray 800ms 1.2s, stroke-dashoffset 800ms 1.2s;
+    transition: stroke-dasharray 800ms 1.75s, stroke-dashoffset 800ms 1.75s;
     stroke-width: 8px;
     stroke-linecap: round;
   }
-  /* &__rotate { */
 
-  /* } */
   &__props {
     .top {
       stroke-dasharray: 40 121;

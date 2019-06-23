@@ -1,6 +1,5 @@
 <template>
   <div>
-    <nuxt />
     <div class="footer">
       <div class="footer__svg-holder">
         <TextSVG :class="'footer__svg'" />

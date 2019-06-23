@@ -1,6 +1,5 @@
 <template>
-  <div class="root-container">
-    <app-navigation />
+  <div>
     <header id="contact " class="contact">
       <div class="header__container">
         <div class="header__wrapper">
@@ -58,13 +57,9 @@
         </div>
       </div>
     </header>
-    <app-footer />
   </div>
 </template>
 <script>
-import AppNavigation from "~/layouts/AppNavigation";
-import AppFooter from "~/layouts/AppFooter";
-
 export default {
   head() {
     return {
@@ -80,10 +75,6 @@ export default {
   },
   data() {
     return {};
-  },
-  components: {
-    AppNavigation,
-    AppFooter
   }
 };
 </script>
