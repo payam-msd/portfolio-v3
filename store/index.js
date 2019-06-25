@@ -1,24 +1,8 @@
 import * as types from "./mutation-types.js";
 
-// initial state
-// shape: [{ id, quantity }]
 const state = {
   sidebarOpen: false,
-  sidebarComponent: null
-};
-
-// getters
-const getters = {
-  sidebarOpen: state => state.sidebarOpen,
-  sidebarComponent: state => state.sidebarComponent
-};
-
-// actions
-const actions = {
-  toggleSidebar({ commit, state }, { component }) {
-    commit(types.TOGGLE_SIDEBAR);
-    commit(types.SET_SIDEBAR_COMPONENT, component);
-  }
+  sidebarComponent: null,
 };
 
 // mutations
@@ -31,23 +15,29 @@ const mutations = {
   }
 };
 
-// const createStore = () => {
-//   return new Vuex.Store({
-//     state: {
-//       page: "index"
-//     },
-//     mutations: {
-//       updatePage(state, pageName) {
-//         state.page = pageName;
-//       }
-//     }
-//   });
-// };
+// actions
+const actions = {
+  toggleSidebar({ commit, state }, { component }) {
+    commit(types.TOGGLE_SIDEBAR);
+    commit(types.SET_SIDEBAR_COMPONENT, component);
+  },
+  toggle({ commit, state }) {
+    commit(types.TOGGLE_SIDEBAR);
+  }
+};
+
+
+// getters
+const getters = {
+  sidebarOpen: state => state.sidebarOpen,
+  sidebarComponent: state => state.sidebarComponent
+};
+
+
 
 export default {
   state,
   getters,
   actions,
-  mutations,
-//   createStore
+  mutations
 };

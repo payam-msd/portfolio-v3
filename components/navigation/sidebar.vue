@@ -1,5 +1,5 @@
 <template>
-  <div :class="'sidebar toggler'">
+  <div :class="'sidebar  toggler'">
     <component :is="component" />
     <slot />
   </div>
@@ -7,7 +7,6 @@
 
 <script>
 import { TimelineMax, Power4 } from "gsap";
-
 export default {
   name: "sidebar",
   mounted() {

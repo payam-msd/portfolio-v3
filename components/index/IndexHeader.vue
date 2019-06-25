@@ -9,7 +9,12 @@
             <span>better results</span>
           </h1>
           <div class="text-wrapper u-mt-large">
-            <p>{{ mainText }}</p>
+            <p>
+              Combining the fields of design and development, I understand the
+              possibilities of the web. That’s how I create valuable marketing
+              focused websites and shops with a strong user experience, aiming
+              to get more online results.
+            </p>
             <p>
               I strive to make unique websites that look good and work even
               better.
@@ -19,9 +24,10 @@
             <nuxt-link to="/about">
               <a class="btn header__btn">More about me</a>
             </nuxt-link>
-            <nuxt-link to="/work">
-              <div class="btn header__btn">show me some work</div>
-            </nuxt-link>
+
+            <div class="btn header__btn">
+              show me some work
+            </div>
           </div>
         </div>
         <div class="index__svg-holder">
@@ -53,11 +59,25 @@ export default {
   data() {
     return {};
   },
-  props: ["mainText"],
   components: {
     MainSVG
+  },
+  computed: {
+    open() {
+      return (
+        this.$store.state.sidebarOpen &&
+        this.$store.state.sidebarComponent === this.sidebarComponent
+      );
+    }
+  },
+  methods: {
+    handleClick() {
+      this.$store.dispatch("toggleSidebar", {
+        component: this.sidebarComponent
+      });
+    }
   }
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" module></style>

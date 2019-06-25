@@ -1,26 +1,23 @@
 <template>
   <div>
-    <a :class="[open ? $style.active : '', $style.butt]" @click="handleClick">
+    <a :class="'toggle'" @click="handleClick">
       <component :is="icon" />
     </a>
   </div>
 </template>
 
 <script>
+import { TimelineMax } from "gsap";
 export default {
   name: "sidebar-toggle",
   data() {
-    return {
-      sidebar: false
-    };
+    return {};
   },
   props: ["sidebarComponent", "icon"],
+
   computed: {
     open() {
-      return (
-        this.$store.state.sidebarOpen &&
-        this.$store.state.sidebarComponent === this.sidebarComponent
-      );
+      return this.$store.state.sidebarOpen;
     }
   },
   methods: {
@@ -29,19 +26,28 @@ export default {
         component: this.sidebarComponent
       });
     }
+  },
+  watch: {
+    open(open) {
+      let tl = new TimelineMax(),
+        r = document.querySelector(".toggle");
+      open
+        ? tl.to(r, 0.3, {
+            rotation: 45,
+            delay: 1.75
+          })
+        : tl.to(r, 0.3, {
+            rotation: 0,
+            delay: 1.75
+          });
+    }
   }
 };
 </script>
 
-<style lang="scss" module>
-.active {
-  transform: rotate(45deg) !important;
-  transition: transform 500ms 1.75s;
-}
-.butt {
+<style lang="scss">
+.toggle {
   position: relative;
-  transition: transform 500ms 1.75s;
-  transform: rotate(0deg);
   cursor: pointer;
   display: flex;
   align-items: center;

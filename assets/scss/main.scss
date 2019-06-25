@@ -12,19 +12,19 @@
 @import "base/typography";
 
 //* Objects
-@import "layout/navigation";
+@import "layouts/navigation";
+@import "layouts/footer";
 @import "pages/index";
 @import "pages/about";
 @import "pages/contact";
-@import "layout/focus";
-@import "layout/quote";
-@import "layout/principle";
 
 //* Components
-@import "layout/social-media";
-@import "layout/footer";
+@import "components/about/focus";
+@import "components/about/quote";
+@import "components/about/principle";
+@import "components/social-media";
 @import "components/buttons";
-@import "components/working-for";
+@import "components/about/working-for";
 
 //* Utilities
 @import "helpers/utilities";

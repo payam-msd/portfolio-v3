@@ -17,11 +17,6 @@
     </svg></div
 ></template>
 
-<script>
-export default {
-  name: "add-icon"
-};
-</script>
 <style lang="scss">
 .burger {
   @include accelerate();

@@ -9,11 +9,13 @@
 </template>
 
 <script>
+import { TimelineMax } from "gsap";
 import AboutHeader from "~/components/about/AboutHeader";
 import AboutFocus from "~/components/about/AboutFocus";
 import AboutQuote from "~/components/about/AboutQuote";
 import AboutPrinciple from "~/components/about/AboutPrinciple";
 import WorkingFor from "~/components/about/WorkingFor";
+
 export default {
   head() {
     return {
@@ -26,9 +28,6 @@ export default {
         }
       ]
     };
-  },
-  data() {
-    return {};
   },
   components: {
     AboutHeader,

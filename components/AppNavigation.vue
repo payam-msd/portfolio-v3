@@ -13,7 +13,6 @@ import Sidebar from "~/components/navigation/sidebar";
 import SidebarToggle from "~/components/navigation/sidebarToggle";
 import AddIcon from "~/components/navigation/burgerSVG";
 import AddForm from "~/components/navigation/addForm";
-import SocialMedia from "~/components/SocialMedia";
 
 export default {
   name: "Navigation",
@@ -37,8 +36,7 @@ export default {
   },
   components: {
     Sidebar,
-    SidebarToggle,
-    SocialMedia
+    SidebarToggle
   }
 };
 </script>
