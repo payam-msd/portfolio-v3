@@ -31,15 +31,16 @@ export default {
         open
           ? (document.body.classList = "hide-scroll")
           : (document.body.classList = "show-scroll");
-      }, 1000);
+      }, 800);
       let tl = new TimelineMax();
       const dX = open ? 0 : this.$el.offsetWidth;
-      tl.to(this.$el, 1.75, {
+      tl.to(this.$el, 1.25, {
         x: dX,
         ease: Power4.easeInOut
       });
     }
-  }
+  },
+  props: [""]
 };
 </script>
 

@@ -21,7 +21,7 @@
   @include center(vertical);
   background: $blue-grey-900;
   left: 5rem;
-  height: calc(100vh - 16%);
+  height: calc(100vh - 14%);
   width: 100vw;
 }
 
@@ -33,24 +33,25 @@
 }
 
 .navbar {
-  margin: 5rem 0 0 5rem;
+  margin: 2rem 0 0 5rem;
   font-family: effra;
   display: flex;
   @include center(vertical);
   height: auto;
 
   &__title {
-    font-size: 2rem;
+    font-size: 2.3rem;
+    font-style: bold;
     text-transform: uppercase;
-    color: $teal-vivid-100;
-    letter-spacing: 1.7px;
+    color: $teal-vivid-050;
+    letter-spacing: 1.5px;
 
     &::after {
       content: " ";
       display: block;
       width: 2px;
-      height: 20px;
-      border-radius: 5px;
+      height: 25px;
+      border-radius: 8px;
       margin: 1.75rem 0;
       background-color: $red-500;
     }
@@ -65,20 +66,22 @@
   }
 
   &__item {
-    margin: 0 2rem 2rem 0;
+    margin: 0 1.75rem 1.75rem 0;
 
     a {
       position: relative;
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
-      margin-right: 2.5rem;
-      color: $blue-grey-100 !important;
+      font-size: 1.6rem;
+      margin-right: 2.25rem;
+      padding: 0.75rem 0.75rem 0.75rem 0;
+      color: #fff !important;
       text-decoration: none;
-      transition: all 0.25s ease-in-out;
+      transition: all 0.25s;
+      letter-spacing: 0.7px;
+      @include accelerate();
       cursor: pointer;
 
       &:hover {
-        padding-left: 2.5rem;
+        padding-left: 2.25rem;
         margin-right: 0;
         color: #fff !important;
       }
@@ -86,10 +89,10 @@
       &::before {
         content: "\2014";
         position: absolute;
-        left: -1.25rem;
-        margin-right: 0.55rem;
+        left: -1.75rem;
+        margin-right: 0.25rem;
         opacity: 0;
-        transition: all 0.25s ease-in-out;
+        transition: all 0.25s;
       }
 
       &:hover::before {
@@ -101,24 +104,25 @@
 }
 
 .case-holder {
-  position: relative;
-  height: 100%;
-  float: right;
-  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  @include center(vertical);
+  right: 10rem;
+  width: calc(100vw - 65%);
 
   &__hover {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    position: absolute;
-    right: 5rem;
-    width: 100%;
-    height: 100%;
+    position: relative;
+    height: calc(100% - 30%) !important;
+    width: 100% !important;
 
     img {
-      background-size: cover;
+      object-fit: cover;
+      background-position: 50% 50%;
       width: 100%;
       height: 100%;
+      border-radius: 3px;
     }
   }
 }

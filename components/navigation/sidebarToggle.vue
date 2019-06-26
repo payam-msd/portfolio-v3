@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a :class="'toggle'" @click="handleClick">
+    <a :class="'toggle'" ref="togglerbtn" @click="handleClick">
       <component :is="icon" />
     </a>
   </div>
@@ -16,7 +16,7 @@ export default {
   props: ["sidebarComponent", "icon"],
 
   computed: {
-    open() {
+    open(open) {
       return this.$store.state.sidebarOpen;
     }
   },
@@ -30,15 +30,17 @@ export default {
   watch: {
     open(open) {
       let tl = new TimelineMax(),
-        r = document.querySelector(".toggle");
+        r = this.$refs.togglerbtn;
       open
-        ? tl.to(r, 0.3, {
+        ? tl.to(r, 0.45, {
             rotation: 45,
-            delay: 1.75
+            delay: 1.15,
+            ease: Power1.easeInOut
           })
-        : tl.to(r, 0.3, {
+        : tl.to(r, 0.45, {
             rotation: 0,
-            delay: 1.75
+            delay: 1.15,
+            ease: Power1.easeInOut
           });
     }
   }
@@ -79,6 +81,7 @@ export default {
       "pulse-ring 1.25s cubic-bezier(.455,.03,.515,.955) -20s infinite"
     );
   }
+
   @include keyframes(pulse-ring) {
     0% {
       opacity: 0;
@@ -94,6 +97,17 @@ export default {
       opacity: 0;
       transform: scale(1.4);
     }
+  }
+}
+.active {
+  .top {
+    stroke-dashoffset: -68px;
+  }
+  .bottom {
+    stroke-dashoffset: -68px;
+  }
+  .middle {
+    stroke-dashoffset: -68px;
   }
 }
 </style>

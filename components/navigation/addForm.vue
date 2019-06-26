@@ -11,7 +11,6 @@
             tag="li"
             :to="`${page.route}`"
             exact
-            @click="handleSidebar"
           >
             <a>{{ page.text }}</a>
           </nuxt-link>
@@ -25,7 +24,6 @@
             :to="`${cases.route}`"
             v-data-case="`${cases.title}`"
             tag="li"
-            @click="handleSidebar"
           >
             <a>{{ cases.title }}</a>
           </nuxt-link>
@@ -38,7 +36,7 @@
           :key="data.id"
           v-show="data.hover"
         >
-          <nuxt-link nuxt-link-exact-active :to="`${data.route}`">
+          <nuxt-link :to="`${data.route}`">
             <a>
               {{ data.title }},
               {{ data.desc }}
@@ -52,7 +50,6 @@
 </template>
 
 <script>
-import { TimelineMax } from "gsap";
 export default {
   name: "add-form",
 
@@ -109,9 +106,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.active {
-  font-style: bold;
-  font-size: 2rem;
-}
-</style>
+<style lang="scss" scoped></style>

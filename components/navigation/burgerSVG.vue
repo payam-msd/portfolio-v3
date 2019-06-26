@@ -1,9 +1,9 @@
 <template>
   <div>
     <svg
-      onclick="this.classList.toggle('active')"
       class="burger burger__rotate burger__props "
       viewBox="0 0 100 100"
+      onClick="this.classList.toggle('active')"
     >
       <path
         class="burger__line top"
@@ -16,7 +16,13 @@
       ></path>
     </svg></div
 ></template>
-
+<script>
+export default {
+  data() {
+    return {};
+  }
+};
+</script>
 <style lang="scss">
 .burger {
   @include accelerate();
@@ -25,7 +31,7 @@
   top: 0;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  transition: transform 500ms 1.3s;
+  transition: transform 500ms 0.75s;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -38,7 +44,7 @@
 
   &__line {
     fill: none;
-    transition: stroke-dasharray 800ms 1.75s, stroke-dashoffset 800ms 1.75s;
+    transition: stroke-dasharray 450ms 1.45s, stroke-dashoffset 450ms 1.45s;
     stroke-width: 8px;
     stroke-linecap: round;
   }

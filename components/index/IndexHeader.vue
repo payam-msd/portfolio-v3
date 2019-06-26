@@ -25,7 +25,7 @@
               <a class="btn header__btn">More about me</a>
             </nuxt-link>
 
-            <div class="btn header__btn">
+            <div @click="handleClick" class="btn header__btn">
               show me some work
             </div>
           </div>
@@ -64,20 +64,29 @@ export default {
   },
   computed: {
     open() {
-      return (
-        this.$store.state.sidebarOpen &&
-        this.$store.state.sidebarComponent === this.sidebarComponent
-      );
+      return this.$store.state.sidebarOpen;
     }
   },
   methods: {
     handleClick() {
-      this.$store.dispatch("toggleSidebar", {
-        component: this.sidebarComponent
-      });
+      const toggleSVG = document.querySelector("svg");
+      this.$store.dispatch("toggle");
+      toggleSVG.classList.toggle("active");
     }
   }
 };
 </script>
 
-<style lang="scss" module></style>
+<style lang="scss" scoped>
+.active {
+  .top {
+    stroke-dashoffset: -68px;
+  }
+  .bottom {
+    stroke-dashoffset: -68px;
+  }
+  .middle {
+    stroke-dashoffset: -68px;
+  }
+}
+</style>
