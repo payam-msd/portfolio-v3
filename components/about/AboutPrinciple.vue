@@ -209,4 +209,6 @@
 export default {};
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+@import "~assets/scss/components/about/_principle.scss";
+</style>

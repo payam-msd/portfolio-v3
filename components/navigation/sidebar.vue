@@ -1,5 +1,5 @@
 <template>
-  <div :class="'sidebar  toggler'">
+  <div :class="'sidebar  toggler'" ref="sidebar">
     <component :is="component" />
     <slot />
   </div>
@@ -36,7 +36,7 @@ export default {
       const dX = open ? 0 : this.$el.offsetWidth;
       tl.to(this.$el, 1.25, {
         x: dX,
-        ease: Power4.easeInOut
+        ease: Power2.easeInOut
       });
     }
   },

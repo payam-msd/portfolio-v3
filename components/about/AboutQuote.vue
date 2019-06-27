@@ -86,6 +86,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "~assets/scss/components/about/_quote.scss";
 .btn {
   margin-top: 5rem;
   display: inline-block;

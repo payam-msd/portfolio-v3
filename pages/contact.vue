@@ -69,14 +69,13 @@ export default {
     css: false,
     beforeEnter(el) {},
     enter(el, done) {
-      const sidebarW = document.querySelector(".sidebar").offsetWidth,
-        sidebar = document.querySelector(".sidebar"),
-        toggleSVG = document.querySelector("svg"),
-        tl = new TimelineMax({ onComplete: done });
       this.$store.dispatch("toggle");
-      toggleSVG.classList.toggle("active");
+      const sidebar = document.querySelector(".sidebar"),
+        SVGburger = document.querySelector(".burger"),
+        tl = new TimelineMax({ onComplete: done });
+      SVGburger.classList.toggle("active");
       tl.to(sidebar, 1.75, {
-        x: sidebarW,
+        x: el.offsetWidth,
         ease: Power4.easeInOut
       });
     }
@@ -99,4 +98,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import "~assets/scss/pages/_contact.scss";
+@import "~assets/scss/pages/_about.scss";
+</style>

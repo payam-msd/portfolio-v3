@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <ul class="social-media">
-      <li class="twitter">
+  <div class="socialMedia">
+    <ul>
+      <li>
         <a href="https://twitter.com/payam_m_" rel="noopener" target="_blank">
           <svg
             viewBox="0 0 25 20"
@@ -15,7 +15,7 @@
           </svg>
         </a>
       </li>
-      <li class="linkedin">
+      <li>
         <a
           href="https://www.linkedin.com/in/payam-m"
           rel="noopener"
@@ -36,7 +36,7 @@
           </svg>
         </a>
       </li>
-      <li class="dribbble">
+      <li>
         <a href="https://dribbble.com/payam_m" rel="noopener" target="_blank">
           <svg
             viewBox="0 0 20 20"
@@ -50,30 +50,27 @@
           </svg>
         </a>
       </li>
-      <li class="telegram">
+      <li>
         <a href="https://t.me/payam_msd" rel="noopener" target="_blank">
           <svg
+            version="1.1"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="13 0 110 100"
-            xml:space="preserve"
+            width="1024"
+            height="1024"
+            fill="inherit"
+            viewBox="0 0 1024 1024"
           >
+            <title></title>
+            <g id="icomoon-ignore"></g>
             <path
-              d="M84.16,14.148l-71.047,29.57c0,0-3.359,1.221-3.099,3.473c0.267,2.256,3.008,3.288,3.008,3.288l17.877,6.382  c0,0,5.396,18.772,6.458,22.344c1.062,3.562,1.914,3.646,1.914,3.646c0.989,0.456,1.888-0.27,1.888-0.27l11.55-11.169L70.71,86.054  c4.869,2.253,6.641-2.441,6.641-2.441L90,15.935C90,11.427,84.16,14.148,84.16,14.148z M71.582,78.17L52.324,62.51l-5.976,5.777  l1.314-12.291l25.67-24.329L38.341,52.441l-15.521-5.54l59.217-24.648L71.582,78.17z"
-            />
+              d="M1020.883 162.094l-154.081 727.726c-10.671 51.645-41.828 64.023-85.363 40.121l-234.75-173.714-113.533 109.692c-12.805 12.805-23.475 23.901-46.95 23.901-30.731 0-25.609-11.524-35.853-40.547l-81.096-264.2-232.615-72.559c-50.365-14.938-50.791-49.51 11.097-74.693l907.413-349.991c41.402-18.353 81.096 10.244 65.303 73.839z"
+            ></path>
           </svg>
         </a>
       </li>
     </ul>
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {};
-  }
-};
-</script>
-
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import "~assets/scss/components/_social-media.scss";
+</style>

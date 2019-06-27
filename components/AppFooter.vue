@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <div class="footer">
-      <div class="footer__svg-holder">
-        <TextSVG :class="'footer__svg'" />
-      </div>
-      <SocialMedia />
+  <div class="footer">
+    <div class="footer__svg-holder">
+      <TextSVG :class="'footer__svg'" />
     </div>
+    <social-media />
   </div>
 </template>
 
@@ -36,4 +34,6 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import "~assets/scss/layouts/_footer.scss";
+</style>

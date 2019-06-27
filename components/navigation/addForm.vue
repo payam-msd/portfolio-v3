@@ -28,28 +28,44 @@
             <a>{{ cases.title }}</a>
           </nuxt-link>
         </ul>
-      </nav>
-      <div class="case-holder">
-        <div
-          class="case-holder__hover"
-          v-for="data in hoverCases"
-          :key="data.id"
-          v-show="data.hover"
-        >
-          <nuxt-link :to="`${data.route}`">
-            <a>
-              {{ data.title }},
-              {{ data.desc }}
-              <img :src="`img/${data.image}`" />
-            </a>
-          </nuxt-link>
+        <div class="case-holder">
+          <div
+            class="case-holder__hover"
+            v-for="data in hoverCases"
+            :key="data.id"
+            v-show="data.hover"
+          >
+            <nuxt-link :to="`${data.route}`">
+              <a>
+                <div class="case-holder__banner">
+                  <div class="case-holder__group">
+                    <h1>
+                      <span>
+                        {{ data.title }}
+                      </span>
+                    </h1>
+                    <p>
+                      <span class="case-holder__group--pre">
+                        —
+                        {{ data.desc }}
+                      </span>
+                    </p>
+                  </div>
+                  <div class="case-holder__bar"></div>
+                </div>
+                <img :src="`img/${data.image}`" />
+              </a>
+            </nuxt-link>
+          </div>
         </div>
-      </div>
+      </nav>
+      <social-media />
     </div>
   </div>
 </template>
 
 <script>
+import SocialMedia from "~/components/SocialMedia";
 export default {
   name: "add-form",
 
@@ -100,10 +116,20 @@ export default {
       ]
     };
   },
-  components: {},
+  components: {
+    SocialMedia
+  },
   computed: {},
   methods: {}
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.socialMedia {
+  position: absolute;
+  left: 4rem;
+  bottom: 5rem;
+  fill: #fff !important;
+  fill-rule: inherit;
+}
+</style>

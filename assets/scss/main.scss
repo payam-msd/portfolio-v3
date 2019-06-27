@@ -1,5 +1,4 @@
 //* Generics
-@import "~/node_modules/normalize.css/normalize.css";
 @import "base/colours";
 @import "base/shadows";
 @import "base/base";
@@ -13,18 +12,18 @@
 
 //* Objects
 @import "layouts/navigation";
-@import "layouts/footer";
-@import "pages/index";
-@import "pages/about";
-@import "pages/contact";
+// @import "layouts/footer";
+// @import "pages/index";
+// @import "pages/about";
+// @import "pages/contact";
 
 //* Components
-@import "components/about/focus";
-@import "components/about/quote";
-@import "components/about/principle";
-@import "components/social-media";
 @import "components/buttons";
-@import "components/about/working-for";
+// @import "components/about/focus";
+// @import "components/about/quote";
+// @import "components/about/principle";
+// @import "components/social-media";
+// @import "components/about/working-for";
 
 //* Utilities
 @import "helpers/utilities";

@@ -23,14 +23,13 @@ export default {
     css: false,
     beforeEnter(el) {},
     enter(el, done) {
-      const sidebarW = document.querySelector(".sidebar").offsetWidth,
-        sidebar = document.querySelector(".sidebar"),
-        toggleSVG = document.querySelector("svg"),
+      const sidebar = document.querySelector(".sidebar"),
+        SVGburger = document.querySelector(".burger"),
         tl = new TimelineMax({ onComplete: done });
       this.$store.dispatch("toggle");
-      toggleSVG.classList.toggle("active");
+      SVGburger.classList.toggle("active");
       tl.to(sidebar, 1.75, {
-        x: sidebarW,
+        x: el.offsetWidth,
         ease: Power4.easeInOut
       });
     }
