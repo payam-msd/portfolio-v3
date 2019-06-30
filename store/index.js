@@ -2,7 +2,7 @@ import * as types from "./mutation-types.js";
 
 const state = {
   sidebarOpen: false,
-  sidebarComponent: null,
+  contentComponent: null,
 };
 
 // mutations
@@ -11,7 +11,7 @@ const mutations = {
     state.sidebarOpen = !state.sidebarOpen;
   },
   [types.SET_SIDEBAR_COMPONENT](state, component) {
-    state.sidebarComponent = component;
+    state.contentComponent = component;
   }
 };
 
@@ -30,7 +30,7 @@ const actions = {
 // getters
 const getters = {
   sidebarOpen: state => state.sidebarOpen,
-  sidebarComponent: state => state.sidebarComponent
+  contentComponent: state => state.contentComponent
 };
 
 

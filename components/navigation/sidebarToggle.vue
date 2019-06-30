@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a :class="'toggle'" ref="togglerbtn" @click="handleClick">
+    <a :class="'toggle'" ref="toggle" @click="handleClick">
       <component :is="icon" />
     </a>
   </div>
@@ -13,7 +13,7 @@ export default {
   data() {
     return {};
   },
-  props: ["sidebarComponent", "icon"],
+  props: ["contentComponent", "icon"],
 
   computed: {
     open(open) {
@@ -23,25 +23,25 @@ export default {
   methods: {
     handleClick() {
       this.$store.dispatch("toggleSidebar", {
-        component: this.sidebarComponent
+        component: this.contentComponent
       });
     }
   },
   watch: {
     open(open) {
       let tl = new TimelineMax(),
-        r = this.$refs.togglerbtn;
+        { toggle } = this.$refs;
       open
-        ? tl.to(r, 0.45, {
+        ? tl.to(toggle, 0.45, {
             rotation: 45,
             delay: 1.15,
             ease: Power1.easeInOut
           })
-        : tl.to(r, 0.45, {
+        : tl.to(toggle, 0.45, {
             rotation: 0,
             delay: 1.15,
             ease: Power1.easeInOut
-          });
+          })&&console.log('open closed triggred');
     }
   }
 };

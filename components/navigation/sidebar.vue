@@ -1,17 +1,16 @@
 <template>
-  <div :class="'sidebar  toggler'" ref="sidebar">
+  <div class="sidebar toggler">
     <component :is="component" />
     <slot />
   </div>
 </template>
 
 <script>
-import { TimelineMax, Power4 } from "gsap";
+import { TimelineMax } from "gsap";
 export default {
   name: "sidebar",
   mounted() {
-    let tl = new TimelineMax();
-    tl.set(this.$el, {
+    TweenMax.set(this.$el, {
       autoAlpha: 1,
       opacity: 1,
       x: this.$el.offsetWidth
@@ -22,7 +21,7 @@ export default {
       return this.$store.state.sidebarOpen;
     },
     component() {
-      return this.$store.state.sidebarComponent;
+      return this.$store.state.contentComponent;
     }
   },
   watch: {
@@ -32,15 +31,14 @@ export default {
           ? (document.body.classList = "hide-scroll")
           : (document.body.classList = "show-scroll");
       }, 800);
-      let tl = new TimelineMax();
-      const dX = open ? 0 : this.$el.offsetWidth;
+      let tl = new TimelineMax(),
+        dX = open ? 0 : this.$el.offsetWidth;
       tl.to(this.$el, 1.25, {
         x: dX,
         ease: Power2.easeInOut
       });
     }
-  },
-  props: [""]
+  }
 };
 </script>
 

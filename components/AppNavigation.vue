@@ -1,8 +1,8 @@
 <template>
   <div>
     <sidebar>
-      <div :class="'nav-toggler'">
-        <sidebar-toggle :sidebarComponent="AddForm" :icon="AddIcon" />
+      <div class="toggleWrapper">
+        <sidebar-toggle :contentComponent="AddForm" :icon="AddIcon" />
       </div>
     </sidebar>
   </div>
@@ -41,6 +41,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "~assets/scss/layouts/_navigation.scss";
-</style>
+<style lang="scss" scoped></style>

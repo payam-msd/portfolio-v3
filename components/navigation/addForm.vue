@@ -28,6 +28,7 @@
             <a>{{ cases.title }}</a>
           </nuxt-link>
         </ul>
+
         <div class="case-holder">
           <div
             class="case-holder__hover"
@@ -40,9 +41,7 @@
                 <div class="case-holder__banner">
                   <div class="case-holder__group">
                     <h1>
-                      <span>
-                        {{ data.title }}
-                      </span>
+                      <span>{{ data.title }}</span>
                     </h1>
                     <p>
                       <span class="case-holder__group--pre">
@@ -53,22 +52,24 @@
                   </div>
                   <div class="case-holder__bar"></div>
                 </div>
-                <img :src="`img/${data.image}`" />
+                <img class="case-holder___img" :src="`img/${data.image}`" />
               </a>
             </nuxt-link>
           </div>
         </div>
       </nav>
-      <social-media />
+      <social-media class="Social" />
     </div>
   </div>
 </template>
 
 <script>
+import { TimelineLite } from "gsap";
+import { starterNavAnim, afterToggle } from "~/mixins/Navbar";
 import SocialMedia from "~/components/SocialMedia";
 export default {
   name: "add-form",
-
+  mixins: [starterNavAnim, afterToggle],
   data() {
     return {
       hoverCases: [
@@ -116,11 +117,14 @@ export default {
       ]
     };
   },
+  computed: {
+    open(open) {
+      return this.$store.state.sidebarOpen;
+    }
+  },
   components: {
     SocialMedia
-  },
-  computed: {},
-  methods: {}
+  }
 };
 </script>
 

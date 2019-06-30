@@ -13,17 +13,32 @@ export default {
     name: "index",
     mode: "out-in",
     css: false,
-    beforeEnter(el) {},
+
     enter(el, done) {
       this.$store.dispatch("toggle");
-      let SVGburger = document.querySelector(".burger"),
-        sidebar = document.querySelector(".sidebar");
+      let tl = new TimelineMax({ onComplete: done }),
+        SVGburger = document.querySelector(".burger"),
+        HP = document.querySelector(".heading-primary"),
+        TW = document.querySelector(".text-wrapper"),
+        BTN = document.querySelector(".btn-holder");
+
       SVGburger.classList.toggle("active");
-      let tl = new TimelineMax();
-      tl.to(sidebar, 1.75, {
-        x: el.offsetWidth,
-        ease: Power4.easeInOut
-      });
+      TweenMax.set(HP, { opacity: 0, x: 100 });
+      TweenMax.set(TW, { opacity: 0, x: 100 });
+      TweenMax.set(BTN, { opacity: 0, x: 100 });
+
+      tl.to(HP, 0.45, { x: 0, opacity: 1, ease: Power1.easeOut }, "+=0.75")
+        .to(TW, 0.45, { x: 0, opacity: 1, ease: Power1.easeOut }, "-=0.25")
+        .to(
+          BTN,
+          0.45,
+          {
+            x: 0,
+            opacity: 1,
+            ease: Power1.easeOut
+          },
+          "-=0.15"
+        );
     }
   },
   head() {

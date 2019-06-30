@@ -25,9 +25,7 @@
               <a class="btn header__btn">More about me</a>
             </nuxt-link>
 
-            <div class="btn header__btn">
-              show me some work
-            </div>
+            <div class="btn header__btn">show me some work</div>
           </div>
         </div>
         <div class="index__svg-holder">
@@ -62,34 +60,11 @@ export default {
   components: {
     MainSVG
   },
-  computed: {
-    // open() {
-    //   return this.$store.state.sidebarOpen;
-    // }
-  },
-  methods: {
-    // handleClick() {
-    //   this.$store.dispatch("toggleSidebar", {
-    //     open: this.sidebarComponent
-    //   });
-    //   const SVGburger = document.querySelector(".burger");
-    //   SVGburger.classList.toggle("active");
-    // }
-  }
+  computed: {},
+  methods: {}
 };
 </script>
 
 <style lang="scss" scoped>
 @import "~assets/scss/pages/_index.scss";
-/* .active {
-  .top {
-    stroke-dashoffset: -68px;
-  }
-  .bottom {
-    stroke-dashoffset: -68px;
-  }
-  .middle {
-    stroke-dashoffset: -68px;
-  }
-} */
 </style>
