@@ -8,9 +8,8 @@
             class="navbar__item"
             v-for="page in pages"
             :key="page.id"
-            tag="li"
             :to="`${page.route}`"
-            exact
+            tag="li"
           >
             <a>{{ page.text }}</a>
           </nuxt-link>

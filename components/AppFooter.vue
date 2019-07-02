@@ -3,14 +3,17 @@
     <div class="footer__svg-holder">
       <TextSVG :class="'footer__svg'" />
     </div>
-    <social-media />
+    <social-media class="footerMedia" />
   </div>
 </template>
 
 <script>
+import { FooterAnim } from "~/mixins/Footer";
+import { TimelineMax } from "gsap";
 import TextSVG from "~/components/TextSVG";
 import SocialMedia from "~/components/SocialMedia";
 export default {
+  mixins: [FooterAnim],
   name: "AppFooter",
   head() {
     return {

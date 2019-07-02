@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar toggler">
+  <div ref="sidebar" class="sidebar toggler">
     <component :is="component" />
     <slot />
   </div>

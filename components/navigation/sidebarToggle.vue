@@ -41,7 +41,7 @@ export default {
             rotation: 0,
             delay: 1.15,
             ease: Power1.easeInOut
-          })&&console.log('open closed triggred');
+          });
     }
   }
 };

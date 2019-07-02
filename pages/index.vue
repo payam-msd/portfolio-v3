@@ -6,9 +6,11 @@
 
 <script>
 import { TimelineMax } from "gsap";
+import { animation } from "~/mixins/PagesAnim";
 import IndexHeader from "~/components/index/IndexHeader";
 
 export default {
+  mixins: [animation],
   transition: {
     name: "index",
     mode: "out-in",
@@ -17,28 +19,14 @@ export default {
     enter(el, done) {
       this.$store.dispatch("toggle");
       let tl = new TimelineMax({ onComplete: done }),
-        SVGburger = document.querySelector(".burger"),
-        HP = document.querySelector(".heading-primary"),
-        TW = document.querySelector(".text-wrapper"),
-        BTN = document.querySelector(".btn-holder");
-
+        SVGburger = document.querySelector(".burger");
+      // elemets = document.querySelectorAll(
+      //   ".heading-primary ,.text-wrapper ,.btn-holder"
+      // );
       SVGburger.classList.toggle("active");
-      TweenMax.set(HP, { opacity: 0, x: 100 });
-      TweenMax.set(TW, { opacity: 0, x: 100 });
-      TweenMax.set(BTN, { opacity: 0, x: 100 });
+      //   tl.set(elemets, { opacity: 0, x: 150 });
 
-      tl.to(HP, 0.45, { x: 0, opacity: 1, ease: Power1.easeOut }, "+=0.75")
-        .to(TW, 0.45, { x: 0, opacity: 1, ease: Power1.easeOut }, "-=0.25")
-        .to(
-          BTN,
-          0.45,
-          {
-            x: 0,
-            opacity: 1,
-            ease: Power1.easeOut
-          },
-          "-=0.15"
-        );
+      //   tl.staggerTo(elemets, 1, { x: 0, opacity: 1, ease: Power2.easeOut }, 0.2);
     }
   },
   head() {

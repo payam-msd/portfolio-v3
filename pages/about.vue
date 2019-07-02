@@ -9,7 +9,8 @@
 </template>
 
 <script>
-import { TimelineMax } from "gsap";
+import { TimelineMax, TweenMax } from "gsap";
+import { animation } from "~/mixins/PagesAnim";
 import AboutHeader from "~/components/about/AboutHeader";
 import AboutFocus from "~/components/about/AboutFocus";
 import AboutQuote from "~/components/about/AboutQuote";
@@ -21,19 +22,14 @@ export default {
     name: "about",
     mode: "out-in",
     css: false,
-    beforeEnter(el) {},
     enter(el, done) {
-      const sidebar = document.querySelector(".sidebar"),
-        SVGburger = document.querySelector(".burger"),
-        tl = new TimelineMax({ onComplete: done });
-      this.$store.dispatch("toggle");
+      const tl = new TimelineMax({ onComplete: done }),
+        SVGburger = document.querySelector(".burger");
       SVGburger.classList.toggle("active");
-      tl.to(sidebar, 1.75, {
-        x: el.offsetWidth,
-        ease: Power4.easeInOut
-      });
+      this.$store.dispatch("toggle");
     }
   },
+  mixins: [animation],
   head() {
     return {
       title: "",
