@@ -6,11 +6,11 @@
 
 <script>
 import { TimelineMax } from "gsap";
-import { animation } from "~/mixins/PagesAnim";
+import { IndexAnim } from "~/mixins/IndexAnim";
 import IndexHeader from "~/components/index/IndexHeader";
 
 export default {
-  mixins: [animation],
+  mixins: [IndexAnim],
   transition: {
     name: "index",
     mode: "out-in",
@@ -18,15 +18,8 @@ export default {
 
     enter(el, done) {
       this.$store.dispatch("toggle");
-      let tl = new TimelineMax({ onComplete: done }),
-        SVGburger = document.querySelector(".burger");
-      // elemets = document.querySelectorAll(
-      //   ".heading-primary ,.text-wrapper ,.btn-holder"
-      // );
+      let SVGburger = document.querySelector(".burger");
       SVGburger.classList.toggle("active");
-      //   tl.set(elemets, { opacity: 0, x: 150 });
-
-      //   tl.staggerTo(elemets, 1, { x: 0, opacity: 1, ease: Power2.easeOut }, 0.2);
     }
   },
   head() {
@@ -44,23 +37,11 @@ export default {
   data() {
     return {};
   },
-  computed: {
-    open(open) {
-      return this.$store.state.sidebarOpen;
-    }
-  },
+  computed: {},
   components: {
     IndexHeader
   },
-  watch: {
-    open(open) {
-      setTimeout(() => {
-        open
-          ? (document.body.classList = "hide-scroll")
-          : (document.body.classList = "show-scroll");
-      }, 1000);
-    }
-  }
+  watch: {}
 };
 </script>
 

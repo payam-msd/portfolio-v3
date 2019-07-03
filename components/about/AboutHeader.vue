@@ -5,30 +5,27 @@
       <div class="header__container">
         <div class="header__wrapper">
           <div class="text-box u-mt-large">
-            <span class="header__pre-title">—</span>
-            <span class="header__title">
-              I’m Payam Maghsodi
-            </span>
+            <div class="header__title">
+              <span class="header__pre-title">—</span>
+              <span>I’m Payam Maghsodi</span>
+            </div>
             <h1 class="heading-primary u-mt-medium">
               Visual design &
-              <br />
-              Front-end professional
+              <br />Front-end professional
             </h1>
             <div class="text-wrapper u-mt-large">
               <p>
-                I’m a creative professional from the Netherlands, working in
+                I’m a creative professional from the iran, working in
                 Eindhoven as a freelance designer and as creative director for
                 Tallest. I work directly for clients or by partnering up with
                 agencies.
               </p>
               <br />
-              <span>
-                Find out more about my focus and experience.
-              </span>
+              <span>Find out more about my focus and experience.</span>
             </div>
           </div>
           <div class="header__img-holder">
-            <img src="" alt="" />
+            <img src alt />
           </div>
         </div>
       </div>

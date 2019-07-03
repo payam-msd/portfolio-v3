@@ -3,10 +3,10 @@ export const FooterAnim = {
     mounted(){
         const tl = new TimelineMax(),
         A = this.$el.querySelectorAll('.footerMedia'),
-        B = this.$el.querySelectorAll('.footer__svg');
+        B = this.$el.querySelectorAll('.footer__svg-holder');
 
 
-        tl.set([A, B], {y: 30, autoAlpha: 0 });
+        tl.set([A, B], {yPercent: 50, opacity: 0 });
 
         const config = {
         threshold: 1.0,
@@ -20,8 +20,8 @@ export const FooterAnim = {
             }
             tl.to(
               entry.target,
-              1,
-              { y: 0, autoAlpha: 1 , ease: Power2.easeOut },
+              .75,
+              { yPercent: 0, opacity: 1,  ease: Power2.easeOut },
               overlap
             );
             self.unobserve(entry.target);

@@ -10,7 +10,7 @@
 
 <script>
 import { TimelineMax, TweenMax } from "gsap";
-import { animation } from "~/mixins/PagesAnim";
+import { AboutAnim } from "~/mixins/AboutAnim";
 import AboutHeader from "~/components/about/AboutHeader";
 import AboutFocus from "~/components/about/AboutFocus";
 import AboutQuote from "~/components/about/AboutQuote";
@@ -23,13 +23,17 @@ export default {
     mode: "out-in",
     css: false,
     enter(el, done) {
-      const tl = new TimelineMax({ onComplete: done }),
-        SVGburger = document.querySelector(".burger");
+      let tl = new TimelineMax({ onComplete: done });
+
+      let SVGburger = document.querySelector(".burger");
       SVGburger.classList.toggle("active");
       this.$store.dispatch("toggle");
+    },
+    leave(el, done) {
+      let tl = new TimelineMax({ onComplete: done });
     }
   },
-  mixins: [animation],
+  mixins: [AboutAnim],
   head() {
     return {
       title: "",

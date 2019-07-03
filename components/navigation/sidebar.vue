@@ -28,8 +28,8 @@ export default {
     open: function(open) {
       setTimeout(() => {
         open
-          ? (document.body.classList = "hide-scroll")
-          : (document.body.classList = "show-scroll");
+          ? (document.documentElement.classList = "hide-scroll")
+          : (document.documentElement.classList = "show-scroll");
       }, 800);
       let tl = new TimelineMax(),
         dX = open ? 0 : this.$el.offsetWidth;
@@ -42,4 +42,5 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+</style>

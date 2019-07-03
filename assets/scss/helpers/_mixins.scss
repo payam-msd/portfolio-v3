@@ -188,3 +188,55 @@
 //   }
 
 // -------------------------------------------------------------------
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+// ? Usage
+// p {
+//   @include font-size(14px)
+// }
+
+//-----------------------------------------------------
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+// ? Usage
+// .faded-text {
+//   @include opacity(0.8);
+// }
+
+//-----------------------------------------------------
+
+%visuallyhidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+// ? Usage
+// <button class="mobile-navigation-trigger">
+//   <b class="visually-hidden">Open the navigation</b>
+//   <img src="img/mobile-navigation-icon.svg">
+// </button>
+// .visually-hidden {
+//   @extend %visuallyhidden;
+// }
+
+//-----------------------------------------------------
+

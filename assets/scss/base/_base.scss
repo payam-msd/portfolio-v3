@@ -125,3 +125,9 @@ video {
 .root-container {
   margin: 5rem !important;
 }
+.hide-scroll {
+  overflow-y: hidden !important;
+}
+.show-scroll {
+  overflow-y: auto !important;
+}

@@ -4,9 +4,11 @@
   font-family: product-sans-bold;
   letter-spacing: 0.8px;
   &__title {
-    font-size: 5rem;
-    padding-bottom: 2rem;
-    color: $blue-grey-800;
+      h1{
+          font-size: 5rem;
+          padding-bottom: 2rem;
+          color: $blue-grey-800;
+    }
   }
   &__pre-title {
     color: $blue-grey-900;

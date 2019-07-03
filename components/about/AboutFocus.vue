@@ -1,9 +1,5 @@
 <template>
   <div>
-    <nuxt />
-
-    <!-- focus section -->
-
     <section id="focus" class="focus b-padding-medium">
       <div class="u-mt-medium">
         <h1 class="heading-primary">Focus</h1>

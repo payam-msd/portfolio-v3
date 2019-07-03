@@ -2,27 +2,25 @@
  export const starterNavAnim = {
 
      mounted() {
-         const max = new TimelineMax(),
+         const tl = new TimelineMax(),
              A = document.querySelectorAll('.navbar__list ,.Social');
-             max.set(A ,{x: -85,autoAlpha: 0});
+             tl.set(A ,{x: -85,autoAlpha: 0});
 
     this.$nextTick(function() {
-             const tl = new TimelineMax({delay: 0.4}),
-             A = document.querySelectorAll('.navbar__list ,.Social');
             const config = {
-            threshold: 0.3
+            threshold: 1.0
             };
             let observer = new IntersectionObserver(function(entries, self) {
                 entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    let overlap = "-=0.6";
+                    let overlap = "-=0.7";
                     if (!tl.isActive()) {
                     overlap = "+=0";
                     }
                     tl.to(
                     entry.target,
                     0.75,
-                    {autoAlpha:1, x: 0, ease: Power1.easeOut },
+                    {autoAlpha:1, x: 0, delay: .3 , ease: Power2.easeOut },
                     overlap
                     );
                     self.unobserve(entry.target);
@@ -39,22 +37,22 @@
 export const afterToggle = {
  watch: {
     open(open) {
-        let tl  = new TimelineMax({delay: 0.4}),
-             C = document.querySelectorAll('.navbar__list ,.Social');
+        let tl  = new TimelineMax(),
+             C = document.querySelectorAll('.navbar__list, .Social');
         const config = {
-       threshold: 0.5
+       threshold: 1.0
        };
        let observer = new IntersectionObserver(function(entries, self) {
            entries.forEach(entry => {
            if (entry.isIntersecting) {
-               let overlap = "-=0.6";
+               let overlap = "-=0.7";
                if (!tl.isActive()) {
                overlap = "+=0";
                }
                tl.to(
                entry.target,
-               1,
-               { x: 0, autoAlpha: 1,  ease: Power2.easeOut },
+               .75,
+               { x: 0, autoAlpha: 1, delay: .3 ,  ease: Power2.easeOut },
                overlap
                );
                self.unobserve(entry.target);
@@ -66,7 +64,8 @@ export const afterToggle = {
              ? C.forEach(C => {
                  observer.observe(C);
                 })
-             :  tl.set(C, {x: -50 , delay: 1,autoAlpha: 0})
+             : tl.set(C , { autoAlpha: 0 , x: -50 , delay: 1})
+
         }
   }
 }

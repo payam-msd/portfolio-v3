@@ -31,6 +31,7 @@ export default {
     open(open) {
       let tl = new TimelineMax(),
         { toggle } = this.$refs;
+
       open
         ? tl.to(toggle, 0.45, {
             rotation: 45,

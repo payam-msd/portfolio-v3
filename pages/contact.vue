@@ -4,14 +4,16 @@
       <div class="header__container">
         <div class="header__wrapper">
           <div class="text-box u-mt-large">
-            <h1 class="contact__title">
-              Contact
-              <br />
-            </h1>
-            <p class="contact__pre-title">
-              <span class="header__pre-title">—</span>
-              let’s talk
-            </p>
+            <div class="contact__title">
+              <h1>
+                Contact
+                <br />
+              </h1>
+              <p class="contact__pre-title">
+                <span class="header__pre-title">—</span>
+                let’s talk
+              </p>
+            </div>
             <div class="text-wrapper u-mt-small">
               <p>
                 I am currently available for selective opportunities. If you
@@ -19,21 +21,21 @@
                 my work, get in touch!
               </p>
               <ul class="contact__ul-list">
-                <li>
+                <li class="contact-ul-list__item">
                   <span>
                     <b>Location</b>
                   </span>
                   <br />
                   <a href>Mashhad,Iran</a>
                 </li>
-                <li>
+                <li class="contact-ul-list__item">
                   <span>
                     <b>Email</b>
                   </span>
                   <br />
                   <a href="mailto:payammgh17@gmail.com">contact@payam.com</a>
                 </li>
-                <li>
+                <li class="contact-ul-list__item">
                   <span>
                     <b>Telephone</b>
                   </span>
@@ -41,7 +43,7 @@
                   <a href="tel:00989031901841">+(98) 903 190 1841</a>
                 </li>
               </ul>
-              <ul class="contact__ul-list">
+              <ul class="contact__ul-list contact__ul-list2">
                 <h3>PDF downloads</h3>
                 <li class="contact__list-item u-mt-small">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
@@ -66,7 +68,7 @@
 </template>
 <script>
 import { TimelineMax } from "gsap";
-import { animation } from "~/mixins/PagesAnim";
+import { ContactAnim } from "~/mixins/ContactAnim";
 export default {
   transition: {
     name: "contact",
@@ -91,7 +93,7 @@ export default {
       ]
     };
   },
-  mixins: [animation]
+  mixins: [ContactAnim]
 };
 </script>
 

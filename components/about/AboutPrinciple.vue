@@ -1,14 +1,12 @@
 <template>
   <div class="principle b-padding-large">
-    <h1 class="principle__title">
-      Principles
-    </h1>
+    <h1 class="principle__title">Principles</h1>
     <p class="principle__content">
-      The foundation of all the work I deliver can be <br />
-      found in three main principles.
+      The foundation of all the work I deliver can be
+      <br />found in three main principles.
     </p>
     <ul class="principle__list">
-      <li>
+      <li class="principle-list__item">
         <svg
           version="1.1"
           id="Layer_1"
@@ -80,13 +78,13 @@
         </svg>
         <h3>Combined knowledge</h3>
         <br />
-        <span>— mutual trust </span>
+        <span>— mutual trust</span>
         <p>
           I trust in my clients’ knowledge about their branch. In return, I ask
           them to trust in my experience
         </p>
       </li>
-      <li>
+      <li class="principle-list__item">
         <svg
           version="1.1"
           id="Light"
@@ -136,7 +134,7 @@
           everything into account takes time.
         </p>
       </li>
-      <li>
+      <li class="principle-list__item">
         <svg
           version="1.1"
           id="Layer_1"
@@ -195,7 +193,7 @@
         </svg>
         <h3>Keeping focus</h3>
         <br />
-        <span>— sharing expertise </span>
+        <span>— sharing expertise</span>
         <p>
           I prefer to do what I do best. That’s why I work with a network of
           professionals for anything outside my focus.
