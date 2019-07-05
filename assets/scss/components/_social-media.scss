@@ -6,6 +6,7 @@
     display: inline-block;
     justify-content: center;
     align-items: center;
+    @include accelerate();
     padding: 1rem;
     height: 25px;
     width: 20px;

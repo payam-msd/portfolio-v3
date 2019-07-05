@@ -28,36 +28,34 @@
           </nuxt-link>
         </ul>
 
-        <div class="case-holder">
-          <div
-            class="case-holder__hover"
-            v-for="data in hoverCases"
-            :key="data.id"
-            v-show="data.hover"
-          >
-            <nuxt-link :to="`${data.route}`">
-              <a>
-                <div class="case-holder__banner">
-                  <div class="case-holder__group">
-                    <h1>
-                      <span>{{ data.title }}</span>
-                    </h1>
-                    <p>
-                      <span class="case-holder__group--pre">
-                        —
-                        {{ data.desc }}
-                      </span>
-                    </p>
-                  </div>
-                  <div class="case-holder__bar"></div>
-                </div>
-                <img class="case-holder___img" :src="`img/${data.image}`" />
-              </a>
-            </nuxt-link>
+        <div
+          class="case-holder"
+          v-for="data in hoverCases"
+          :key="data.id"
+          v-show="data.hover"
+          v-case-anim="`${data.title}`"
+        >
+          <div class="case-holder__banner">
+            <div class="case-holder__group">
+              <span class="h1">{{ data.title }}</span>
+              <span class="case-holder__group--pre">
+                —
+                {{ data.desc }}
+              </span>
+            </div>
+          </div>
+          <div class="case-holder__bar"></div>
+          <div class="case-holder__item">
+            <div class="case-holder__figure">
+              <nuxt-link tag="A" :to="`${data.route}`">
+                <img :src="`img/${data.image}`" />
+              </nuxt-link>
+            </div>
           </div>
         </div>
+
+        <social-media class="Social" />
       </nav>
-      <social-media class="Social" />
     </div>
   </div>
 </template>
@@ -91,7 +89,7 @@ export default {
         {
           id: "2",
           route: "/glozzom",
-          desc: "test",
+          desc: "A Bootstrap base UI app",
           title: "Glozzom",
           image: "img3.jpg",
           hover: false

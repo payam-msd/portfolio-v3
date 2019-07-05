@@ -515,15 +515,11 @@
 </template>
 
 <script>
+import { TimelineMax } from "gsap";
 export default {
   name: "MainSVG",
   head() {
-    return {
-      script: ["~/DrawSVGPlugin.min.js"]
-    };
-  },
-  mounted() {
-    // let tl = new DrawSVGPlugin();
+    return {};
   }
 };
 </script>
