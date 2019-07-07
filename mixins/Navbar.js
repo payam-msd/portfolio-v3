@@ -4,7 +4,9 @@
      mounted() {
          const tl = new TimelineMax(),
              A = document.querySelectorAll('.navbar__list ,.Social');
-             tl.set(A ,{x: -85,autoAlpha: 0});
+             if (this.$store.state.sidebarOpen ){
+                  tl.set(A ,{autoAlpha: 0, x: -85});
+             }
 
     this.$nextTick(function() {
             const config = {
@@ -19,7 +21,7 @@
                     }
                     tl.to(
                     entry.target,
-                    0.75,
+                    .75,
                     {autoAlpha:1, x: 0, delay: .3 , ease: Power2.easeOut },
                     overlap
                     );
@@ -52,7 +54,7 @@ export const afterToggle = {
                tl.to(
                entry.target,
                .75,
-               { x: 0, autoAlpha: 1, delay: .3 ,  ease: Power2.easeOut },
+               { x: 10, autoAlpha: 1 , delay: .3 , ease: Power2.easeOut },
                overlap
                );
                self.unobserve(entry.target);
@@ -64,7 +66,7 @@ export const afterToggle = {
              ? C.forEach(C => {
                  observer.observe(C);
                 })
-             : tl.set(C , { autoAlpha: 0 , x: -50 , delay: 1})
+             : tl.set(C , { autoAlpha: 0 , x: -100 , delay: 2})
 
         }
   }

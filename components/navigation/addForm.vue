@@ -17,26 +17,21 @@
         <ul class="navbar__list">
           <li class="navbar__title">Cases</li>
           <nuxt-link
-            class="navbar__item"
+            class="navbar__item navbar__cases"
             v-for="cases in hoverCases"
             :key="cases.id"
             :to="`${cases.route}`"
-            v-data-case="`${cases.title}`"
             tag="li"
+            v-data-case="cases.title"
+            @mouseenter.passive.native="handleAnim"
           >
             <a>{{ cases.title }}</a>
           </nuxt-link>
         </ul>
 
-        <div
-          class="case-holder"
-          v-for="data in hoverCases"
-          :key="data.id"
-          v-show="data.hover"
-          v-case-anim="`${data.title}`"
-        >
+        <div class="case-holder" v-for="data in hoverCases" :key="data.id" v-show="data.hover">
           <div class="case-holder__banner">
-            <div class="case-holder__group">
+            <div ref="hGroup" class="case-holder__group">
               <span class="h1">{{ data.title }}</span>
               <span class="case-holder__group--pre">
                 —
@@ -44,11 +39,11 @@
               </span>
             </div>
           </div>
-          <div class="case-holder__bar"></div>
+          <div ref="bar" class="case-holder__bar"></div>
           <div class="case-holder__item">
             <div class="case-holder__figure">
               <nuxt-link tag="A" :to="`${data.route}`">
-                <img :src="`img/${data.image}`" />
+                <img ref="caseImg" :src="`img/${data.image}`" />
               </nuxt-link>
             </div>
           </div>
@@ -121,6 +116,30 @@ export default {
   },
   components: {
     SocialMedia
+  },
+  methods: {
+    handleAnim() {
+      let tl = new TimelineMax(),
+        { hGroup, caseImg, bar } = this.$refs;
+      tl.set(hGroup, { xPercent: 30, autoAlpha: 0 })
+        .set(caseImg, { xPercent: 5, autoAlpha: 0 })
+        .to(hGroup, 1, {
+          xPercent: 0,
+          autoAlpha: 1,
+          ease: Power2.easeOut
+        })
+        .to(
+          caseImg,
+          0.75,
+          {
+            xPercent: 10,
+            autoAlpha: 1,
+            ease: Power2.easeOut
+          },
+          "-=.9"
+        )
+        .to(bar, 1, { right: "5rem" }, "-=.9");
+    }
   }
 };
 </script>

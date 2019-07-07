@@ -74,7 +74,7 @@
           </li>
         </ul>
         <div class="svg-holder">
-          <div class="feather-svg"></div>
+          <div ref="feather" class="feather-svg"></div>
         </div>
       </div>
     </section>
@@ -82,10 +82,46 @@
 </template>
 
 <script>
+import { TimelineMax } from "gsap";
+
 export default {
   name: "AboutFocus",
   data() {
     return {};
+  },
+  mounted() {
+    let tl = new TimelineMax(),
+      { feather } = this.$refs;
+    tl.from(feather, 1, { opacity: 0, ease: Power1.easeInOut })
+      .to(feather, 1.5, {
+        x: 150,
+        y: 80,
+        rotation: -40,
+        delay: -1.25,
+        ease: Power1.easeInoOut
+      })
+      .to(feather, 2, {
+        x: -100,
+        y: 120,
+        rotation: 30,
+        delay: -1.25,
+        ease: Power1.easeInoOut
+      })
+      .to(feather, 1.5, {
+        x: 50,
+        y: 140,
+        rotation: -20,
+        delay: -1,
+        ease: Power1.easeInoOut
+      })
+      .to(feather, 1, {
+        x: 0,
+        y: 150,
+        rotation: 0,
+        delay: -0.5,
+        opacity: 1,
+        ease: Power1.easeInoOut
+      });
   }
 };
 </script>

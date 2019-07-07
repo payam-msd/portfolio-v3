@@ -31,16 +31,15 @@ export default {
     open(open) {
       let tl = new TimelineMax(),
         { toggle } = this.$refs;
-
       open
-        ? tl.to(toggle, 0.45, {
+        ? tl.to(toggle, 0.75, {
             rotation: 45,
-            delay: 1.15,
+            delay: 0.85,
             ease: Power1.easeInOut
           })
-        : tl.to(toggle, 0.45, {
+        : tl.to(toggle, 0.75, {
             rotation: 0,
-            delay: 1.15,
+            delay: 0.85,
             ease: Power1.easeInOut
           });
     }
@@ -98,17 +97,6 @@ export default {
       opacity: 0;
       transform: scale(1.4);
     }
-  }
-}
-.active {
-  .top {
-    stroke-dashoffset: -68px;
-  }
-  .bottom {
-    stroke-dashoffset: -68px;
-  }
-  .middle {
-    stroke-dashoffset: -68px;
   }
 }
 </style>

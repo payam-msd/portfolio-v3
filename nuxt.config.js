@@ -36,7 +36,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ["~plugins/HoverEffect.js" ,"~plugins/CaseAnim.js"],
+  plugins: ["~plugins/HoverEffect.js"],
 
   /*
    ** Nuxt.js modules

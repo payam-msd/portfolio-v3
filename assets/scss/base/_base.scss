@@ -131,3 +131,16 @@ video {
 .show-scroll {
   overflow-y: auto !important;
 }
+
+
+.active {
+  .top {
+    stroke-dashoffset: -68px;
+  }
+  .bottom {
+    stroke-dashoffset: -68px;
+  }
+  .middle {
+    stroke-dashoffset: -68px;
+  }
+}

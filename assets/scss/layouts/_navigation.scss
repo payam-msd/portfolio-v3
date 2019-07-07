@@ -67,40 +67,40 @@
   }
 
   &__item {
-    margin: 0 1.75rem 1.75rem 0;
-
-    a {
-      position: relative;
-      font-size: 1.6rem;
-      margin-right: 2.25rem;
-      padding: 0.75rem 0.75rem 0.75rem 0;
-      color: #fff !important;
-      font-family: "product-sans-regular";
-      transition: all 0.25s ease-in-out;
-      letter-spacing: 0.7px;
-      @include accelerate();
       cursor: pointer;
+      line-height: 4rem;
+     transition: all 0.25s ease-in-out;
+     @include accelerate();
 
-      &:hover {
+     a{
+         position: relative;
+         font-size: 1.6rem;
+          margin-right:2.25rem;
+          font-family: "product-sans-regular";
+          letter-spacing: 0.7px;
+         color: #fff !important;
+
+        &:hover {
+        color: #fff !important;
         padding-left: 2.25rem;
         margin-right: 0;
-        color: #fff !important;
-      }
+        }
 
-      &::before {
-        content: "\2014";
-        position: absolute;
-        left: -1.75rem;
-        margin-right: 0.25rem;
-        opacity: 0;
-        transition: all 0.25s;
-      }
+        &::before {
+            content: "\2014";
+            color: #fff ;
+            position: absolute;
+            left: -1.25rem;
+            margin-right: 0.25rem;
+            opacity: 0;
+            transition: all 0.25s ease-in-out;
+        }
 
-      &:hover::before {
-        opacity: 1;
-        left: 0;
-      }
-    }
+        &:hover::before {
+            opacity: 1;
+            left: 0;
+        }
+        }
   }
 }
 
@@ -117,7 +117,7 @@
       position: absolute;
       right: 5rem;
       bottom: 6rem;
-      width: calc(100% - 10rem);
+      width: calc(100% - 15rem);
       height: 18rem;
       z-index: 6;
 
@@ -126,41 +126,43 @@
 
 
   &__item {
-    position: relative;
-    padding: 6rem 0 6rem 0;
-}
+      position: relative;
+      padding: 2rem 0 6rem 0;
+      display: flex;
+      align-items: center;
+    }
 
-  &__figure{
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
+    &__figure{
+        position: static;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        img{
+            object-fit: cover;
+            width: 60rem ;
+            height:60rem ;
+        }
+    }
 
-    img{
-        object-fit: cover;
-        width: 100% ;
-        height: 100% ;
-}
-  }
 
-  &__bar {
-      position: absolute;
+    &__bar {
+    position: absolute;
     content: "";
     z-index: 5;
     background-color: hsl(336, 75%, 43%);
     mix-blend-mode: darken;
-    right: 5rem;
+    right: 7rem;
     bottom: 6rem;
-    width: calc(100% - 10rem);
+    width: calc(100% - 15rem);
     height: 18rem;
   }
 
   &__group {
     color: #fff;
     margin-bottom: 0;
-    padding: 2rem 5rem 5rem 5rem;
+    margin-top: auto;
+    padding: 4rem 5rem 5rem 5rem;
+    visibility: visible;
 
     .h1 {
     font-size: 2.5rem;

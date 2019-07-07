@@ -12,7 +12,6 @@ export default {
   mounted() {
     TweenMax.set(this.$el, {
       autoAlpha: 1,
-      opacity: 1,
       x: this.$el.offsetWidth
     });
   },
@@ -26,13 +25,14 @@ export default {
   },
   watch: {
     open: function(open) {
+      let tl = new TimelineMax(),
+        dX = open ? 0 : this.$el.offsetWidth;
       setTimeout(() => {
         open
           ? (document.documentElement.classList = "hide-scroll")
           : (document.documentElement.classList = "show-scroll");
       }, 800);
-      let tl = new TimelineMax(),
-        dX = open ? 0 : this.$el.offsetWidth;
+
       tl.to(this.$el, 1.25, {
         x: dX,
         ease: Power2.easeInOut

@@ -76,9 +76,8 @@ export default {
     css: false,
     enter(el, done) {
       this.$store.dispatch("toggle");
-      const SVGburger = document.querySelector(".burger"),
-        tl = new TimelineMax({ onComplete: done });
-      SVGburger.classList.toggle("active");
+      const SVGToggle = document.querySelector(".burger");
+      SVGToggle.classList.toggle("active");
     }
   },
   head() {

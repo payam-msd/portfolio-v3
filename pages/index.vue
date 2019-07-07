@@ -18,8 +18,8 @@ export default {
 
     enter(el, done) {
       this.$store.dispatch("toggle");
-      let SVGburger = document.querySelector(".burger");
-      SVGburger.classList.toggle("active");
+      const SVGToggle = document.querySelector(".burger");
+      SVGToggle.classList.toggle("active");
     }
   },
   head() {
