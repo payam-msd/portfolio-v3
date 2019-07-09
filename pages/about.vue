@@ -1,16 +1,15 @@
 <template>
   <div>
-    <about-header />
-    <about-focus />
+    <about-header ref="Aheader" />
+    <about-focus ref="Afocus" />
     <about-quote />
-    <about-principle />
-    <working-for />
+    <about-principle ref="Aprinciple" />
+    <working-for ref="Aworking" />
   </div>
 </template>
 
 <script>
 import { TimelineMax } from "gsap";
-import { AboutAnim } from "~/mixins/AboutAnim";
 import AboutHeader from "~/components/about/AboutHeader";
 import AboutFocus from "~/components/about/AboutFocus";
 import AboutQuote from "~/components/about/AboutQuote";
@@ -23,13 +22,12 @@ export default {
     mode: "out-in",
     css: false,
     enter(el, done) {
-      const SVGToggle = document.querySelector(".burger"),
-        _vm = this,
-        tl = new TimelineMax(),
-        sidebar = document.querySelector(".sidebar"),
-        A = document.querySelectorAll(".navbar__list, .Social");
+      const _vm = this,
+        SVGToggle = document.querySelector(".burger"),
+        C = document.querySelectorAll(".navbar__list, .Social"),
+        tl = new TimelineMax();
       tl.staggerTo(
-        A,
+        ".navbar__list, .Social",
         0.75,
         {
           x: -100,
@@ -38,6 +36,7 @@ export default {
           onComplete() {
             _vm.$store.dispatch("toggle");
             SVGToggle.classList.toggle("active");
+            tl.set(C, { autoAlpha: 0, delay: -0.5, x: -100 });
             done;
           }
         },
@@ -45,7 +44,83 @@ export default {
       );
     }
   },
-  mixins: [AboutAnim],
+  mounted() {
+    // const { Hprimary, Twrapper, Htitle } = this.$refs.Aheader.$refs;
+    // const { FHprimary, FTwrapper, F_li } = this.$refs.Afocus.$refs;
+    // const { Ptitle, Pcontent, P_li } = this.$refs.Aprinciple.$refs;
+    // const { Wtitle, Wtext, btns } = this.$refs.Aworking.$refs;
+    this.$nextTick(() => {
+      const tl = new TimelineMax(),
+        // A = [Hprimary, Twrapper, Htitle],
+        // B = [FHprimary, FTwrapper, F_li],
+        // H = [Ptitle, Pcontent, P_li],
+        // D = [Wtitle, Wtext, btns];
+        A = this.$el.querySelectorAll(
+          ".heading-primary, .text-wrapper, .principle__title, .principle__content, .header__title"
+        ),
+        H = this.$el.querySelectorAll(".ul-list__item, .principle-list__item"),
+        B = this.$el.querySelectorAll(
+          ".btn-holder, .workingFor__title, .workingFor__text, .btn-wrapper"
+        );
+      tl.set(A, { autoAlpha: 0, x: 100 });
+      tl.set(H, { autoAlpha: 0, x: 50 });
+      tl.set(B, { autoAlpha: 0, y: 85 });
+
+      const config = {
+        threshold: 0.5
+      };
+      let observer = new IntersectionObserver(function(entries, self) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            let overlap = "-=0.7";
+            if (!tl.isActive()) {
+              overlap = "+=0";
+            }
+            tl.to(
+              entry.target,
+              0.75,
+              { autoAlpha: 1, x: 0, delay: 0.1, ease: Power2.easeOut },
+              overlap
+            );
+            self.unobserve(entry.target);
+          }
+        });
+      }, config);
+
+      const config2 = {
+        threshold: 0.8
+      };
+      let observer2 = new IntersectionObserver(function(entries, self) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            let overlap = "-=0.7";
+            if (!tl.isActive()) {
+              overlap = "+=0";
+            }
+            tl.to(
+              entry.target,
+              0.75,
+              { autoAlpha: 1, y: 0, ease: Power2.easeOut },
+              overlap
+            );
+            self.unobserve(entry.target);
+          }
+        });
+      }, config2);
+
+      B.forEach(B => {
+        observer2.observe(B);
+      });
+
+      H.forEach(H => {
+        observer.observe(H);
+      });
+
+      A.forEach(A => {
+        observer.observe(A);
+      });
+    });
+  },
   head() {
     return {
       title: "",

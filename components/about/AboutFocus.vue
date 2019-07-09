@@ -2,8 +2,8 @@
   <div>
     <section id="focus" class="focus b-padding-medium">
       <div class="u-mt-medium">
-        <h1 class="heading-primary">Focus</h1>
-        <div class="text-wrapper">
+        <h1 ref="Hprimary" class="heading-primary">Focus</h1>
+        <div ref="Twrapper" class="text-wrapper">
           <p class="focus__content u-mt-small">
             I create unique products by combining design and development, while
             keeping my focus. I specialize in these fields:
@@ -12,7 +12,7 @@
       </div>
       <div class="focus__list u-mt-large">
         <ul class="ul-list">
-          <li class="ul-list__item">
+          <li ref="F_li" class="ul-list__item">
             <h3 class="ul-list__title">
               <span class="about__pre-title">—</span>
               User experience
@@ -22,7 +22,7 @@
               provide a relevant and meaningful experience to users.
             </p>
           </li>
-          <li class="ul-list__item">
+          <li ref="F_li" class="ul-list__item">
             <h3 class="ul-list__title">
               <span class="about__pre-title">—</span>
               Visual design
@@ -32,7 +32,7 @@
               ultimate user experience is what will make your website stand out.
             </p>
           </li>
-          <li class="ul-list__item">
+          <li ref="F_li" class="ul-list__item">
             <h3 class="ul-list__title">
               <span class="about__pre-title">—</span>
               Development
@@ -42,7 +42,7 @@
               exceptional front-end development for every device.
             </p>
           </li>
-          <li class="ul-list__item">
+          <li ref="F_li" class="ul-list__item">
             <h3 class="ul-list__title">
               <span class="about__pre-title">—</span>
               Visual identity
@@ -52,7 +52,7 @@
               modern branding. It’s all about communication.
             </p>
           </li>
-          <li class="ul-list__item">
+          <li ref="F_li" class="ul-list__item">
             <h3 class="ul-list__title">
               <span class="about__pre-title">—</span>
               Interaction
@@ -62,7 +62,7 @@
               websites that help users achieve their online goals.
             </p>
           </li>
-          <li class="ul-list__item">
+          <li ref="F_li" class="ul-list__item">
             <h3 class="ul-list__title">
               <span class="about__pre-title">—</span>
               E-commerce

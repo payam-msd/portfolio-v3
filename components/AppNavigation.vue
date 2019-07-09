@@ -16,6 +16,7 @@ import AddForm from "~/components/navigation/addForm";
 
 export default {
   name: "Navigation",
+
   head() {
     return {
       title: "",

@@ -14,7 +14,7 @@
 .over-container {
   width: 100vw;
   height: 100vh;
-  background: #fff;
+  background: $white;
   position: relative;
 }
 
@@ -69,31 +69,31 @@
   &__item {
       cursor: pointer;
       line-height: 4rem;
-     transition: all 0.25s ease-in-out;
-     @include accelerate();
+      transition: all 0.25s ease-in-out;
+      @include accelerate();
 
-     a{
-         position: relative;
-         font-size: 1.6rem;
+      a{
+          position: relative;
+          font-size: 1.6rem;
           margin-right:2.25rem;
+          padding: .3rem 0;
           font-family: "product-sans-regular";
-          letter-spacing: 0.7px;
-         color: #fff !important;
+          letter-spacing: .1rem;
+          color: $blue-grey-050 !important;
 
-        &:hover {
-        color: #fff !important;
-        padding-left: 2.25rem;
-        margin-right: 0;
-        }
+          &:hover {
+              color: $white !important;
+              padding-left: 2.25rem;
+              margin-right: 0;
+            }
 
-        &::before {
+            &::before {
             content: "\2014";
-            color: #fff ;
+            color: $blue-grey-050 ;
             position: absolute;
             left: -1.25rem;
-            margin-right: 0.25rem;
             opacity: 0;
-            transition: all 0.25s ease-in-out;
+            transition: all 0.25s ease-out;
         }
 
         &:hover::before {
@@ -133,14 +133,16 @@
     }
 
     &__figure{
-        position: static;
+        position: relative;
         height: 100%;
         width: 100%;
         overflow: hidden;
+
         img{
             object-fit: cover;
-            width: 60rem ;
-            height:60rem ;
+            width: 100% ;
+            height:80rem ;
+            background-position: 50% 50%;
         }
     }
 
@@ -151,29 +153,33 @@
     z-index: 5;
     background-color: hsl(336, 75%, 43%);
     mix-blend-mode: darken;
-    right: 7rem;
-    bottom: 6rem;
-    width: calc(100% - 15rem);
-    height: 18rem;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    right: 5rem;
+    bottom: 5rem;
+    width: calc(100% - 18rem);
+    height: 16rem;
   }
 
   &__group {
-    color: #fff;
+    color: $white ;
     margin-bottom: 0;
     margin-top: auto;
-    padding: 4rem 5rem 5rem 5rem;
-    visibility: visible;
+    padding: 6rem 5rem 5rem 8rem;
+    @include accelerate();
 
     .h1 {
-    font-size: 2.5rem;
-    line-height: 6.25rem;
-    font-weight: 300;
+    font-size: 3rem;
+    text-transform: uppercase;
+    line-height: 7rem;
+    font-weight: 400;
     letter-spacing: .05em;
     }
     &--pre {
     display: block;
     margin-top: -.25rem;
-    font-size: 2rem;
+    letter-spacing: .1rem;
+    font-size: 1.8rem;
     }
   }
 }

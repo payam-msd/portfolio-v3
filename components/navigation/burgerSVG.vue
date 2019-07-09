@@ -1,7 +1,6 @@
 <template>
   <div>
     <svg
-      ref="burger"
       class="burger burger__rotate burger__props"
       viewBox="0 0 100 100"
       onClick="this.classList.toggle('active')"

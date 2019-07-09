@@ -2,7 +2,7 @@
   <div class="over-container">
     <div class="content-container">
       <nav class="navbar">
-        <ul class="navbar__list">
+        <ul ref="nav_ul" class="navbar__list">
           <li class="navbar__title">Menu</li>
           <nuxt-link
             class="navbar__item"
@@ -14,7 +14,7 @@
             <a>{{ page.text }}</a>
           </nuxt-link>
         </ul>
-        <ul class="navbar__list">
+        <ul ref="nav_ul" class="navbar__list">
           <li class="navbar__title">Cases</li>
           <nuxt-link
             class="navbar__item navbar__cases"
@@ -23,7 +23,6 @@
             :to="`${cases.route}`"
             tag="li"
             v-data-case="cases.title"
-            @mouseenter.passive.native="handleAnim"
           >
             <a>{{ cases.title }}</a>
           </nuxt-link>
@@ -43,13 +42,13 @@
           <div class="case-holder__item">
             <div class="case-holder__figure">
               <nuxt-link tag="A" :to="`${data.route}`">
-                <img ref="caseImg" :src="`img/${data.image}`" />
+                <img ref="caseImg" class="case-holder__img" :src="`img/${data.image}`" />
               </nuxt-link>
             </div>
           </div>
         </div>
 
-        <social-media class="Social" />
+        <social-media ref="social" class="Social" />
       </nav>
     </div>
   </div>
@@ -57,13 +56,12 @@
 
 <script>
 import { TimelineLite } from "gsap";
-import { starterNavAnim, afterToggle } from "~/mixins/Navbar";
 import SocialMedia from "~/components/SocialMedia";
 export default {
   name: "add-form",
-  mixins: [starterNavAnim, afterToggle],
   data() {
     return {
+      mouseHover: false,
       hoverCases: [
         {
           id: "0",
@@ -71,7 +69,7 @@ export default {
           desc: "A Tourism Agency Specilized in IRAN ",
           title: "DastanIran",
           image: "Workspace 1_030.png",
-          hover: true
+          hover: false
         },
         {
           id: "1",
@@ -109,6 +107,7 @@ export default {
       ]
     };
   },
+
   computed: {
     open(open) {
       return this.$store.state.sidebarOpen;
@@ -117,30 +116,7 @@ export default {
   components: {
     SocialMedia
   },
-  methods: {
-    handleAnim() {
-      let tl = new TimelineMax(),
-        { hGroup, caseImg, bar } = this.$refs;
-      tl.set(hGroup, { xPercent: 30, autoAlpha: 0 })
-        .set(caseImg, { xPercent: 5, autoAlpha: 0 })
-        .to(hGroup, 1, {
-          xPercent: 0,
-          autoAlpha: 1,
-          ease: Power2.easeOut
-        })
-        .to(
-          caseImg,
-          0.75,
-          {
-            xPercent: 10,
-            autoAlpha: 1,
-            ease: Power2.easeOut
-          },
-          "-=.9"
-        )
-        .to(bar, 1, { right: "5rem" }, "-=.9");
-    }
-  }
+  methods: {}
 };
 </script>
 

@@ -1,26 +1,80 @@
 <template>
   <div>
-    <index-header />
+    <index-header ref="indexH" />
   </div>
 </template>
 
 <script>
 import { TimelineMax } from "gsap";
-import { IndexAnim } from "~/mixins/IndexAnim";
 import IndexHeader from "~/components/index/IndexHeader";
 
 export default {
-  mixins: [IndexAnim],
   transition: {
     name: "index",
     mode: "out-in",
     css: false,
-
     enter(el, done) {
-      this.$store.dispatch("toggle");
-      const SVGToggle = document.querySelector(".burger");
-      SVGToggle.classList.toggle("active");
+      const _vm = this,
+        SVGToggle = document.querySelector(".burger"),
+        tl = new TimelineMax();
+      tl.staggerTo(
+        ".navbar__list, .Social",
+        0.75,
+        {
+          x: -100,
+          autoAlpha: 0,
+          ease: Power2.easeIn,
+          onComplete() {
+            _vm.$store.dispatch("toggle");
+            SVGToggle.classList.toggle("active");
+
+            tl.set(".navbar__list, .Social", {
+              autoAlpha: 0,
+              delay: -0.5,
+              x: -100
+            });
+
+            done;
+          }
+        },
+        0.1
+      );
     }
+  },
+  mounted() {
+    this.$nextTick(function() {
+      const { HP, Twrapper, btns } = this.$refs.indexH.$refs;
+      let tl = new TimelineMax();
+      function enterance() {
+        let H = [HP, Twrapper, btns];
+        tl.set(H, { autoAlpha: 0, x: 130 });
+
+        const config = {
+          threshold: 0.5
+        };
+        let observer = new IntersectionObserver(function(entries, self) {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              let overlap = "-=0.7";
+              if (!tl.isActive()) {
+                overlap = "+=0";
+              }
+              tl.to(
+                entry.target,
+                0.75,
+                { autoAlpha: 1, delay: 0.2, x: 0, ease: Power2.easeOut },
+                overlap
+              );
+              self.unobserve(entry.target);
+            }
+          });
+        }, config);
+        H.forEach(H => {
+          observer.observe(H);
+        });
+        return tl;
+      }
+    });
   },
   head() {
     return {
@@ -46,15 +100,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.active {
-  .top {
-    stroke-dashoffset: -68px;
-  }
-  .bottom {
-    stroke-dashoffset: -68px;
-  }
-  .middle {
-    stroke-dashoffset: -68px;
-  }
-}
 </style>

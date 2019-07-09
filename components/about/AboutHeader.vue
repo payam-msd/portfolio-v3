@@ -5,15 +5,15 @@
       <div class="header__container">
         <div class="header__wrapper">
           <div class="text-box u-mt-large">
-            <div class="header__title">
+            <div ref="Htitle" class="header__title">
               <span class="header__pre-title">—</span>
               <span>I’m Payam Maghsodi</span>
             </div>
-            <h1 class="heading-primary u-mt-medium">
+            <h1 ref="FHprimary" class="heading-primary u-mt-medium">
               Visual design &
               <br />Front-end professional
             </h1>
-            <div class="text-wrapper u-mt-large">
+            <div ref="FTwrapper" class="text-wrapper u-mt-large">
               <p>
                 I’m a creative professional from the iran, working in
                 Eindhoven as a freelance designer and as creative director for

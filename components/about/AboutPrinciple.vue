@@ -1,12 +1,12 @@
 <template>
   <div class="principle b-padding-large">
-    <h1 class="principle__title">Principles</h1>
-    <p class="principle__content">
+    <h1 ref="Ptitle" class="principle__title">Principles</h1>
+    <p ref="Pcontent" class="principle__content">
       The foundation of all the work I deliver can be
       <br />found in three main principles.
     </p>
     <ul class="principle__list">
-      <li class="principle-list__item">
+      <li ref="P_li" class="principle-list__item">
         <svg
           version="1.1"
           id="Layer_1"
@@ -84,7 +84,7 @@
           them to trust in my experience
         </p>
       </li>
-      <li class="principle-list__item">
+      <li ref="P_li" class="principle-list__item">
         <svg
           version="1.1"
           id="Light"
@@ -134,7 +134,7 @@
           everything into account takes time.
         </p>
       </li>
-      <li class="principle-list__item">
+      <li ref="P_li" class="principle-list__item">
         <svg
           version="1.1"
           id="Layer_1"

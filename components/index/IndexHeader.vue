@@ -4,11 +4,11 @@
     <header id="index" class="index index__container">
       <div class="index__wrapper">
         <div class="text-box">
-          <h1 class="heading-primary">
+          <h1 ref="HP" class="heading-primary">
             <span>better design</span>
             <span>better results</span>
           </h1>
-          <div class="text-wrapper u-mt-large">
+          <div ref="Twrapper" class="text-wrapper u-mt-large">
             <p>
               Combining the fields of design and development, I understand the
               possibilities of the web. That’s how I create valuable marketing
@@ -20,7 +20,7 @@
               better.
             </p>
           </div>
-          <div class="btn-holder u-mt-large">
+          <div ref="btns" class="btn-holder u-mt-large">
             <nuxt-link to="/about">
               <a class="btn header__btn">More about me</a>
             </nuxt-link>

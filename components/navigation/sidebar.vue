@@ -6,37 +6,17 @@
 </template>
 
 <script>
+import { starterNavAnim, afterToggle } from "~/mixins/Navbar";
 import { TimelineMax } from "gsap";
 export default {
   name: "sidebar",
-  mounted() {
-    TweenMax.set(this.$el, {
-      autoAlpha: 1,
-      x: this.$el.offsetWidth
-    });
-  },
+  mixins: [starterNavAnim, afterToggle],
   computed: {
-    open() {
+    open(open) {
       return this.$store.state.sidebarOpen;
     },
     component() {
       return this.$store.state.contentComponent;
-    }
-  },
-  watch: {
-    open: function(open) {
-      let tl = new TimelineMax(),
-        dX = open ? 0 : this.$el.offsetWidth;
-      setTimeout(() => {
-        open
-          ? (document.documentElement.classList = "hide-scroll")
-          : (document.documentElement.classList = "show-scroll");
-      }, 800);
-
-      tl.to(this.$el, 1.25, {
-        x: dX,
-        ease: Power2.easeInOut
-      });
     }
   }
 };
