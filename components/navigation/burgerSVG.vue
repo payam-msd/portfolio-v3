@@ -32,7 +32,7 @@ export default {
   top: 0;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  transition: transform 500ms 0.75s;
+  transition: transform 450ms ease-in-out;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -45,9 +45,9 @@ export default {
 
   &__line {
     fill: none;
-    transition: stroke-dasharray 450ms 1.45s, stroke-dashoffset 450ms 1.45s;
-    stroke-width: 8px;
-    stroke-linecap: round;
+    transition: stroke-dasharray 750ms 1s, stroke-dashoffset 750ms 1s;
+    stroke-width: 7px;
+    stroke-linecap: round !important;
   }
 
   &__props {

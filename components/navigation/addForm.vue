@@ -39,12 +39,10 @@
             </div>
           </div>
           <div ref="bar" class="case-holder__bar"></div>
-          <div class="case-holder__item">
-            <div class="case-holder__figure">
-              <nuxt-link tag="A" :to="`${data.route}`">
-                <img ref="caseImg" class="case-holder__img" :src="`img/${data.image}`" />
-              </nuxt-link>
-            </div>
+          <div class="case-holder__figure">
+            <nuxt-link tag="a" :to="`${data.route}`">
+              <img ref="caseImg" class="case-holder__img" :src="`img/${data.image}`" />
+            </nuxt-link>
           </div>
         </div>
 

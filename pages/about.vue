@@ -1,10 +1,10 @@
 <template>
   <div>
-    <about-header ref="Aheader" />
-    <about-focus ref="Afocus" />
+    <about-header />
+    <about-focus />
     <about-quote />
-    <about-principle ref="Aprinciple" />
-    <working-for ref="Aworking" />
+    <about-principle />
+    <working-for />
   </div>
 </template>
 
@@ -26,35 +26,30 @@ export default {
         SVGToggle = document.querySelector(".burger"),
         C = document.querySelectorAll(".navbar__list, .Social"),
         tl = new TimelineMax();
-      tl.staggerTo(
-        ".navbar__list, .Social",
-        0.75,
-        {
-          x: -100,
-          autoAlpha: 0,
-          ease: Power2.easeIn,
-          onComplete() {
-            _vm.$store.dispatch("toggle");
-            SVGToggle.classList.toggle("active");
-            tl.set(C, { autoAlpha: 0, delay: -0.5, x: -100 });
-            done;
-          }
-        },
-        0.1
-      );
+      tl.staggerTo(".navbar__list, .Social", 0.75, {
+        xPercent: -40,
+        autoAlpha: 0,
+        ease: Power2.easeIn,
+        onComplete() {
+          _vm.$store.dispatch("toggle");
+          SVGToggle.classList.toggle("active");
+          tl.set(
+            ".navbar__list, .Social",
+            {
+              xPercent: -40,
+              autoAlpha: 0,
+              delay: -0.5
+            },
+            0.1
+          );
+          done;
+        }
+      });
     }
   },
   mounted() {
-    // const { Hprimary, Twrapper, Htitle } = this.$refs.Aheader.$refs;
-    // const { FHprimary, FTwrapper, F_li } = this.$refs.Afocus.$refs;
-    // const { Ptitle, Pcontent, P_li } = this.$refs.Aprinciple.$refs;
-    // const { Wtitle, Wtext, btns } = this.$refs.Aworking.$refs;
     this.$nextTick(() => {
       const tl = new TimelineMax(),
-        // A = [Hprimary, Twrapper, Htitle],
-        // B = [FHprimary, FTwrapper, F_li],
-        // H = [Ptitle, Pcontent, P_li],
-        // D = [Wtitle, Wtext, btns];
         A = this.$el.querySelectorAll(
           ".heading-primary, .text-wrapper, .principle__title, .principle__content, .header__title"
         ),
@@ -67,7 +62,7 @@ export default {
       tl.set(B, { autoAlpha: 0, y: 85 });
 
       const config = {
-        threshold: 0.5
+        threshold: 0
       };
       let observer = new IntersectionObserver(function(entries, self) {
         entries.forEach(entry => {

@@ -30,24 +30,28 @@ export default {
   watch: {
     open(open) {
       let tl = new TimelineMax(),
-        { toggle } = this.$refs;
+        { toggle } = this.$refs,
+        _vm = this;
       open
-        ? tl.to(toggle, 0.75, {
+        ? tl.to(toggle, 0.4, {
             rotation: 45,
             delay: 0.85,
-            ease: Power1.easeInOut
+            ease: Power4.easeInOut,
+            onComplete() {
+              _vm.$refs.toggle.classList.add("removePulse");
+            }
           })
-        : tl.to(toggle, 0.75, {
+        : tl.to(toggle, 0.25, {
             rotation: 0,
             delay: 0.85,
-            ease: Power1.easeInOut
+            ease: Power4.easeInOut
           });
     }
   }
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 .toggle {
   position: relative;
   cursor: pointer;
@@ -73,6 +77,7 @@ export default {
     bottom: 0;
     left: -1px;
     height: 100%;
+    visibility: visible;
     @include accelerate();
     width: 100%;
     border: 1px solid $blue-grey-900;
@@ -81,22 +86,26 @@ export default {
       "pulse-ring 1.25s cubic-bezier(.455,.03,.515,.955) -20s infinite"
     );
   }
-
-  @include keyframes(pulse-ring) {
-    0% {
-      opacity: 0;
-      transform: scale(0.4);
-    }
-    40% {
-      opacity: 0;
-    }
-    60% {
-      opacity: 0.4;
-    }
-    100% {
-      opacity: 0;
-      transform: scale(1.4);
-    }
+}
+@include keyframes(pulse-ring) {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+.removePulse {
+  &.toggle::before {
+    visibility: hidden;
   }
 }
 </style>

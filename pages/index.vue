@@ -21,19 +21,17 @@ export default {
         ".navbar__list, .Social",
         0.75,
         {
-          x: -100,
+          xPercent: -40,
           autoAlpha: 0,
           ease: Power2.easeIn,
           onComplete() {
             _vm.$store.dispatch("toggle");
             SVGToggle.classList.toggle("active");
-
             tl.set(".navbar__list, .Social", {
+              xPercent: -40,
               autoAlpha: 0,
-              delay: -0.5,
-              x: -100
+              delay: -0.5
             });
-
             done;
           }
         },
@@ -43,37 +41,39 @@ export default {
   },
   mounted() {
     this.$nextTick(function() {
-      const { HP, Twrapper, btns } = this.$refs.indexH.$refs;
-      let tl = new TimelineMax();
-      function enterance() {
-        let H = [HP, Twrapper, btns];
-        tl.set(H, { autoAlpha: 0, x: 130 });
+      const { HP, Twrapper, btns } = this.$refs.indexH.$refs,
+        tl = new TimelineMax(),
+        H = [HP, Twrapper, btns];
+      tl.set(H, { autoAlpha: 0, x: 130 });
 
-        const config = {
-          threshold: 0.5
-        };
-        let observer = new IntersectionObserver(function(entries, self) {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              let overlap = "-=0.7";
-              if (!tl.isActive()) {
-                overlap = "+=0";
-              }
-              tl.to(
-                entry.target,
-                0.75,
-                { autoAlpha: 1, delay: 0.2, x: 0, ease: Power2.easeOut },
-                overlap
-              );
-              self.unobserve(entry.target);
+      const config = {
+        threshold: 1
+      };
+      let observer = new IntersectionObserver((entries, self) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            let overlap = "in-=.7";
+            if (!tl.isActive()) {
+              overlap = "in+=0";
             }
-          });
-        }, config);
-        H.forEach(H => {
-          observer.observe(H);
+            tl.add("in").to(
+              entry.target,
+              0.75,
+              {
+                autoAlpha: 1,
+                delay: 0.2,
+                x: 0,
+                ease: Power2.easeOut
+              },
+              overlap
+            );
+            self.unobserve(entry.target);
+          }
         });
-        return tl;
-      }
+      }, config);
+      H.forEach(H => {
+        observer.observe(H);
+      });
     });
   },
   head() {

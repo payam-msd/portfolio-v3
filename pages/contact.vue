@@ -82,13 +82,17 @@ export default {
         ".navbar__list, .Social",
         0.75,
         {
-          x: -100,
+          xPercent: -40,
           autoAlpha: 0,
           ease: Power2.easeIn,
           onComplete() {
             _vm.$store.dispatch("toggle");
             SVGToggle.classList.toggle("active");
-            tl.set(C, { autoAlpha: 0, delay: -0.5, x: -100 });
+            tl.set(".navbar__list, .Social", {
+              xPercent: -40,
+              autoAlpha: 0,
+              delay: -0.5
+            });
             done;
           }
         },

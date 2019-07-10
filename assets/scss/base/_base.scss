@@ -16,6 +16,7 @@ html {
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
 }
 
 h1,
@@ -23,7 +24,6 @@ h2,
 h3,
 h4 {
   text-rendering: optimizeLegibility;
-//   font-weight: normal;
 }
 
 a {
@@ -127,9 +127,6 @@ video {
 }
 .hide-scroll {
   overflow-y: hidden !important;
-}
-.show-scroll {
-  overflow-y: auto !important;
 }
 
 
