@@ -15,7 +15,6 @@ export default {
     css: false,
     enter(el, done) {
       const _vm = this,
-        SVGToggle = document.querySelector(".burger"),
         tl = new TimelineMax();
       tl.staggerTo(
         ".navbar__list, .Social",
@@ -25,14 +24,15 @@ export default {
           autoAlpha: 0,
           ease: Power2.easeIn,
           onComplete() {
-            _vm.$store.dispatch("toggle");
-            SVGToggle.classList.toggle("active");
+            if (!!open) {
+              _vm.$store.dispatch("toggle");
+              console.log("sidebar was open so toggle became false");
+            }
             tl.set(".navbar__list, .Social", {
               xPercent: -40,
               autoAlpha: 0,
               delay: -0.5
             });
-            done;
           }
         },
         0.1
@@ -45,6 +45,8 @@ export default {
         tl = new TimelineMax(),
         H = [HP, Twrapper, btns];
       tl.set(H, { autoAlpha: 0, x: 130 });
+
+      console.log(` initial state is : ${this.$store.state.sidebarOpen}`);
 
       const config = {
         threshold: 1
@@ -87,6 +89,11 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    open(open) {
+      return this.$store.state.sidebarOpen;
+    }
   },
   data() {
     return {};

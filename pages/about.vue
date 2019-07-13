@@ -23,7 +23,6 @@ export default {
     css: false,
     enter(el, done) {
       const _vm = this,
-        SVGToggle = document.querySelector(".burger"),
         C = document.querySelectorAll(".navbar__list, .Social"),
         tl = new TimelineMax();
       tl.staggerTo(".navbar__list, .Social", 0.75, {
@@ -32,7 +31,10 @@ export default {
         ease: Power2.easeIn,
         onComplete() {
           _vm.$store.dispatch("toggle");
-          SVGToggle.classList.toggle("active");
+          console.log(
+            `sidebar was open so toggle became ${_vm.$store.state.sidebarOpen}`
+          );
+
           tl.set(
             ".navbar__list, .Social",
             {
@@ -42,7 +44,6 @@ export default {
             },
             0.1
           );
-          done;
         }
       });
     }
@@ -127,6 +128,11 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    open(open) {
+      return this.$store.state.sidebarOpen;
+    }
   },
   components: {
     AboutHeader,

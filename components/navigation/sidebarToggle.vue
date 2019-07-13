@@ -25,6 +25,7 @@ export default {
       this.$store.dispatch("toggleSidebar", {
         component: this.contentComponent
       });
+      console.log(`toggle clicked ${this.$store.state.sidebarOpen}`);
     }
   },
   watch: {
@@ -40,18 +41,24 @@ export default {
             onComplete() {
               _vm.$refs.toggle.classList.add("removePulse");
             }
-          })
+          }) &&
+          setTimeout(() => {
+            document.querySelector(".burger").classList.add("active");
+          }, 100)
         : tl.to(toggle, 0.25, {
             rotation: 0,
             delay: 0.85,
             ease: Power4.easeInOut
-          });
+          }) &&
+          setTimeout(() => {
+            document.querySelector(".burger").classList.remove("active");
+          }, 100);
     }
   }
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss" scoped >
 .toggle {
   position: relative;
   cursor: pointer;

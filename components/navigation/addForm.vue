@@ -1,5 +1,5 @@
 <template>
-  <div class="over-container">
+  <div class="container">
     <div class="content-container">
       <nav class="navbar">
         <ul ref="nav_ul" class="navbar__list">
@@ -29,21 +29,22 @@
         </ul>
 
         <div class="case-holder" v-for="data in hoverCases" :key="data.id" v-show="data.hover">
-          <div class="case-holder__banner">
-            <div ref="hGroup" class="case-holder__group">
-              <span class="h1">{{ data.title }}</span>
-              <span class="case-holder__group--pre">
-                —
-                {{ data.desc }}
-              </span>
+          <nuxt-link tag="a" :to="`${data.route}`">
+            <div ref="bar" class="case-holder__bar"></div>
+
+            <div class="case-holder__banner">
+              <div ref="hGroup" class="case-holder__group">
+                <span class="h1">{{ data.title }}</span>
+                <span class="case-holder__group--pre">
+                  —
+                  {{ data.desc }}
+                </span>
+              </div>
             </div>
-          </div>
-          <div ref="bar" class="case-holder__bar"></div>
-          <div class="case-holder__figure">
-            <nuxt-link tag="a" :to="`${data.route}`">
-              <img ref="caseImg" class="case-holder__img" :src="`img/${data.image}`" />
-            </nuxt-link>
-          </div>
+            <div class="case-holder__img">
+              <div class="img" :style="{backgroundImage:`url(${data.image})`}"></div>
+            </div>
+          </nuxt-link>
         </div>
 
         <social-media ref="social" class="Social" />
@@ -66,7 +67,7 @@ export default {
           route: "/dastaniran",
           desc: "A Tourism Agency Specilized in IRAN ",
           title: "DastanIran",
-          image: "Workspace 1_030.png",
+          image: "/img/img4.jpg",
           hover: false
         },
         {
@@ -74,7 +75,7 @@ export default {
           route: "/sickfit",
           desc: "A shoping React base web app",
           title: "SickFit",
-          image: "img2.jpg",
+          image: "/img/img2.jpg",
           hover: false
         },
         {
@@ -82,7 +83,7 @@ export default {
           route: "/glozzom",
           desc: "A Bootstrap base UI app",
           title: "Glozzom",
-          image: "img3.jpg",
+          image: "/img/img3.jpg",
           hover: false
         }
       ],
@@ -106,15 +107,26 @@ export default {
     };
   },
 
-  computed: {
-    open(open) {
-      return this.$store.state.sidebarOpen;
-    }
-  },
   components: {
     SocialMedia
   },
-  methods: {}
+  methods: {},
+  watch: {
+    mouseHover: mouseHover => {
+      const tl = new TimelineLite();
+
+      mouseHover
+        ? tl
+            .set(".case-holder__group", { xPercent: 20, autoAlpha: 0 })
+            .add("in")
+            .to(".case-holder__group", 0.75, {
+              xPercent: 0,
+              autoAlpha: 1,
+              ease: Power4.easeOut
+            })
+        : "";
+    }
+  }
 };
 </script>
 

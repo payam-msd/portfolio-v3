@@ -22,7 +22,8 @@ export const afterToggle = {
             dX = open ? 0 : this.$el.offsetWidth;
 
             if (!!open) {
-            tl.set(C, { xPercent: -40 , autoAlpha: 0}).set(B , {xPercent: 50, autoAlpha: 0})
+            tl.set(C, { xPercent: -40 , autoAlpha: 0})
+            .set(B , {xPercent: 50, autoAlpha: 0})
             }
 
             tl.to(this.$el, 1.25, {
@@ -43,7 +44,7 @@ export const afterToggle = {
 
         function afterToggle_prop(){
         tl.add('leftSide').staggerTo(C, .75 , {xPercent: 0 , autoAlpha: 1 , ease: Power2.easeOut}, 0.1);
-        tl.staggerTo(B, .75 , {xPercent: 0, autoAlpha:1 , ease: Power2.easeOut}, 0.1, 'leftSide+=.6')
+        tl.staggerTo(B, .75 , {xPercent: 0, autoAlpha:1 , ease: Power2.easeOut}, 0.1, 'leftSide+=.4')
 
         return tl;
         }

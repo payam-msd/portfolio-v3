@@ -75,7 +75,6 @@ export default {
     css: false,
     enter(el, done) {
       const _vm = this,
-        SVGToggle = document.querySelector(".burger"),
         C = document.querySelectorAll(".navbar__list, .Social"),
         tl = new TimelineMax();
       tl.staggerTo(
@@ -86,14 +85,15 @@ export default {
           autoAlpha: 0,
           ease: Power2.easeIn,
           onComplete() {
-            _vm.$store.dispatch("toggle");
-            SVGToggle.classList.toggle("active");
+            if (!!open) {
+              _vm.$store.dispatch("toggle");
+              console.log("sidebar was open so toggle became false");
+            }
             tl.set(".navbar__list, .Social", {
               xPercent: -40,
               autoAlpha: 0,
               delay: -0.5
             });
-            done;
           }
         },
         0.1
@@ -111,7 +111,7 @@ export default {
       tl.set(B, { autoAlpha: 0, y: 50 });
 
       const config = {
-        threshold: 0.5
+        threshold: 0.8
       };
       let observer = new IntersectionObserver(function(entries, self) {
         entries.forEach(entry => {
@@ -135,7 +135,7 @@ export default {
       });
 
       const config2 = {
-        threshold: 0.5
+        threshold: 0.8
       };
       let observer2 = new IntersectionObserver(function(entries, self) {
         entries.forEach(entry => {
@@ -158,6 +158,11 @@ export default {
         observer2.observe(B);
       });
     });
+  },
+  computed: {
+    open(open) {
+      return this.$store.state.sidebarOpen;
+    }
   },
   head() {
     return {
