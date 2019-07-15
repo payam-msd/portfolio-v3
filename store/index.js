@@ -2,6 +2,7 @@ import * as types from "./mutation-types.js";
 
 const state = {
   sidebarOpen: false,
+  aboutState: false,
   contentComponent: null,
 };
 
@@ -12,6 +13,9 @@ const mutations = {
   },
   [types.SET_SIDEBAR_COMPONENT](state, component) {
     state.contentComponent = component;
+  },
+  [types.ABOUT_STATE](state){
+      state.aboutState = !state.aboutState;
   }
 };
 
@@ -21,8 +25,11 @@ const actions = {
     commit(types.TOGGLE_SIDEBAR);
     commit(types.SET_SIDEBAR_COMPONENT, component);
   },
-  toggle({ commit, state }) {
+  toggle({ commit, state}) {
     commit(types.TOGGLE_SIDEBAR);
+  },
+  changeAbout({state}){
+      commit(types.ABOUT_STATE);
   }
 };
 
@@ -30,7 +37,8 @@ const actions = {
 // getters
 const getters = {
   sidebarOpen: state => state.sidebarOpen,
-  contentComponent: state => state.contentComponent
+  contentComponent: state => state.contentComponent,
+  aboutState : state => state.aboutState
 };
 
 

@@ -20,7 +20,12 @@ export default {
           "https://fonts.googleapis.com/css?family=Expletus+Sans:500&display=swap",
         rel: "stylesheet"
       }
-    ]
+    ],
+    script: [
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js' },
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js' },
+      {src: "https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"}
+    ],
   },
 
   /*

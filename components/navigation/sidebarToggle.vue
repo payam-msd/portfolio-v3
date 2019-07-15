@@ -25,7 +25,6 @@ export default {
       this.$store.dispatch("toggleSidebar", {
         component: this.contentComponent
       });
-      console.log(`toggle clicked ${this.$store.state.sidebarOpen}`);
     }
   },
   watch: {

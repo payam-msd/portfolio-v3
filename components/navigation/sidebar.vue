@@ -12,7 +12,7 @@ export default {
   name: "sidebar",
   mixins: [starterNavAnim, afterToggle],
   computed: {
-    open(open) {
+    open() {
       return this.$store.state.sidebarOpen;
     },
     component() {

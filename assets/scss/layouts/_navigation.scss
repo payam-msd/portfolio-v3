@@ -76,7 +76,7 @@
           position: relative;
           font-size: 1.6rem;
           margin-right:2.25rem;
-          padding: .3rem 0;
+          padding: .5rem 0;
           font-family: "product-sans-regular";
           letter-spacing: .1rem;
           color: $blue-grey-050 !important;
@@ -108,7 +108,7 @@
     position: relative;
     height: calc(100vh - 35%);
     overflow: hidden;
-    width: calc(50vw - 10rem);
+    width: calc(50vw - 13rem);
     margin-right: 5rem;
     margin-bottom: 3rem;
     margin-left: auto;
@@ -126,7 +126,7 @@
       position: absolute;
       bottom: 23%;
       right: 2%;
-      width: calc(100% - 15rem) ;
+      width: calc(100% - 13rem) ;
       z-index: 2;
   }
 
@@ -140,7 +140,7 @@
     right: 3%;
     bottom: 16%;
     z-index: 1;
-    width: calc(100% - 15rem) ;
+    width: calc(100% - 12rem) ;
     height: calc(100% - 73%) ;
   }
 
@@ -150,7 +150,8 @@
         position: relative;
         display: flex;
         height: calc( 100vh - 10rem);
-        width: 100%;
+        width: 150%;
+        float: right;
         overflow: hidden;
 
         .img {
@@ -159,7 +160,8 @@
         background-repeat: no-repeat;
         background-size: cover;
         height: 100%;
-        width: 635px;
+        width: 100%;
+        left: 2%;
         min-width: none;
         transform: scale(.9) ;
         }

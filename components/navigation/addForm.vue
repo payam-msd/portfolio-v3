@@ -42,6 +42,7 @@
               </div>
             </div>
             <div class="case-holder__img">
+              <div class="imgWidth"></div>
               <div class="img" :style="{backgroundImage:`url(${data.image})`}"></div>
             </div>
           </nuxt-link>
@@ -117,13 +118,22 @@ export default {
 
       mouseHover
         ? tl
-            .set(".case-holder__group", { xPercent: 20, autoAlpha: 0 })
-            .add("in")
+            .set(".case-holder__group", { xPercent: 15, autoAlpha: 0 })
+            .set(".case-holder__img", {
+              autoAlpha: 0
+            })
             .to(".case-holder__group", 0.75, {
               xPercent: 0,
               autoAlpha: 1,
-              ease: Power4.easeOut
+              ease: Power1.easeInOut
             })
+            .fromTo(
+              ".case-holder__img",
+              0.6,
+              { left: "2%" },
+              { left: "25%", autoAlpha: 1, ease: Linear.easeInOut },
+              "-=.6"
+            )
         : "";
     }
   }

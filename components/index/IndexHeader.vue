@@ -1,6 +1,5 @@
 <template>
   <div>
-    <nuxt />
     <header id="index" class="index index__container">
       <div class="index__wrapper">
         <div class="text-box">
@@ -25,7 +24,7 @@
               <a class="btn header__btn">More about me</a>
             </nuxt-link>
 
-            <div class="btn header__btn">show me some work</div>
+            <div class="btn header__btn" @click="handleNav">show me some work</div>
           </div>
         </div>
         <div class="index__svg-holder">
@@ -60,8 +59,14 @@ export default {
   components: {
     MainSVG
   },
-  computed: {},
-  methods: {}
+  methods: {
+    handleNav() {
+      this.$store.dispatch("toggleSidebar", {
+        component: this.contentComponent
+      });
+    }
+  },
+  props: ["contentComponent"]
 };
 </script>
 

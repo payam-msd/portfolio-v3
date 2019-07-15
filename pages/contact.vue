@@ -85,10 +85,7 @@ export default {
           autoAlpha: 0,
           ease: Power2.easeIn,
           onComplete() {
-            if (!!open) {
-              _vm.$store.dispatch("toggle");
-              console.log("sidebar was open so toggle became false");
-            }
+            _vm.$store.dispatch("toggle");
             tl.set(".navbar__list, .Social", {
               xPercent: -40,
               autoAlpha: 0,
@@ -104,66 +101,60 @@ export default {
     const { Htitle, Htitle_pre, Twrapper, C_li, C2_li } = this.$refs;
 
     this.$nextTick(function() {
-      const H = [Htitle, Htitle_pre, Twrapper, C_li],
-        B = [C2_li],
-        tl = new TimelineMax();
-      tl.set(H, { autoAlpha: 0, x: 130 });
-      tl.set(B, { autoAlpha: 0, y: 50 });
-
-      const config = {
-        threshold: 0.8
-      };
-      let observer = new IntersectionObserver(function(entries, self) {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            let overlap = "-=0.7";
-            if (!tl.isActive()) {
-              overlap = "+=0";
-            }
-            tl.to(
-              entry.target,
-              0.75,
-              { autoAlpha: 1, delay: 0.2, x: 0, ease: Power2.easeOut },
-              overlap
-            );
-            self.unobserve(entry.target);
-          }
-        });
-      }, config);
-      H.forEach(H => {
-        observer.observe(H);
-      });
-
-      const config2 = {
-        threshold: 0.8
-      };
-      let observer2 = new IntersectionObserver(function(entries, self) {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            let overlap = "-=0.7";
-            if (!tl.isActive()) {
-              overlap = "+=0";
-            }
-            tl.to(
-              entry.target,
-              0.75,
-              { autoAlpha: 1, delay: 0.1, y: 0, ease: Power2.easeOut },
-              overlap
-            );
-            self.unobserve(entry.target);
-          }
-        });
-      }, config2);
-      B.forEach(B => {
-        observer2.observe(B);
-      });
+      //   const H = [Htitle, Htitle_pre, Twrapper, C_li],
+      //     B = [C2_li],
+      //     tl = new TimelineMax();
+      //   tl.set(H, { autoAlpha: 0, x: 130 });
+      //   tl.set(B, { autoAlpha: 0, y: 50 });
+      //   const config = {
+      //     threshold: 0.8
+      //   };
+      //   let observer = new IntersectionObserver(function(entries, self) {
+      //     entries.forEach(entry => {
+      //       if (entry.isIntersecting) {
+      //         let overlap = "-=0.7";
+      //         if (!tl.isActive()) {
+      //           overlap = "+=0";
+      //         }
+      //         tl.to(
+      //           entry.target,
+      //           0.75,
+      //           { autoAlpha: 1, delay: 0.2, x: 0, ease: Power2.easeOut },
+      //           overlap
+      //         );
+      //         self.unobserve(entry.target);
+      //       }
+      //     });
+      //   }, config);
+      //   H.forEach(H => {
+      //     observer.observe(H);
+      //   });
+      //   const config2 = {
+      //     threshold: 0.8
+      //   };
+      //   let observer2 = new IntersectionObserver(function(entries, self) {
+      //     entries.forEach(entry => {
+      //       if (entry.isIntersecting) {
+      //         let overlap = "-=0.7";
+      //         if (!tl.isActive()) {
+      //           overlap = "+=0";
+      //         }
+      //         tl.to(
+      //           entry.target,
+      //           0.75,
+      //           { autoAlpha: 1, delay: 0.1, y: 0, ease: Power2.easeOut },
+      //           overlap
+      //         );
+      //         self.unobserve(entry.target);
+      //       }
+      //     });
+      //   }, config2);
+      //   B.forEach(B => {
+      //     observer2.observe(B);
+      //   });
     });
   },
-  computed: {
-    open(open) {
-      return this.$store.state.sidebarOpen;
-    }
-  },
+  computed: {},
   head() {
     return {
       title: "",

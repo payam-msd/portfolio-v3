@@ -1,11 +1,12 @@
 <template>
   <div>
-    <index-header ref="indexH" />
+    <index-header :contentComponent="AddForm" ref="indexH" />
   </div>
 </template>
 
 <script>
 import { TimelineMax } from "gsap";
+import AddForm from "~/components/navigation/addForm";
 import IndexHeader from "~/components/index/IndexHeader";
 
 export default {
@@ -16,6 +17,7 @@ export default {
     enter(el, done) {
       const _vm = this,
         tl = new TimelineMax();
+
       tl.staggerTo(
         ".navbar__list, .Social",
         0.75,
@@ -24,10 +26,7 @@ export default {
           autoAlpha: 0,
           ease: Power2.easeIn,
           onComplete() {
-            if (!!open) {
-              _vm.$store.dispatch("toggle");
-              console.log("sidebar was open so toggle became false");
-            }
+            _vm.$store.dispatch("toggle");
             tl.set(".navbar__list, .Social", {
               xPercent: -40,
               autoAlpha: 0,
@@ -41,41 +40,38 @@ export default {
   },
   mounted() {
     this.$nextTick(function() {
-      const { HP, Twrapper, btns } = this.$refs.indexH.$refs,
-        tl = new TimelineMax(),
-        H = [HP, Twrapper, btns];
-      tl.set(H, { autoAlpha: 0, x: 130 });
-
-      console.log(` initial state is : ${this.$store.state.sidebarOpen}`);
-
-      const config = {
-        threshold: 1
-      };
-      let observer = new IntersectionObserver((entries, self) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            let overlap = "in-=.7";
-            if (!tl.isActive()) {
-              overlap = "in+=0";
-            }
-            tl.add("in").to(
-              entry.target,
-              0.75,
-              {
-                autoAlpha: 1,
-                delay: 0.2,
-                x: 0,
-                ease: Power2.easeOut
-              },
-              overlap
-            );
-            self.unobserve(entry.target);
-          }
-        });
-      }, config);
-      H.forEach(H => {
-        observer.observe(H);
-      });
+      //   const { HP, Twrapper, btns } = this.$refs.indexH.$refs,
+      //     tl = new TimelineMax(),
+      //     H = [HP, Twrapper, btns];
+      //   tl.set(H, { autoAlpha: 0, x: 130 });
+      //   const config = {
+      //     threshold: 1
+      //   };
+      //   let observer = new IntersectionObserver((entries, self) => {
+      //     entries.forEach(entry => {
+      //       if (entry.isIntersecting) {
+      //         let overlap = "in-=.7";
+      //         if (!tl.isActive()) {
+      //           overlap = "in+=0";
+      //         }
+      //         tl.add("in").to(
+      //           entry.target,
+      //           0.75,
+      //           {
+      //             autoAlpha: 1,
+      //             delay: 0.2,
+      //             x: 0,
+      //             ease: Power2.easeOut
+      //           },
+      //           overlap
+      //         );
+      //         self.unobserve(entry.target);
+      //       }
+      //     });
+      //   }, config);
+      //   H.forEach(H => {
+      //     observer.observe(H);
+      //   });
     });
   },
   head() {
@@ -90,13 +86,10 @@ export default {
       ]
     };
   },
-  computed: {
-    open(open) {
-      return this.$store.state.sidebarOpen;
-    }
-  },
   data() {
-    return {};
+    return {
+      AddForm
+    };
   },
   computed: {},
   components: {
