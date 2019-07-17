@@ -10,71 +10,18 @@
           </p>
         </div>
       </div>
-      <div class="focus__list u-mt-large">
-        <ul class="ul-list">
-          <li ref="F_li" class="ul-list__item">
-            <h3 class="ul-list__title">
-              <span class="about__pre-title">—</span>
-              User experience
+      <div class="u-mt-large">
+        <ul class="focus_ulList">
+          <li class="focus_ulList__item" v-for="item in listData" :key="item.id">
+            <h3 class="focus_ulList__title">
+              <span class="focus_ulList__preTitle">—</span>
+              {{item.title}}
             </h3>
-            <p class="focus__text">
-              I integrate design, usability and function to deliver results that
-              provide a relevant and meaningful experience to users.
-            </p>
-          </li>
-          <li ref="F_li" class="ul-list__item">
-            <h3 class="ul-list__title">
-              <span class="about__pre-title">—</span>
-              Visual design
-            </h3>
-            <p class="focus__text">
-              It’s all about the perfect first impression. Designing the
-              ultimate user experience is what will make your website stand out.
-            </p>
-          </li>
-          <li ref="F_li" class="ul-list__item">
-            <h3 class="ul-list__title">
-              <span class="about__pre-title">—</span>
-              Development
-            </h3>
-            <p class="focus__text">
-              The design comes to life through interaction and animation in an
-              exceptional front-end development for every device.
-            </p>
-          </li>
-          <li ref="F_li" class="ul-list__item">
-            <h3 class="ul-list__title">
-              <span class="about__pre-title">—</span>
-              Visual identity
-            </h3>
-            <p class="focus__text">
-              I give brands their very own visual identity with a unique and
-              modern branding. It’s all about communication.
-            </p>
-          </li>
-          <li ref="F_li" class="ul-list__item">
-            <h3 class="ul-list__title">
-              <span class="about__pre-title">—</span>
-              Interaction
-            </h3>
-            <p class="focus__text">
-              By utilizing the possibilities of the web, I design interactive
-              websites that help users achieve their online goals.
-            </p>
-          </li>
-          <li ref="F_li" class="ul-list__item">
-            <h3 class="ul-list__title">
-              <span class="about__pre-title">—</span>
-              E-commerce
-            </h3>
-            <p class="focus__text">
-              My web shop designs offer users a flawless online shopping
-              experience, giving companies the best business results.
-            </p>
+            <p class="focus_ulList__text">{{item.content}}</p>
           </li>
         </ul>
-        <div class="svg-holder">
-          <div ref="feather" class="feather-svg"></div>
+        <div class="feather-holder" ref="feather_trigger">
+          <div class="feather" ref="feather"></div>
         </div>
       </div>
     </section>
@@ -87,41 +34,95 @@ import { TimelineMax } from "gsap";
 export default {
   name: "AboutFocus",
   data() {
-    return {};
+    return {
+      listData: [
+        {
+          id: 1,
+          title: "User experience",
+          content:
+            "I integrate design, usability and function to deliver results that provide a relevant and meaningful experience to users."
+        },
+        {
+          id: 2,
+          title: "Visual design",
+          content:
+            "It’s all about the perfect first impression. Designing the ultimate user experience is what will make your website stand out."
+        },
+        {
+          id: 3,
+          title: "Development",
+          content:
+            "The design comes to life through interaction and animation in an exceptional front-end development for every device."
+        },
+        {
+          id: 4,
+          title: "Visual identity",
+          content:
+            "I give brands their very own visual identity with a unique and modern branding. It’s all about communication."
+        },
+        {
+          id: 5,
+          title: "Interaction",
+          content:
+            "By utilizing the possibilities of the web, I design interactive websites that help users achieve their online goals."
+        },
+        {
+          id: 6,
+          title: "E-commerce",
+          content:
+            "My web shop designs offer users a flawless online shopping experience, giving companies the best business results."
+        }
+      ]
+    };
   },
   mounted() {
     let tl = new TimelineMax(),
-      { feather } = this.$refs;
-    tl.from(feather, 1, { opacity: 0, ease: Power1.easeInOut })
-      .to(feather, 1.5, {
-        x: 150,
-        y: 80,
-        rotation: -40,
-        delay: -1.25,
-        ease: Power1.easeInoOut
+      controller = new ScrollMagic.Controller(),
+      { feather, feather_trigger } = this.$refs;
+    animationFeather();
+    function animationFeather() {
+      var tl = new TimelineMax(),
+        e = new ScrollMagic.Controller();
+      tl.from(feather, 1, {
+        opacity: 0,
+        ease: Power1.easeInout
       })
-      .to(feather, 2, {
-        x: -100,
-        y: 120,
-        rotation: 30,
-        delay: -1.25,
-        ease: Power1.easeInoOut
+        .to(feather, 1.5, {
+          x: 150,
+          y: 80,
+          rotation: -40,
+          delay: -1.25,
+          ease: Power1.easeInout
+        })
+        .to(feather, 2, {
+          x: -100,
+          y: 120,
+          rotation: 30,
+          delay: -1.25,
+          ease: Power1.easeInout
+        })
+        .to(feather, 1.5, {
+          x: 50,
+          y: 140,
+          rotation: -20,
+          delay: -1,
+          ease: Power1.easeInout
+        })
+        .to(feather, 1, {
+          x: 0,
+          y: 150,
+          rotation: 0,
+          delay: -0.5,
+          ease: Power1.easeInout
+        });
+      new ScrollMagic.Scene({
+        triggerElement: feather_trigger,
+        offset: -300,
+        reverse: !1
       })
-      .to(feather, 1.5, {
-        x: 50,
-        y: 140,
-        rotation: -20,
-        delay: -1,
-        ease: Power1.easeInoOut
-      })
-      .to(feather, 1, {
-        x: 0,
-        y: 150,
-        rotation: 0,
-        delay: -0.5,
-        opacity: 1,
-        ease: Power1.easeInoOut
-      });
+        .setTween(tl)
+        .addTo(e);
+    }
   }
 };
 </script>

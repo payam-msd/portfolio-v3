@@ -3,7 +3,7 @@
     <header id="index" class="index index__container">
       <div class="index__wrapper">
         <div class="text-box">
-          <h1 ref="HP" class="heading-primary">
+          <h1 ref="Hprimary" class="heading-primary">
             <span>better design</span>
             <span>better results</span>
           </h1>

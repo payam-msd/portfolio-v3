@@ -12,18 +12,14 @@
     &__content {
         font-size: 1.6rem;
         padding-bottom: 15rem;
+        letter-spacing: .1rem;
+        width: 35%;
     }
 
     &__list {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         list-style: none;
-
-        svg {
-            height: 64px;
-            width: 64px;
-            margin-bottom: 2rem;
-        }
 
         span {
             letter-spacing: 1px;

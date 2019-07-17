@@ -1,6 +1,8 @@
 <template>
   <div>
-    <index-header :contentComponent="AddForm" ref="indexH" />
+    <no-ssr>
+      <index-header :contentComponent="AddForm" ref="indexH" />
+    </no-ssr>
   </div>
 </template>
 
@@ -17,15 +19,17 @@ export default {
     enter(el, done) {
       const _vm = this,
         tl = new TimelineMax();
+      tl.delay(0.2);
 
       tl.staggerTo(
         ".navbar__list, .Social",
-        0.75,
+        1,
         {
           xPercent: -40,
           autoAlpha: 0,
-          ease: Power2.easeIn,
+          ease: Power2.easeInOut,
           onComplete() {
+            done;
             _vm.$store.dispatch("toggle");
             tl.set(".navbar__list, .Social", {
               xPercent: -40,
@@ -34,44 +38,46 @@ export default {
             });
           }
         },
-        0.1
+        0.2
       );
     }
   },
   mounted() {
     this.$nextTick(function() {
-      //   const { HP, Twrapper, btns } = this.$refs.indexH.$refs,
-      //     tl = new TimelineMax(),
-      //     H = [HP, Twrapper, btns];
-      //   tl.set(H, { autoAlpha: 0, x: 130 });
-      //   const config = {
-      //     threshold: 1
-      //   };
-      //   let observer = new IntersectionObserver((entries, self) => {
-      //     entries.forEach(entry => {
-      //       if (entry.isIntersecting) {
-      //         let overlap = "in-=.7";
-      //         if (!tl.isActive()) {
-      //           overlap = "in+=0";
-      //         }
-      //         tl.add("in").to(
-      //           entry.target,
-      //           0.75,
-      //           {
-      //             autoAlpha: 1,
-      //             delay: 0.2,
-      //             x: 0,
-      //             ease: Power2.easeOut
-      //           },
-      //           overlap
-      //         );
-      //         self.unobserve(entry.target);
-      //       }
-      //     });
-      //   }, config);
-      //   H.forEach(H => {
-      //     observer.observe(H);
-      //   });
+      const { Hprimary, Twrapper, btns } = this.$refs.indexH.$refs,
+        tl = new TimelineMax(),
+        time = !!this.$store.state.sidebarOpen ? 1200 : 500;
+      tl.set([Hprimary, Twrapper, btns], { autoAlpha: 0, xPercent: 30 });
+
+      setTimeout(() => {
+        const config = {
+          threshold: 1.0
+        };
+        const observer = new IntersectionObserver((entries, self) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              let overlap = "in-=.7";
+              if (!tl.isActive()) overlap = "in+=0";
+
+              tl.add("in").to(
+                entry.target,
+                1,
+                {
+                  autoAlpha: 1,
+                  delay: 0.1,
+                  xPercent: 0,
+                  ease: Power2.easeOut
+                },
+                overlap
+              );
+              self.unobserve(entry.target);
+            }
+          });
+        }, config);
+        [Hprimary, Twrapper, btns].forEach(A => {
+          observer.observe(A);
+        });
+      }, time);
     });
   },
   head() {
@@ -91,11 +97,9 @@ export default {
       AddForm
     };
   },
-  computed: {},
   components: {
     IndexHeader
-  },
-  watch: {}
+  }
 };
 </script>
 

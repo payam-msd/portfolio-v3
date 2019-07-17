@@ -44,8 +44,8 @@
                 </li>
               </ul>
               <ul class="contact__ul-list">
-                <h3>PDF downloads</h3>
-                <li ref="C2_li" class="contact__list-item u-mt-small">
+                <h3 ref="Hprimary">PDF downloads</h3>
+                <li ref="C2_li_2" class="contact__list-item u-mt-small">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
                     <path d="M33,14.1,16.44,30.52,0,14.1H9.39V0H23.5V14.1ZM0,35.26H33V40H0Z" />
                   </svg>
@@ -77,15 +77,17 @@ export default {
       const _vm = this,
         C = document.querySelectorAll(".navbar__list, .Social"),
         tl = new TimelineMax();
+      setTimeout(() => {
+        if (!!this.$store.state.sidebarOpen) this.$store.dispatch("toggle");
+      }, 750);
       tl.staggerTo(
         ".navbar__list, .Social",
-        0.75,
+        1,
         {
           xPercent: -40,
           autoAlpha: 0,
           ease: Power2.easeIn,
           onComplete() {
-            _vm.$store.dispatch("toggle");
             tl.set(".navbar__list, .Social", {
               xPercent: -40,
               autoAlpha: 0,
@@ -93,65 +95,74 @@ export default {
             });
           }
         },
-        0.1
+        0.2
       );
     }
   },
   mounted() {
-    const { Htitle, Htitle_pre, Twrapper, C_li, C2_li } = this.$refs;
-
     this.$nextTick(function() {
-      //   const H = [Htitle, Htitle_pre, Twrapper, C_li],
-      //     B = [C2_li],
-      //     tl = new TimelineMax();
-      //   tl.set(H, { autoAlpha: 0, x: 130 });
-      //   tl.set(B, { autoAlpha: 0, y: 50 });
-      //   const config = {
-      //     threshold: 0.8
-      //   };
-      //   let observer = new IntersectionObserver(function(entries, self) {
-      //     entries.forEach(entry => {
-      //       if (entry.isIntersecting) {
-      //         let overlap = "-=0.7";
-      //         if (!tl.isActive()) {
-      //           overlap = "+=0";
-      //         }
-      //         tl.to(
-      //           entry.target,
-      //           0.75,
-      //           { autoAlpha: 1, delay: 0.2, x: 0, ease: Power2.easeOut },
-      //           overlap
-      //         );
-      //         self.unobserve(entry.target);
-      //       }
-      //     });
-      //   }, config);
-      //   H.forEach(H => {
-      //     observer.observe(H);
-      //   });
-      //   const config2 = {
-      //     threshold: 0.8
-      //   };
-      //   let observer2 = new IntersectionObserver(function(entries, self) {
-      //     entries.forEach(entry => {
-      //       if (entry.isIntersecting) {
-      //         let overlap = "-=0.7";
-      //         if (!tl.isActive()) {
-      //           overlap = "+=0";
-      //         }
-      //         tl.to(
-      //           entry.target,
-      //           0.75,
-      //           { autoAlpha: 1, delay: 0.1, y: 0, ease: Power2.easeOut },
-      //           overlap
-      //         );
-      //         self.unobserve(entry.target);
-      //       }
-      //     });
-      //   }, config2);
-      //   B.forEach(B => {
-      //     observer2.observe(B);
-      //   });
+      const {
+          Htitle,
+          Htitle_pre,
+          Twrapper,
+          C_li,
+          C2_li,
+          C2_li_2,
+          Hprimary
+        } = this.$refs,
+        A = [Htitle, Htitle_pre, Twrapper, C_li],
+        B = [C2_li, C2_li_2, Hprimary],
+        time = !!this.$store.state.sidebarOpen ? 1200 : 500,
+        tl = new TimelineMax();
+
+      tl.set(A, { autoAlpha: 0, x: 130 }).set(B, { autoAlpha: 0, y: 80 });
+
+      setTimeout(() => {
+        const config = {
+          threshold: 0.5
+        };
+        const observer = new IntersectionObserver(function(entries, self) {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              let overlap = "-=0.7";
+              if (!tl.isActive()) overlap = "+=0";
+
+              tl.to(
+                entry.target,
+                1,
+                { autoAlpha: 1, x: 0, ease: Power2.easeOut },
+                overlap
+              );
+              self.unobserve(entry.target);
+            }
+          });
+        }, config);
+        A.forEach(A => {
+          observer.observe(A);
+        });
+        const config2 = {
+          threshold: 1.0
+        };
+        const observer2 = new IntersectionObserver(function(entries, self) {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              let overlap = "-=0.5";
+              if (!tl.isActive()) overlap = "+=0";
+
+              tl.to(
+                entry.target,
+                1,
+                { autoAlpha: 1, y: 0, ease: Power2.easeOut },
+                overlap
+              );
+              self.unobserve(entry.target);
+            }
+          });
+        }, config2);
+        B.forEach(B => {
+          observer2.observe(B);
+        });
+      }, time);
     });
   },
   computed: {},

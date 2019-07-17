@@ -41,7 +41,8 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ["~plugins/HoverEffect.js"],
+  plugins: ["~plugins/HoverEffect.js",
+{src: "~plugins/intersectionObserver.js"}],
 
   /*
    ** Nuxt.js modules
@@ -61,11 +62,19 @@ export default {
    ** Build configuration
    */
   build: {
-    extend(config, {isClient, dev}) {
-      if (isClient) {
+ extend(config, ctx) {
+      if (ctx.isDev) {
+        config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
       }
     }
   },
+  vue: {
+  config: {
+    productionTip: false,
+    devtools: true
+  }
+},
+
   styleResources: {
     // your settings here
     scss: [

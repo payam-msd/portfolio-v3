@@ -17,8 +17,10 @@
       for a next assignment.
     </p>
     <div ref="btns" class="btn-wrapper">
-      <div class="btn header__btn">contact information</div>
-      <div class="btn header__btn">show some work</div>
+      <nuxt-link to="/contact">
+        <a class="btn header__btn">contact information</a>
+      </nuxt-link>
+      <div class="btn header__btn" @click="handleNav">show some work</div>
     </div>
   </div>
 </template>
@@ -40,6 +42,14 @@ export default {
   },
   data() {
     return {};
+  },
+  props: ["contentComponent"],
+  methods: {
+    handleNav() {
+      this.$store.dispatch("toggleSidebar", {
+        component: this.contentComponent
+      });
+    }
   }
 };
 </script>

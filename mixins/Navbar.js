@@ -44,7 +44,7 @@ export const afterToggle = {
 
         function afterToggle_prop(){
         tl.add('leftSide').staggerTo(C, .75 , {xPercent: 0 , autoAlpha: 1 , ease: Power2.easeOut}, 0.1);
-        tl.staggerTo(B, .75 , {xPercent: 5, autoAlpha:1 , ease: Power2.easeInOut}, 0.1, 'leftSide+=.4')
+        tl.staggerTo(B, .75 , {xPercent: 5, autoAlpha:1 , ease: Power2.easeInOut}, 0.1, 'leftSide+=.3')
 
         return tl;
         }
