@@ -1,27 +1,24 @@
 <template>
-  <div>
-    <section id="focus" class="focus b-padding-medium">
+  <div class="b-padding-medium">
+    <section id="focus" class="focus">
       <div class="u-mt-medium">
-        <h1 ref="Hprimary" class="heading-primary">Focus</h1>
-        <div ref="Twrapper" class="text-wrapper">
-          <p class="focus__content u-mt-small">
-            I create unique products by combining design and development, while
-            keeping my focus. I specialize in these fields:
-          </p>
+        <h2 class="heading-primary">{{header.title}}</h2>
+        <div class="text-wrapper u-mt-small">
+          <p class="focus__content">{{header.content}}</p>
         </div>
       </div>
-      <div class="u-mt-large">
-        <ul class="focus_ulList">
-          <li class="focus_ulList__item" v-for="item in listData" :key="item.id">
-            <h3 class="focus_ulList__title">
-              <span class="focus_ulList__preTitle">—</span>
-              {{item.title}}
-            </h3>
-            <p class="focus_ulList__text">{{item.content}}</p>
-          </li>
-        </ul>
-        <div class="feather-holder" ref="feather_trigger">
-          <div class="feather" ref="feather"></div>
+      <ul class="ul-list u-mt-large">
+        <li class="ul-list__item" v-for="item in listData" :key="item.id">
+          <h3 class="ul-list__title">
+            <span class="ul-list__title--pre">—</span>
+            {{item.title}}
+          </h3>
+          <p class="ul-list__text">{{item.content}}</p>
+        </li>
+      </ul>
+      <div class="feather-holder" id="feather-trigger">
+        <div class="feather" id="feather">
+          <div class="feather-reflection" id="feather-reflection"></div>
         </div>
       </div>
     </section>
@@ -35,6 +32,11 @@ export default {
   name: "AboutFocus",
   data() {
     return {
+      header: {
+        title: "Focus",
+        content:
+          "I create unique products by combining design and development, whilekeeping my focus. I specialize in these fields"
+      },
       listData: [
         {
           id: 1,
@@ -76,52 +78,119 @@ export default {
     };
   },
   mounted() {
-    let tl = new TimelineMax(),
-      controller = new ScrollMagic.Controller(),
-      { feather, feather_trigger } = this.$refs;
-    animationFeather();
-    function animationFeather() {
+    this.$nextTick(this.animation);
+    this.$nextTick(this.animationList);
+    this.$nextTick(this.animationFeather);
+  },
+  methods: {
+    animation() {
       var tl = new TimelineMax(),
-        e = new ScrollMagic.Controller();
-      tl.from(feather, 1, {
-        opacity: 0,
+        controller = new ScrollMagic.Controller(),
+        t = document.querySelector("#focus");
+      tl.from(["#focus .focus__content .heading-primary"], 0.75, {
+        x: 75,
+        autoAlpha: 0,
+        delay: -0.5,
+        ease: Power2.easeOut
+      }).staggerFrom(
+        "#focus .focus__content p",
+        0.75,
+        {
+          x: 75,
+          autoAlpha: 0,
+          ease: Power2.easeOut
+        },
+        0.1,
+        "-=0.7"
+      );
+      new ScrollMagic.Scene({
+        triggerElement: t,
+        reverse: !1
+      })
+        .setTween(tl)
+        .addTo(controller);
+    },
+    animationList() {
+      var tl = new TimelineMax(),
+        controller = new ScrollMagic.Controller(),
+        t = document.querySelector("#focus .ul-list");
+      tl.staggerFrom(
+        "#focus .ul-list li h3",
+        0.75,
+        {
+          x: 75,
+          autoAlpha: 0,
+          ease: Power2.easeOut
+        },
+        0.1
+      ).staggerFrom(
+        "#focus .ul-list li p",
+        0.75,
+        {
+          x: 75,
+          autoAlpha: 0,
+          ease: Power2.easeOut
+        },
+        0.1,
+        "-=1.2"
+      );
+      new ScrollMagic.Scene({
+        triggerElement: t,
+        offset: -200,
+        reverse: !1
+      })
+        .setTween(tl)
+        .addTo(controller);
+    },
+    animationFeather() {
+      var tl = new TimelineMax(),
+        controller = new ScrollMagic.Controller(),
+        t = document.querySelector("#feather-trigger");
+      tl.from("#feather", 1, {
+        autoAlpha: 0,
         ease: Power1.easeInout
       })
-        .to(feather, 1.5, {
+        .to("#feather", 1.5, {
           x: 150,
           y: 80,
           rotation: -40,
           delay: -1.25,
           ease: Power1.easeInout
         })
-        .to(feather, 2, {
+        .to("#feather", 2, {
           x: -100,
           y: 120,
           rotation: 30,
           delay: -1.25,
           ease: Power1.easeInout
         })
-        .to(feather, 1.5, {
+        .to("#feather", 1.5, {
           x: 50,
           y: 140,
           rotation: -20,
           delay: -1,
           ease: Power1.easeInout
         })
-        .to(feather, 1, {
+        .to("#feather", 1, {
           x: 0,
           y: 150,
           rotation: 0,
           delay: -0.5,
           ease: Power1.easeInout
+        })
+        .from("#feather .feather-reflection", 1, {
+          autoAlpha: 0,
+          y: 25,
+          delay: -1,
+          ease: Power1.easeInout
         });
       new ScrollMagic.Scene({
-        triggerElement: feather_trigger,
-        offset: -300,
+        triggerElement: t,
+        offset: -150,
         reverse: !1
       })
         .setTween(tl)
-        .addTo(e);
+        .addTo(controller);
     }
   }
 };

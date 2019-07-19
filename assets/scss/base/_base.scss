@@ -1,49 +1,53 @@
 *,
 *::after,
 *::before {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
-  -webkit-tap-highlight-color: transparent;
-  box-sizing: inherit;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 html {
-  font-size: 62.5%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-overflow-scrolling: touch;
-  overflow-y: auto;
+    font-size: 62.5%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility;
 }
 
 a {
-  text-decoration: none;
-  color: $blue-grey-500 !important;
-  transition: all 0.3s;
+    text-decoration: none;
+    color: $blue-grey-500 !important;
+    transition: all 0.3s;
 
-  &:hover {
-    color: $blue-grey-900 !important;
-  }
+    &:hover {
+        color: $blue-grey-900 !important;
+    }
+}
+
+p {
+    letter-spacing: .7px;
+    line-height: 28px;
 }
 
 a:focus {
-  // Firefox (remove border on link click)
-  outline: 0;
+    outline: 0;
 }
 
 ul {
-  list-style: none;
-  margin: 0;
+    list-style: none;
+    margin: 0;
 }
 
 abbr,
@@ -114,30 +118,33 @@ tr,
 ul,
 var,
 video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  vertical-align: baseline;
-  background: transparent;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: transparent;
 }
 
 .root-container {
-  margin: 5rem !important;
+    margin: 5rem !important;
 }
+
 .hide-scroll {
-  overflow-y: hidden !important;
+    overflow-y: hidden !important;
 }
 
 
 .active {
-  .top {
-    stroke-dashoffset: -68px;
-  }
-  .bottom {
-    stroke-dashoffset: -68px;
-  }
-  .middle {
-    stroke-dashoffset: -68px;
-  }
+    .top {
+        stroke-dashoffset: -68px;
+    }
+
+    .bottom {
+        stroke-dashoffset: -68px;
+    }
+
+    .middle {
+        stroke-dashoffset: -68px;
+    }
 }

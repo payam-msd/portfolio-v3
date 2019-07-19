@@ -24,96 +24,33 @@ export default {
     css: false,
 
     enter(el, done) {
-      const tl = new TimelineMax();
-      setTimeout(() => {
-        if (!!this.$store.state.sidebarOpen) this.$store.dispatch("toggle");
-      }, 750);
+      const tl = new TimelineMax(),
+        _vm = this;
+      TweenMax.delayedCall(0.75, () => {
+        if (!!_vm.$store.state.sidebarOpen) _vm.$store.dispatch("toggle");
+      });
+      //   tl.staggerTo(
+      //     ".navbar__list, .Social",
+      //     1,
+      //     {
+      //       xPercent: -50,
+      //       autoAlpha: 0,
+      //       ease: Power2.easeInOut,
 
-      tl.staggerTo(
-        ".navbar__list, .Social",
-        1,
-        {
-          xPercent: -40,
-          autoAlpha: 0,
-          ease: Power2.easeIn,
-
-          onComplete() {
-            tl.set(".navbar__list, .Social", {
-              xPercent: -40,
-              autoAlpha: 0,
-              delay: -0.5
-            });
-          }
-        },
-        0.2
-      );
+      //       onComplete() {
+      //         tl.set(".navbar__list, .Social", {
+      //           xPercent: -40,
+      //           autoAlpha: 0,
+      //           delay: -0.5
+      //         });
+      //       }
+      //     },
+      //     0.2,
+      //     "-="
+      //   );
     }
   },
-  mounted() {
-    this.$nextTick(() => {
-      const tl = new TimelineMax(),
-        A = this.$el.querySelectorAll(
-          ".heading-primary, .text-wrapper, .principle__title, .principle__content, .header__title"
-        ),
-        C = this.$el.querySelectorAll(".focus_ulList__item, .principle-list__item"),
-        B = this.$el.querySelectorAll(
-          ".btn-holder, .workingFor__title, .workingFor__text, .btn-wrapper"
-        ),
-        time = !!this.$store.state.sidebarOpen ? 1200 : 500;
-      tl.set(A, { autoAlpha: 0, x: 100 })
-        .set(C, { autoAlpha: 0, x: 50 })
-        .set(B, { autoAlpha: 0, y: 85 });
-      setTimeout(() => {
-        const config = {
-          threshold: 0.8
-        };
-        const observer = new IntersectionObserver(function(entries, self) {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              let overlap = "-=0.8";
-              if (!tl.isActive()) overlap = "+=0";
-
-              tl.to(
-                entry.target,
-                1,
-                { autoAlpha: 1, x: 0, delay: 0.1, ease: Power2.easeOut },
-                overlap
-              );
-              self.unobserve(entry.target);
-            }
-          });
-        }, config);
-        const config2 = {
-          threshold: 1.0
-        };
-        const observer2 = new IntersectionObserver(function(entries, self) {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              let overlap = "-=0.5";
-              if (!tl.isActive()) overlap = "+=0";
-
-              tl.to(
-                entry.target,
-                1,
-                { autoAlpha: 1, y: 0, ease: Power2.easeOut },
-                overlap
-              );
-              self.unobserve(entry.target);
-            }
-          });
-        }, config2);
-        A.forEach(A => {
-          observer.observe(A);
-        });
-        B.forEach(B => {
-          observer2.observe(B);
-        });
-        C.forEach(C => {
-          observer.observe(C);
-        });
-      }, time);
-    });
-  },
+  mounted() {},
   head() {
     return {
       title: "",
@@ -137,7 +74,8 @@ export default {
     AboutQuote,
     AboutPrinciple,
     WorkingFor
-  }
+  },
+  methods: {}
 };
 </script>
 

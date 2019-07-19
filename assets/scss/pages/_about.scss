@@ -1,33 +1,33 @@
 .about {
-  background: $blue-grey-050;
-  font-size: 1.8rem;
-  font-family: product-sans-bold;
+    background: $blue-grey-050;
+    font-size: 1.8rem;
+    font-family: product-sans-bold;
 }
+
 .header {
-  &__container {
-    height: auto;
-  }
-
-  &__wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
-  }
-
-  &__pre-title {
-    color: $red-500;
-  }
-
-  &__title {
-    color: $blue-grey-900;
-  }
-
-  &__img-holder {
-    height: 100%;
-    width: 100%;
-
-    img {
-      width: 100%;
-      margin-top: 10rem;
+    &__container {
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
     }
-  }
+
+
+    &__title {
+        color: $blue-grey-900;
+        letter-spacing: .2rem;
+
+        &--pre {
+            color: $red-500;
+        }
+    }
+
+    &__img-holder {
+        height: 100%;
+        width: 100%;
+
+        img {
+            width: 100%;
+            margin-top: 10rem;
+        }
+    }
 }

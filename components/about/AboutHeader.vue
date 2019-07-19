@@ -1,39 +1,31 @@
 <template>
   <div>
-    <nuxt />
     <header id="about" class="about">
       <div class="header__container">
-        <div class="header__wrapper">
-          <div class="text-box u-mt-large">
-            <div ref="Htitle" class="header__title">
-              <span class="header__pre-title">—</span>
-              <span>I’m Payam Maghsodi</span>
-            </div>
-            <h1 ref="FHprimary" class="heading-primary u-mt-medium">
-              Visual design &
-              <br />Front-end professional
-            </h1>
-            <div ref="FTwrapper" class="text-wrapper u-mt-large">
-              <p>
-                I’m a creative professional from the iran, working in
-                Eindhoven as a freelance designer and as creative director for
-                Tallest. I work directly for clients or by partnering up with
-                agencies.
-              </p>
-              <br />
-              <span>Find out more about my focus and experience.</span>
-            </div>
+        <div class="text-box u-mt-large">
+          <div class="header__title">
+            <span class="header__title--pre">—</span>
+            <span>{{headerData.name}}</span>
           </div>
-          <div class="header__img-holder">
-            <img src alt />
+          <h1 class="heading-primary u-mt-small">
+            {{headerData.preTitle}}
+            <br />
+            {{headerData.title}}
+          </h1>
+          <div class="text-wrapper u-mt-large">
+            <p>{{headerData.content}}</p>
+            <br />
+            <span>{{headerData.suffix}}</span>
           </div>
         </div>
+        <div class="header__img-holder"></div>
       </div>
     </header>
   </div>
 </template>
 
 <script>
+import { TimelineMax } from "gsap";
 export default {
   name: "AboutHeader",
   head() {
@@ -49,8 +41,19 @@ export default {
     };
   },
   data() {
-    return {};
-  }
+    return {
+      headerData: {
+        name: "I’m Payam Maghsodi",
+        preTitle: "Visual design &",
+        title: "Front-end professional",
+        content:
+          "I’m a creative professional from the iran, working inEindhoven as a freelance designer and as creative director forTallest. I work directly for clients or by partnering up withagencies.",
+        suffix: "Find out more about my focus and experience."
+      }
+    };
+  },
+  mounted() {},
+  methods: {}
 };
 </script>
 

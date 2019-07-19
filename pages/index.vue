@@ -18,19 +18,37 @@ export default {
     css: false,
     enter(el, done) {
       const _vm = this,
-        tl = new TimelineMax();
-      tl.delay(0.2);
+        tl = new TimelineMax({ delay: 0.3 });
 
       tl.staggerTo(
         ".navbar__list, .Social",
         1,
         {
-          xPercent: -40,
+          xPercent: -50,
           autoAlpha: 0,
           ease: Power2.easeInOut,
+
           onComplete() {
-            done;
+            const tl2 = new TimelineMax({ delay: 1.25 }),
+              controller = new ScrollMagic.Controller();
+
+            tl2.staggerFrom(
+              ".heading-primary, .text-wrapper, .btn-holder",
+              0.75,
+              { x: 85, autoAlpha: 0, ease: Power2.easeOut },
+              0.2,
+              "-="
+            );
+
+            new ScrollMagic.Scene({
+              triggerElement: ".heading-primary"
+            })
+              .setTween(tl)
+              .addTo(controller);
+
             _vm.$store.dispatch("toggle");
+            done;
+
             tl.set(".navbar__list, .Social", {
               xPercent: -40,
               autoAlpha: 0,
@@ -38,48 +56,12 @@ export default {
             });
           }
         },
-        0.2
+        0.2,
+        "-="
       );
     }
   },
-  mounted() {
-    this.$nextTick(function() {
-      const { Hprimary, Twrapper, btns } = this.$refs.indexH.$refs,
-        tl = new TimelineMax(),
-        time = !!this.$store.state.sidebarOpen ? 1200 : 500;
-      tl.set([Hprimary, Twrapper, btns], { autoAlpha: 0, xPercent: 30 });
 
-      setTimeout(() => {
-        const config = {
-          threshold: 1.0
-        };
-        const observer = new IntersectionObserver((entries, self) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              let overlap = "in-=.7";
-              if (!tl.isActive()) overlap = "in+=0";
-
-              tl.add("in").to(
-                entry.target,
-                1,
-                {
-                  autoAlpha: 1,
-                  delay: 0.1,
-                  xPercent: 0,
-                  ease: Power2.easeOut
-                },
-                overlap
-              );
-              self.unobserve(entry.target);
-            }
-          });
-        }, config);
-        [Hprimary, Twrapper, btns].forEach(A => {
-          observer.observe(A);
-        });
-      }, time);
-    });
-  },
   head() {
     return {
       title: "",
@@ -97,6 +79,7 @@ export default {
       AddForm
     };
   },
+  methods: {},
   components: {
     IndexHeader
   }

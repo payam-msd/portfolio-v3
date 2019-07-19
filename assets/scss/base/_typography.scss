@@ -1,123 +1,123 @@
-p {
-  line-height: 1.7;
-}
-
 .heading-primary {
-  display: block;
-  font-size: 4.5rem;
-  text-transform: capitalize;
-  color: $blue-grey-800;
-  max-width: 60%;
+    display: block;
+    font-size: 4.2rem;
+    text-transform: capitalize;
+    color: $blue-grey-900;
+    max-width: 100%;
+    line-height: 6rem;
+    letter-spacing: .3rem;
 }
 
 .text-box {
-  padding: 4rem;
-  font-family: product-sans-regular;
+    padding: 4rem;
+    font-family: product-sans-regular;
 }
 
 .text-wrapper {
-  max-width: 80%;
-  color: $blue-grey-700;
+    max-width: 80%;
+    color: $blue-grey-700;
 }
 
 // * Header Font
 // ?                                PRODUCT SANS
 @font-face {
-  font-family: "product-sans-bold";
-  src: url("~assets/fonts/Google-Product-Sans-Header/Product-Sans-Bold.ttf")
-    format("truetype");
+    font-family: "product-sans-bold";
+    src: url("~assets/fonts/Google-Product-Sans-Header/Product-Sans-Bold.ttf") format("truetype");
 }
+
 @font-face {
-  font-family: "product-sans-regular";
-  src: url("~assets/fonts/Google-Product-Sans-Header/Product-Sans-Regular.ttf")
-    format("truetype");
+    font-family: "product-sans-regular";
+    src: url("~assets/fonts/Google-Product-Sans-Header/Product-Sans-Regular.ttf") format("truetype");
 }
+
 // * UI Font
 @font-face {
-  font-family: "effra";
-  src: url("~assets/fonts/Effra-UI/Effra-Regular.otf") format("opentype");
+    font-family: "effra";
+    src: url("~assets/fonts/Effra-UI/Effra-Regular.otf") format("opentype");
 }
+
 @font-face {
-  font-family: "effra-medium";
-  src: url("~assets/fonts/Effra-UI/Effra-Medium.otf") format("opentype");
+    font-family: "effra-medium";
+    src: url("~assets/fonts/Effra-UI/Effra-Medium.otf") format("opentype");
 }
+
 @font-face {
-  font-family: "effra-bold";
-  src: url("~assets/fonts/Effra-UI/Effra-Bold.otf") format("opentype");
+    font-family: "effra-bold";
+    src: url("~assets/fonts/Effra-UI/Effra-Bold.otf") format("opentype");
 }
+
 @font-face {
-  font-family: "effra-light";
-  src: url("~assets/fonts/Effra-UI/Effra-Light.otf") format("opentype");
+    font-family: "effra-light";
+    src: url("~assets/fonts/Effra-UI/Effra-Light.otf") format("opentype");
 }
 
 // * Text Font
 
 // ?                        AVENIR
 @font-face {
-  font-family: "avenir-light";
-  src: url("~assets/fonts/AvenirNextCyr-UI/AvenirNextCyr-Light.ttf")
-    format("opentype");
+    font-family: "avenir-light";
+    src: url("~assets/fonts/AvenirNextCyr-UI/AvenirNextCyr-Light.ttf") format("opentype");
 }
+
 @font-face {
-  font-family: "avenir-demi";
-  src: url("~assets/fonts/AvenirNextCyr-UI/AvenirNextCyr-Demi.ttf")
-    format("opentype");
+    font-family: "avenir-demi";
+    src: url("~assets/fonts/AvenirNextCyr-UI/AvenirNextCyr-Demi.ttf") format("opentype");
 }
+
 @font-face {
-  font-family: "avenir";
-  src: url("~assets/fonts/AvenirNextCyr-UI/AvenirNextCyr-Regular.ttf")
-    format("opentype");
+    font-family: "avenir";
+    src: url("~assets/fonts/AvenirNextCyr-UI/AvenirNextCyr-Regular.ttf") format("opentype");
 }
+
 @font-face {
-  font-family: "avenir-medium";
-  src: url("~assets/fonts/AvenirNextCyr-UI/AvenirNextCyr-Medium.ttf")
-    format("opentype");
+    font-family: "avenir-medium";
+    src: url("~assets/fonts/AvenirNextCyr-UI/AvenirNextCyr-Medium.ttf") format("opentype");
 }
+
 @font-face {
-  font-family: "avenir-bold";
-  src: url("~assets/fonts/AvenirNextCyr-UI/AvenirNextCyr-Bold.ttf")
-    format("opentype");
+    font-family: "avenir-bold";
+    src: url("~assets/fonts/AvenirNextCyr-UI/AvenirNextCyr-Bold.ttf") format("opentype");
 }
+
 // ?                             DURK
 @font-face {
-  font-family: "durk-medium";
-  src: url("~assets/fonts/Druk-Text-Wide-text/DrukTextWide-Medium.otf")
-    format("opentype");
+    font-family: "durk-medium";
+    src: url("~assets/fonts/Druk-Text-Wide-text/DrukTextWide-Medium.otf") format("opentype");
 }
+
 @font-face {
-  font-family: "durk-bold";
-  src: url("~assets/fonts/Druk-Text-Wide-text/DrukTextWide-Bold.otf")
-    format("opentype");
+    font-family: "durk-bold";
+    src: url("~assets/fonts/Druk-Text-Wide-text/DrukTextWide-Bold.otf") format("opentype");
 }
+
 // ?                    PROXIMA NOVA
 @font-face {
-  font-family: "proxima-regular";
-  src: url("~assets/fonts/ProximaNova-text/ProximaNova-Regular.ttf")
-    format("truetype");
+    font-family: "proxima-regular";
+    src: url("~assets/fonts/ProximaNova-text/ProximaNova-Regular.ttf") format("truetype");
 }
+
 @font-face {
-  font-family: "proxima-light";
-  src: url("~assets/fonts/ProximaNova-text/ProximaNova-Light.ttf")
-    format("truetype");
+    font-family: "proxima-light";
+    src: url("~assets/fonts/ProximaNova-text/ProximaNova-Light.ttf") format("truetype");
 }
+
 @font-face {
-  font-family: "proxima-bold";
-  src: url("~assets/fonts/ProximaNova-text/ProximaNova-Bold.ttf")
-    format("truetype");
+    font-family: "proxima-bold";
+    src: url("~assets/fonts/ProximaNova-text/ProximaNova-Bold.ttf") format("truetype");
 }
+
 // ?                            SOURCE SANS PRO
 @font-face {
-  font-family: "source-sans-light";
-  src: url("~assets/fonts/SourceSansPro-text/SourceSansPro-Light.ttf")
-    format("opentype");
+    font-family: "source-sans-light";
+    src: url("~assets/fonts/SourceSansPro-text/SourceSansPro-Light.ttf") format("opentype");
 }
+
 @font-face {
-  font-family: "source-sans-regular";
-  src: url("~assets/fonts/SourceSansPro-text/SourceSansPro-Regular.ttf")
-    format("opentype");
+    font-family: "source-sans-regular";
+    src: url("~assets/fonts/SourceSansPro-text/SourceSansPro-Regular.ttf") format("opentype");
 }
+
 @font-face {
-  font-family: "source-sans-bold";
-  src: url("~assets/fonts/SourceSansPro-text/SourceSansPro-Bold.ttf")
-    format("opentype");
+    font-family: "source-sans-bold";
+    src: url("~assets/fonts/SourceSansPro-text/SourceSansPro-Bold.ttf") format("opentype");
 }

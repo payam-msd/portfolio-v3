@@ -5,6 +5,7 @@
         <div class="text-box">
           <h1 ref="Hprimary" class="heading-primary">
             <span>better design</span>
+            <br />
             <span>better results</span>
           </h1>
           <div ref="Twrapper" class="text-wrapper u-mt-large">

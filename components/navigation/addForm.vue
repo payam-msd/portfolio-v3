@@ -2,7 +2,7 @@
   <div class="container">
     <div class="content-container">
       <nav class="navbar">
-        <ul ref="nav_ul" class="navbar__list">
+        <ul class="navbar__list">
           <li class="navbar__title">Menu</li>
           <nuxt-link
             class="navbar__item"
@@ -14,7 +14,7 @@
             <a>{{ page.text }}</a>
           </nuxt-link>
         </ul>
-        <ul ref="nav_ul" class="navbar__list">
+        <ul class="navbar__list">
           <li class="navbar__title">Cases</li>
           <nuxt-link
             class="navbar__item navbar__cases"
@@ -42,8 +42,7 @@
               </div>
             </div>
             <div class="case-holder__img">
-              <div class="imgWidth"></div>
-              <div class="img" :style="{backgroundImage:`url(${data.image})`}"></div>
+              <div ref="image" class="img" :style="{backgroundImage:`url(${data.image})`}"></div>
             </div>
           </nuxt-link>
         </div>
@@ -112,6 +111,22 @@ export default {
     SocialMedia
   },
   methods: {},
+  mounted() {
+    this.$nextTick(() => {
+      const tl = new TimelineMax(),
+        { hGroup, image, bar } = this.$refs;
+      tl.set([hGroup, image, bar], { autoAlpha: 0 }).staggerFrom(
+        [hGroup, image, bar],
+        1,
+        { autoAlpha: 1, x: 150 }
+      );
+    });
+  },
+  computed: {
+    open(open) {
+      return this.$store.state.sidebarOpen;
+    }
+  },
   watch: {
     mouseHover: mouseHover => {
       const tl = new TimelineLite();
