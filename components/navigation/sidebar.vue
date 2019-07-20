@@ -48,7 +48,7 @@ export default {
           0.1
         )
         .staggerTo(
-          ".socialMedia, .socialMedia ul  , .navbar__title",
+          ".Social, .socialMedia ul  , .navbar__title",
           0.75,
           {
             xPercent: 0,
@@ -56,7 +56,7 @@ export default {
             ease: Power2.easeOut
           },
           0.2,
-          "navIn+=.3"
+          "navIn+=.1"
         )
         .staggerTo(
           ".case-holder__img , .case-holder div , .case-holder span",
@@ -68,7 +68,7 @@ export default {
             ease: Power2.easeOut
           },
           0.1,
-          "navIn+=.2"
+          "navIn-=.1"
         );
 
       return tl;
@@ -81,7 +81,7 @@ export default {
         dX = open ? 0 : this.$el.offsetWidth;
 
       if (!!open) {
-        tl.set(".navbar__list  , .socialMedia ul ", {
+        tl.set(".navbar__list  , .Social ul ", {
           xPercent: -40,
           autoAlpha: 0
         }).set(".case-holder__img  , .case-holder div , .case-holder span", {

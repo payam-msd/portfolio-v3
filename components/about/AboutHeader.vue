@@ -3,10 +3,10 @@
     <header id="about" class="about">
       <div class="header__container">
         <div class="text-box u-mt-large">
-          <div class="header__title">
+          <p class="header__title">
             <span class="header__title--pre">—</span>
             <span>{{headerData.name}}</span>
-          </div>
+          </p>
           <h1 class="heading-primary u-mt-small">
             {{headerData.preTitle}}
             <br />
@@ -52,8 +52,33 @@ export default {
       }
     };
   },
-  mounted() {},
-  methods: {}
+  mounted() {
+    this.$nextTick(this.heroAnimation);
+  },
+  methods: {
+    heroAnimation() {
+      const tl = new TimelineMax();
+      tl.staggerFrom(
+        "#about .header__title, .text-box h1",
+        1,
+        {
+          x: 85,
+          autoAlpha: 0,
+          ease: Power2.easeOut
+        },
+        0.2
+      ).from(
+        "#about .text-wrapper",
+        1,
+        {
+          x: 80,
+          autoAlpha: 0,
+          ease: Power2.easeOut
+        },
+        "-=.7"
+      );
+    }
+  }
 };
 </script>
 

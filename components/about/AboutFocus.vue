@@ -186,7 +186,7 @@ export default {
         });
       new ScrollMagic.Scene({
         triggerElement: t,
-        offset: -150,
+        offset: -250,
         reverse: !1
       })
         .setTween(tl)

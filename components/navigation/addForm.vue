@@ -56,10 +56,17 @@
 <script>
 import { TimelineLite } from "gsap";
 import SocialMedia from "~/components/SocialMedia";
+import img2 from "~/assets/img/img2.jpg";
+import img3 from "~/assets/img/img3.jpg";
+import img4 from "~/assets/img/img4.jpg";
+
 export default {
   name: "add-form",
   data() {
     return {
+      img2,
+      img3,
+      img4,
       mouseHover: false,
       hoverCases: [
         {
@@ -67,7 +74,7 @@ export default {
           route: "/dastaniran",
           desc: "A Tourism Agency Specilized in IRAN ",
           title: "DastanIran",
-          image: "/img/img4.jpg",
+          image: img2,
           hover: false
         },
         {
@@ -75,7 +82,7 @@ export default {
           route: "/sickfit",
           desc: "A shoping React base web app",
           title: "SickFit",
-          image: "/img/img2.jpg",
+          image: img3,
           hover: false
         },
         {
@@ -83,7 +90,7 @@ export default {
           route: "/glozzom",
           desc: "A Bootstrap base UI app",
           title: "Glozzom",
-          image: "/img/img3.jpg",
+          image: img4,
           hover: false
         }
       ],

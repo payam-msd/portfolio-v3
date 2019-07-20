@@ -1,11 +1,9 @@
 <template>
   <div>
-    <nuxt />
-    <!-- quote section -->
     <section id="quote" class="quote">
       <div class="quote__holder">
         <div class="quote__content">
-          <div class="quote u-text-center">
+          <div class="u-text-center">
             <svg
               viewBox="0 0 67.7 53.6"
               xmlns="http://www.w3.org/2000/svg"
@@ -20,20 +18,14 @@
 								c0.5-0.4,2.1-0.5,3.6-0.5c6.8,0,11.9,5.2,11.9,12.8c0,7.6-6.2,14.1-13.9,14.1c-8.4,0-15.8-6.6-15.8-18.1C37.2,20.9,44.5,9,55.5,1.2
 								z"
                 class="st0"
-              ></path>
+              />
             </svg>
             <blockquote>
-              <p>
-                It’s great to work with Marijn! He’s quick to understand the
-                conditions and shares improvements from a UX point of view. With
-                a wide knowledge of front-end development and web design, he
-                connects customer, design and developers. A generalist and
-                specialist combined!
-              </p>
+              <p>{{ quoteData.content }}</p>
             </blockquote>
             <div class="person">
-              <strong>Remmelt van Tol </strong>
-              <span>Digital strategist at Salveo Pharma </span>
+              <strong>{{quoteData.person}}</strong>
+              <span>{{quoteData.experties}}</span>
             </div>
             <div class="btn btn-change">
               <svg
@@ -54,7 +46,7 @@
                                 c-1.753,0-3.398,0.594-4.759,1.717c-1.731,1.429-2.724,3.535-2.725,5.779v0.439l1.72-1.72c0.142-0.142,0.33-0.22,0.53-0.22
                                 s0.389,0.078,0.53,0.22c0.142,0.141,0.22,0.33,0.22,0.53s-0.078,0.389-0.22,0.53l-2.986,2.986
                                 C4.166,15.157,3.962,15.249,3.749,15.249z"
-                ></path>
+                />
                 <path
                   d="M12.006,21.245c-0.089,0-0.177-0.001-0.267-0.004c-2.403-0.07-4.635-1.071-6.285-2.819
                                 c-0.138-0.146-0.21-0.336-0.204-0.536c0.006-0.2,0.089-0.386,0.235-0.524c0.14-0.132,0.323-0.204,0.515-0.204
@@ -65,22 +57,31 @@
                                 c0.011,0.004,0.022,0.008,0.032,0.012c0.085,0.035,0.167,0.09,0.238,0.16l3,3c0.292,0.292,0.292,0.768,0,1.061
                                 c-0.142,0.142-0.33,0.22-0.53,0.22s-0.389-0.078-0.53-0.22l-1.725-1.725c-0.082,2.357-1.098,4.616-2.818,6.239
                                 C16.499,20.373,14.308,21.245,12.006,21.245z"
-                ></path>
+                />
               </svg>
             </div>
           </div>
         </div>
-        <div class="quote__content--bg"></div>
+        <div class="quote__content--bg" :style="{backgroundImage: `url(${quoteData.img})`}"></div>
       </div>
     </section>
   </div>
 </template>
 
 <script>
+import img1 from "~/assets/img/img1.jpg";
 export default {
   name: "AboutQoute",
   data() {
-    return {};
+    return {
+      quoteData: {
+        content:
+          "It’s great to work with payam! He’s quick to understand theconditions and shares improvements from a UX point of view. Witha wide knowledge of front-end development and web design, heconnects customer, design and developers. A generalist andspecialist combineds!",
+        person: "Remmelt van Tol",
+        experties: "Digital strategist at Salveo Pharma",
+        img: img1
+      }
+    };
   }
 };
 </script>
