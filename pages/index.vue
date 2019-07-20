@@ -19,46 +19,33 @@ export default {
     enter(el, done) {
       const _vm = this,
         tl = new TimelineMax({ delay: 0.3 });
-
-      tl.staggerTo(
-        ".navbar__list, .Social",
-        1,
-        {
-          xPercent: -50,
+      tl.add("socialOut")
+        .to(".socialMedia, .socialMedia ul , .navbar__title", 1, {
+          xPercent: -40,
           autoAlpha: 0,
-          ease: Power2.easeInOut,
-
+          ease: Power2.easeOut,
           onComplete() {
-            const tl2 = new TimelineMax({ delay: 1.25 }),
-              controller = new ScrollMagic.Controller();
-
-            tl2.staggerFrom(
-              ".heading-primary, .text-wrapper, .btn-holder",
-              0.75,
-              { x: 85, autoAlpha: 0, ease: Power2.easeOut },
-              0.2,
-              "-="
-            );
-
-            new ScrollMagic.Scene({
-              triggerElement: ".heading-primary"
-            })
-              .setTween(tl)
-              .addTo(controller);
-
+            tl.delay(0.2);
             _vm.$store.dispatch("toggle");
             done;
-
-            tl.set(".navbar__list, .Social", {
+            tl.set(".navbar__list, .socialMedia ul", {
               xPercent: -40,
               autoAlpha: 0,
-              delay: -0.5
+              delay: -0.6
             });
           }
-        },
-        0.2,
-        "-="
-      );
+        })
+        .staggerTo(
+          ".navbar__list ",
+          0.75,
+          {
+            xPercent: -40,
+            autoAlpha: 0,
+            ease: Power2.easeInout
+          },
+          0.1,
+          "socialOut+=.2"
+        );
     }
   },
 

@@ -3,12 +3,12 @@
     <header id="index" class="index index__container">
       <div class="index__wrapper">
         <div class="text-box">
-          <h1 ref="Hprimary" class="heading-primary">
+          <h1 class="heading-primary">
             <span>better design</span>
             <br />
             <span>better results</span>
           </h1>
-          <div ref="Twrapper" class="text-wrapper u-mt-large">
+          <div class="text-wrapper u-mt-large">
             <p>
               Combining the fields of design and development, I understand the
               possibilities of the web. That’s how I create valuable marketing
@@ -20,7 +20,7 @@
               better.
             </p>
           </div>
-          <div ref="btns" class="btn-holder u-mt-large">
+          <div class="btn-holder u-mt-large">
             <nuxt-link to="/about">
               <a class="btn header__btn">More about me</a>
             </nuxt-link>
@@ -57,6 +57,12 @@ export default {
   data() {
     return {};
   },
+  mounted() {
+    const time = !!this.$store.state.sidebarOpen ? 1500 : 0;
+    setTimeout(() => {
+      this.$nextTick(this.heroAnimation);
+    }, time);
+  },
   components: {
     MainSVG
   },
@@ -65,6 +71,34 @@ export default {
       this.$store.dispatch("toggleSidebar", {
         component: this.contentComponent
       });
+    },
+    heroAnimation() {
+      const tl = new TimelineMax();
+      tl.from("#index .text-box h1", 0.75, {
+        x: 85,
+        autoAlpha: 0,
+        ease: Power2.easeOut
+      })
+        .from(
+          "#index .text-wrapper p",
+          0.75,
+          {
+            x: 85,
+            autoAlpha: 0,
+            ease: Power2.easeOut
+          },
+          "-=.6"
+        )
+        .from(
+          "#index .btn-holder",
+          0.75,
+          {
+            x: 85,
+            autoAlpha: 0,
+            ease: Power2.easeOut
+          },
+          "-=.7"
+        );
     }
   },
   props: ["contentComponent"]

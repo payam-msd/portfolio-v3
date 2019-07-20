@@ -130,23 +130,28 @@ export default {
   watch: {
     mouseHover: mouseHover => {
       const tl = new TimelineLite();
-
       mouseHover
         ? tl
-            .set(".case-holder__group", { xPercent: 15, autoAlpha: 0 })
-            .set(".case-holder__img", {
-              autoAlpha: 0
+            .set(".case-holder__group span ", {
+              x: 80,
+              autoAlpha: 0,
+              force3D: false
             })
-            .to(".case-holder__group", 0.75, {
-              xPercent: 0,
-              autoAlpha: 1,
-              ease: Power1.easeInOut
-            })
+            .to(
+              ".case-holder__group span ",
+              0.75,
+              {
+                x: 0,
+                autoAlpha: 1,
+                ease: Power2.easeInout
+              },
+              "+="
+            )
             .fromTo(
-              ".case-holder__img",
-              0.6,
-              { left: "2%" },
-              { left: "25%", autoAlpha: 1, ease: Linear.easeInOut },
+              ".case-holder__img div",
+              1,
+              { x: "2%", autoAlpha: 0 },
+              { x: "20%", autoAlpha: 1, ease: Power2.easeInout },
               "-=.6"
             )
         : "";
