@@ -57,26 +57,29 @@ export default {
   },
   methods: {
     heroAnimation() {
-      const tl = new TimelineMax();
-      tl.staggerFrom(
-        "#about .header__title, .text-box h1",
-        1,
-        {
-          x: 85,
-          autoAlpha: 0,
-          ease: Power2.easeOut
-        },
-        0.2
-      ).from(
-        "#about .text-wrapper",
-        1,
-        {
-          x: 80,
-          autoAlpha: 0,
-          ease: Power2.easeOut
-        },
-        "-=.7"
-      );
+      const tl = new TimelineMax(),
+        time = !!this.$store.state.sidebarOpen ? 1.25 : 0.2;
+      TweenLite.delayedCall(time, () => {
+        tl.staggerFrom(
+          "#about .header__title, .text-box h1",
+          1,
+          {
+            x: 85,
+            autoAlpha: 0,
+            ease: Power2.easeOut
+          },
+          0.2
+        ).from(
+          "#about .text-wrapper",
+          1,
+          {
+            x: 80,
+            autoAlpha: 0,
+            ease: Power2.easeOut
+          },
+          "-=.7"
+        );
+      });
     }
   }
 };

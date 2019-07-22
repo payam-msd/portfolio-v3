@@ -9,7 +9,7 @@
 <script>
 import { TimelineMax } from "gsap";
 import AddForm from "~/components/navigation/addForm";
-import IndexHeader from "~/components/index/IndexHeader";
+import IndexHeader from "~/components/index/IndexHero";
 
 export default {
   transition: {
@@ -19,6 +19,7 @@ export default {
     enter(el, done) {
       const _vm = this,
         tl = new TimelineMax({ delay: 0.3 });
+
       tl.add("socialOut")
         .to(".Social, .Social ul , .navbar__title", 1, {
           xPercent: -40,
@@ -47,10 +48,6 @@ export default {
           "socialOut+=.2"
         );
     }
-    // leave(el, done) {
-    //   const tl = new TimelineMax();
-    //   tl.to(el, 1.5, { y: 200, autoAlpha: 0, ease: Linear.easeInout });
-    // }
   },
 
   head() {
@@ -70,7 +67,11 @@ export default {
       AddForm
     };
   },
-  methods: {},
+  computed: {
+    open(open) {
+      return this.$store.state.sidebarOpen;
+    }
+  },
   components: {
     IndexHeader
   }

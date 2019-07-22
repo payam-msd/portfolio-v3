@@ -87,20 +87,24 @@ export default {
       var tl = new TimelineMax(),
         controller = new ScrollMagic.Controller(),
         t = document.querySelector("#focus");
-      tl.from(["#focus .focus__content .heading-primary"], 0.75, {
-        x: 75,
-        autoAlpha: 0,
-        delay: -0.5,
-        ease: Power2.easeOut
-      }).staggerFrom(
-        "#focus .focus__content p",
+      tl.staggerFrom(
+        "#focus .heading-primary",
         0.75,
         {
-          x: 75,
+          x: 85,
+          autoAlpha: 0,
+          delay: -0.5,
+          ease: Power2.easeOut
+        },
+        0.1
+      ).from(
+        "#focus .focus__content",
+        0.75,
+        {
+          x: 85,
           autoAlpha: 0,
           ease: Power2.easeOut
         },
-        0.1,
         "-=0.7"
       );
       new ScrollMagic.Scene({

@@ -1,8 +1,8 @@
 <template>
-  <div class="workingFor">
-    <h1 ref="Wtitle" class="workingFor__title">Working For</h1>
+  <div id="work" class="work">
+    <h1 class="work__title">Working For</h1>
     <br />
-    <p ref="Wtext" class="workingFor__text">
+    <p class="work__text">
       I have worked on various amazing projects in a team or as a freelancer.
       These companies trusted in my expertise.
     </p>
@@ -11,12 +11,12 @@
     <div></div>
     <div></div>
     <div></div>
-    <p ref="Wtext" class="workingFor__text">
+    <p class="work__text">
       I enjoyed every single working experience and I like to continue taking on
       new projects. Check out my previous projects or contact me to invite me
       for a next assignment.
     </p>
-    <div ref="btns" class="btn-wrapper">
+    <div class="btn-holder">
       <nuxt-link to="/contact">
         <a class="btn header__btn">contact information</a>
       </nuxt-link>
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import { TimelineMax, Ease } from "gsap";
 export default {
   name: "workingFor",
   head() {
@@ -43,17 +44,41 @@ export default {
   data() {
     return {};
   },
+  mounted() {
+    this.$nextTick(this.workAnim);
+  },
   props: ["contentComponent"],
   methods: {
     handleNav() {
       this.$store.dispatch("toggleSidebar", {
         component: this.contentComponent
       });
+    },
+    workAnim() {
+      const tl = new TimelineMax(),
+        controller = new ScrollMagic.Controller();
+      TweenLite.defaultEase = Power2.easeOut;
+      tl.staggerFrom(
+        "#work h1, .work__text,  .btn-holder",
+        0.75,
+        {
+          y: 80,
+          autoAlpha: 0
+        },
+        0.2,
+        "-=.7"
+      );
+      new ScrollMagic.Scene({
+        triggerElement: "#work",
+        reverse: !1
+      })
+        .setTween(tl)
+        .addTo(controller);
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-@import "~assets/scss/components/about/_working-for.scss";
+@import "~assets/scss/components/about/_work.scss";
 </style>

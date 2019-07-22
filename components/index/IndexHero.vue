@@ -4,21 +4,13 @@
       <div class="index__wrapper">
         <div class="text-box">
           <h1 class="heading-primary">
-            <span>better design</span>
+            <span>{{ title}}</span>
             <br />
-            <span>better results</span>
+            <span>{{titleSuf}}</span>
           </h1>
           <div class="text-wrapper u-mt-large">
-            <p>
-              Combining the fields of design and development, I understand the
-              possibilities of the web. That’s how I create valuable marketing
-              focused websites and shops with a strong user experience, aiming
-              to get more online results.
-            </p>
-            <p>
-              I strive to make unique websites that look good and work even
-              better.
-            </p>
+            <p>{{content}}</p>
+            <p>{{contentSuf}}</p>
           </div>
           <div class="btn-holder u-mt-large">
             <nuxt-link to="/about">
@@ -44,7 +36,6 @@ export default {
   name: "IndexHeader",
   head() {
     return {
-      title: "",
       meta: [
         {
           hid: "",
@@ -55,7 +46,14 @@ export default {
     };
   },
   data() {
-    return {};
+    return {
+      title: "better design",
+      titleSuf: "better results",
+      content:
+        "Combining the fields of design and development, I understand thepossibilities of the web. That’s how I create valuable marketingfocused websites and shops with a strong user experience, aimingto get more online results.",
+      contentSuf:
+        "I strive to make unique websites that look good and work evenbetter."
+    };
   },
   mounted() {
     const time = !!this.$store.state.sidebarOpen ? 1500 : 0;

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <about-header />
+  <div id="about">
+    <about-hero />
     <about-focus />
     <about-quote />
     <about-principle />
@@ -10,7 +10,7 @@
 
 <script>
 import { TimelineMax } from "gsap";
-import AboutHeader from "~/components/about/AboutHeader";
+import AboutHero from "~/components/about/AboutHero";
 import AboutFocus from "~/components/about/AboutFocus";
 import AboutQuote from "~/components/about/AboutQuote";
 import AboutPrinciple from "~/components/about/AboutPrinciple";
@@ -25,9 +25,6 @@ export default {
     enter(el, done) {
       const _vm = this,
         tl = new TimelineMax({ delay: 0.3 });
-      //   if (!this.$store.state.sidebarOpen) {
-      //     tl.from(el, 1.5, { y: 200, autoAlpha: 0, ease: Linear.easeNone });
-      //   }
       TweenMax.delayedCall(1, () => {
         if (!!_vm.$store.state.sidebarOpen) _vm.$store.dispatch("toggle");
       });
@@ -59,25 +56,13 @@ export default {
     }
   },
   mounted() {},
-  head() {
-    return {
-      title: "",
-      meta: [
-        {
-          hid: "",
-          name: "",
-          content: ""
-        }
-      ]
-    };
-  },
   data() {
     return {
       AddForm
     };
   },
   components: {
-    AboutHeader,
+    AboutHero,
     AboutFocus,
     AboutQuote,
     AboutPrinciple,

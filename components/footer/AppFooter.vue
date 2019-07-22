@@ -10,8 +10,8 @@
 <script>
 import { FooterAnim } from "~/mixins/Footer";
 import { TimelineMax } from "gsap";
-import TextSVG from "~/components/TextSVG";
-import SocialMedia from "~/components/SocialMedia";
+import TextSVG from "~/components/footer/TextSVG";
+import socialMedia from "~/components/socialMedia/socialMedia";
 export default {
   mixins: [FooterAnim],
   name: "AppFooter",
@@ -31,7 +31,7 @@ export default {
     return {};
   },
   components: {
-    SocialMedia,
+    socialMedia,
     TextSVG
   }
 };

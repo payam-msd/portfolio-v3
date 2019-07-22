@@ -55,7 +55,7 @@
 
 <script>
 import { TimelineLite } from "gsap";
-import SocialMedia from "~/components/SocialMedia";
+import socialMedia from "~/components/socialMedia/socialMedia";
 import img2 from "~/assets/img/img2.jpg";
 import img3 from "~/assets/img/img3.jpg";
 import img4 from "~/assets/img/img4.jpg";
@@ -115,7 +115,7 @@ export default {
   },
 
   components: {
-    SocialMedia
+    socialMedia
   },
   methods: {},
   mounted() {
@@ -125,7 +125,7 @@ export default {
       tl.set([hGroup, image, bar], { autoAlpha: 0 }).staggerFrom(
         [hGroup, image, bar],
         1,
-        { autoAlpha: 1, x: 150 }
+        { autoAlpha: 1, x: 150, lazy: true }
       );
     });
   },

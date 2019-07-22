@@ -1,49 +1,59 @@
 .contact {
-  background: $blue-grey-050;
-  font-size: 1.8rem;
-  font-family: product-sans-bold;
-  letter-spacing: 0.8px;
-  &__title {
-      h1{
-          font-size: 5rem;
-          padding-bottom: 2rem;
-          color: $blue-grey-800;
+    background: $blue-grey-050;
+    font-size: 1.8rem;
+    font-family: product-sans-bold;
+
+    &__title {
+        font-size: 2rem;
+        padding-bottom: 3rem;
+        letter-spacing: 1.7px;
+        color: $blue-grey-900;
+
+        &--pre {
+            color: $blue-grey-800;
+            padding-top: 2.5rem;
+        }
+
+        span {
+            color: $red-500;
+        }
     }
-  }
-  &__pre-title {
-    color: $blue-grey-900;
-  }
-  &__ul-list {
+}
+
+.ul-list {
     padding: 3rem 0;
     font-size: 1.6rem;
 
     li {
-      padding: 2rem 0;
-      letter-spacing: 1px;
-      display: inline-block;
-      @include from-end(2) {
-        padding: 2rem 0 0 8rem;
-      }
-      span {
-        margin-bottom: 1.5rem;
+        padding: 2rem 0;
+        letter-spacing: 1.7px;
         display: inline-block;
-        font-size: 1.8rem;
-      }
-      a {
-        color: $blue-grey-500;
-      }
 
-      svg {
-        height: 12px;
-        width: 12px;
-        fill: $red-600;
-        padding-right: 0.5rem;
-      }
+        @include from-end(2) {
+            padding: 2rem 0 0 8rem;
+        }
+
+        span {
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            font-size: 1.8rem;
+        }
+
+        a {
+            color: $blue-grey-500;
+            line-height: 4rem;
+        }
+
+        svg {
+            height: 12px;
+            width: 12px;
+            fill: $red-600;
+            padding-right: 0.5rem;
+        }
     }
-  }
+}
 
-  &__list-item {
+.contact__list-item {
     display: block !important;
-    padding: 1rem 0 !important;
-  }
+    padding: 0 !important;
 }

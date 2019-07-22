@@ -7,10 +7,11 @@
 </template>
 
 <script>
-import AppNavigation from "~/components/AppNavigation";
-import AppFooter from "~/components/AppFooter";
+import AppNavigation from "~/components/navigation/AppNavigation";
+import AppFooter from "~/components/footer/AppFooter";
 
 export default {
+  mounted() {},
   components: {
     AppNavigation,
     AppFooter
