@@ -27,7 +27,7 @@
           </ul>
 
           <ul class="ul-list">
-            <h3 class="u-mb-small">{{title2}}</h3>
+            <h3 class="title u-mb-small">{{title2}}</h3>
             <li class="contact__list-item" v-for="item in dlList" :key="item.id">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
                 <path d="M33,14.1,16.44,30.52,0,14.1H9.39V0H23.5V14.1ZM0,35.26H33V40H0Z" />
@@ -87,41 +87,42 @@ export default {
     };
   },
   mounted() {
-    this.$nextTick(this.contactAnim);
-    this.$nextTick(this.downsideAnim);
+    if (!!this.$store.state.sidebarOpen) {
+      this.$nextTick(this.contactAnim);
+      this.$nextTick(this.downsideAnim);
+    }
   },
   methods: {
     contactAnim() {
-      const tl = new TimelineMax();
-      // time = !!this.$store.state.sidebarOpen ? 1.25 : 0.2;
-      if (!!this.$store.state.sidebarOpen)
-        TweenLite.delayedCall(1.25, () => {
-          tl.staggerFrom(
-            ".contact,  .contact__title h1, .contact__title--pre",
-            1,
-            {
-              x: 100,
-              autoAlpha: 0,
-              delay: -0.1,
-              ease: Power2.easeOut
-            },
-            0.2
+      const tl = new TimelineMax(),
+        time = !!this.$store.state.sidebarOpen ? 1.25 : 0;
+      TweenLite.delayedCall(time, () => {
+        tl.staggerFrom(
+          ".contact,  .contact__title h1, .contact__title--pre",
+          1,
+          {
+            x: 100,
+            autoAlpha: 0,
+            delay: -0.1,
+            ease: Power2.easeOut
+          },
+          0.2
+        )
+          .from(
+            ".contact .text-wrapper p",
+            0.75,
+            { x: 85, autoAlpha: 0, ease: Power2.easeOut },
+            "-=.7"
           )
-            .from(
-              ".contact .text-wrapper p",
-              0.75,
-              { x: 85, autoAlpha: 0, ease: Power2.easeOut },
-              "-=.7"
-            )
-            .add("titileIn")
-            .staggerFrom(
-              ".contact ul li span",
-              1,
-              { x: 85, autoAlpha: 0, ease: Power2.easeOut },
-              0.25,
-              "-=.7"
-            );
-        });
+          .add("titileIn")
+          .staggerFrom(
+            ".contact ul li span",
+            1,
+            { x: 85, autoAlpha: 0, ease: Power2.easeOut },
+            0.25,
+            "-=.7"
+          );
+      });
     },
     downsideAnim() {
       const tl = new TimelineMax(),

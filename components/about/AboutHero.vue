@@ -47,19 +47,19 @@ export default {
         preTitle: "Visual design &",
         title: "Front-end professional",
         content:
-          "I’m a creative professional from the iran, working inEindhoven as a freelance designer and as creative director forTallest. I work directly for clients or by partnering up withagencies.",
+          "I’m a creative professional from the iran, working inEindhoven as a freelance designer and as creative director forTallest. I work directly for clients or by partnering up with agencies.",
         suffix: "Find out more about my focus and experience."
       }
     };
   },
   mounted() {
-    this.$nextTick(this.heroAnimation);
+    if (!!this.$store.state.sidebarOpen) this.$nextTick(this.heroAnimation);
   },
   methods: {
     heroAnimation() {
       const tl = new TimelineMax(),
-        time = !!this.$store.state.sidebarOpen ? 1.25 : 0.2;
-      TweenLite.delayedCall(time, () => {
+        time = !!this.$store.state.sidebarOpen ? 1.25 : 0;
+      TweenMax.delayedCall(time, () => {
         tl.staggerFrom(
           "#about .header__title, .text-box h1",
           1,

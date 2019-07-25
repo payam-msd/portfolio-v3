@@ -14,7 +14,7 @@ import IndexHeader from "~/components/index/IndexHero";
 export default {
   transition: {
     name: "index",
-    mode: "out-in",
+    mode: "",
     css: false,
     enter(el, done) {
       const _vm = this,
@@ -28,7 +28,7 @@ export default {
           onComplete() {
             tl.delay(0.2);
             _vm.$store.dispatch("toggle");
-            done;
+            done();
             tl.set(".navbar__list, .Social ul", {
               xPercent: -40,
               autoAlpha: 0,
@@ -47,6 +47,16 @@ export default {
           0.1,
           "socialOut+=.2"
         );
+    },
+    leave(el, done) {
+      new TimelineMax().to(el, 1, {
+        autoAlpha: 0,
+        y: 150,
+        ease: Power1.easeInOut,
+        onComplete() {
+          done();
+        }
+      });
     }
   },
 
@@ -72,6 +82,7 @@ export default {
       return this.$store.state.sidebarOpen;
     }
   },
+  watch: {},
   components: {
     IndexHeader
   }

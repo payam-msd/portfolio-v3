@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import img1 from "~/assets/img/img1.jpg";
+import quotebg from "~/assets/img/qoutebg.webp";
 export default {
   name: "AboutQoute",
   data() {
@@ -79,7 +79,7 @@ export default {
           "It’s great to work with payam! He’s quick to understand theconditions and shares improvements from a UX point of view. Witha wide knowledge of front-end development and web design, heconnects customer, design and developers. A generalist andspecialist combineds!",
         person: "Remmelt van Tol",
         experties: "Digital strategist at Salveo Pharma",
-        img: img1
+        img: quotebg
       }
     };
   }

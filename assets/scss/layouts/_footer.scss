@@ -1,24 +1,24 @@
 .footer {
-  position: relative;
-  border-top: 1px solid $blue-grey-700;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-  height: 30%;
-  padding: 3rem 0 0 0;
-  opacity: 0.8;
+    position: relative;
+    border-top: 1px solid $blue-grey-700;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    height: 30%;
+    padding: 3rem 0 0 0;
+    opacity: 0.8;
 
-  &__svg-holder {
-    margin-right: auto;
-    align-self: flex-start;
-  }
+    &__svg {
+        opacity: .6;
+        transition: opacity 0.15s ease-in-out;
 
-  &__svg {
-      opacity: .6;
-    transition: opacity 0.15s ease-in-out;
-
-    &:hover {
-      opacity: 1 !important;
+        &:hover {
+            opacity: 1 !important;
+        }
     }
-  }
 }
+
+.svg-holder {
+    margin-right: auto;
+ align-self: flex-start;
+ }

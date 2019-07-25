@@ -1,20 +1,18 @@
 <template>
   <div class="footer">
-    <div class="footer__svg-holder">
-      <TextSVG :class="'footer__svg'" />
+    <div class="svg-holder">
+      <TextSVG class="footer__svg" />
     </div>
-    <social-media class="footerMedia" />
+    <social-media class="footer__media" />
   </div>
 </template>
 
 <script>
-import { FooterAnim } from "~/mixins/Footer";
-import { TimelineMax } from "gsap";
 import TextSVG from "~/components/footer/TextSVG";
 import socialMedia from "~/components/socialMedia/socialMedia";
 export default {
-  mixins: [FooterAnim],
   name: "AppFooter",
+  mounted() {},
   head() {
     return {
       title: "",

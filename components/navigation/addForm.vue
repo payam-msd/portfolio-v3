@@ -22,9 +22,8 @@
             :key="cases.id"
             :to="`${cases.route}`"
             tag="li"
-            v-data-case="cases.title"
           >
-            <a>{{ cases.title }}</a>
+            <a v-data-case="cases.title">{{ cases.title }}</a>
           </nuxt-link>
         </ul>
 
@@ -56,42 +55,40 @@
 <script>
 import { TimelineLite } from "gsap";
 import socialMedia from "~/components/socialMedia/socialMedia";
-import img2 from "~/assets/img/img2.jpg";
-import img3 from "~/assets/img/img3.jpg";
-import img4 from "~/assets/img/img4.jpg";
+import dastanIran from "~/assets/img/Dastan-iran.webp";
+import digiMobile from "~/assets/img/Digii-mobile.webp";
 
 export default {
   name: "add-form",
   data() {
     return {
-      img2,
-      img3,
-      img4,
+      digiMobile,
+      dastanIran,
       mouseHover: false,
       hoverCases: [
         {
-          id: "0",
-          route: "/dastaniran",
-          desc: "A Tourism Agency Specilized in IRAN ",
-          title: "DastanIran",
-          image: img2,
-          hover: false
-        },
-        {
           id: "1",
-          route: "/sickfit",
-          desc: "A shoping React base web app",
-          title: "SickFit",
-          image: img3,
-          hover: false
+          route: "/dastaniran",
+          desc: "a tourism agency specilized in iran",
+          title: "DastanIran",
+          image: dastanIran,
+          hover: 0
         },
         {
           id: "2",
-          route: "/glozzom",
-          desc: "A Bootstrap base UI app",
-          title: "Glozzom",
-          image: img4,
-          hover: false
+          route: "/digimobile",
+          desc: "a bootstrap UI base app",
+          title: "DigiMobile",
+          image: digiMobile,
+          hover: 0
+        },
+        {
+          id: "3",
+          route: "/sickfit",
+          desc: "a bootstrap UI base app",
+          title: "SickFit",
+          image: digiMobile,
+          hover: 0
         }
       ],
       pages: [
@@ -134,6 +131,7 @@ export default {
       return this.$store.state.sidebarOpen;
     }
   },
+
   watch: {
     mouseHover: mouseHover => {
       const tl = new TimelineLite();
@@ -141,24 +139,29 @@ export default {
         ? tl
             .set(".case-holder__group span ", {
               x: 80,
-              autoAlpha: 0,
-              force3D: false
+              autoAlpha: 0
             })
             .to(
               ".case-holder__group span ",
-              0.75,
+              1,
               {
                 x: 0,
                 autoAlpha: 1,
-                ease: Power2.easeInout
+                ease: Power1.easeInOut,
+                force3D: false
               },
               "+="
             )
             .fromTo(
               ".case-holder__img div",
               1,
-              { x: "2%", autoAlpha: 0 },
-              { x: "20%", autoAlpha: 1, ease: Power2.easeInout },
+              { x: "5.3%", autoAlpha: 0.8 },
+              {
+                x: "25.3%",
+                autoAlpha: 1,
+                delay: -0.1,
+                ease: Power2.easeInOut
+              },
               "-=.6"
             )
         : "";

@@ -56,10 +56,7 @@ export default {
     };
   },
   mounted() {
-    const time = !!this.$store.state.sidebarOpen ? 1500 : 0;
-    setTimeout(() => {
-      this.$nextTick(this.heroAnimation);
-    }, time);
+    if (!!this.$store.state.sidebarOpen) this.$nextTick(this.heroAnimation);
   },
   components: {
     MainSVG
@@ -71,32 +68,35 @@ export default {
       });
     },
     heroAnimation() {
-      const tl = new TimelineMax();
-      tl.from("#index .text-box h1", 0.75, {
-        x: 85,
-        autoAlpha: 0,
-        ease: Power2.easeOut
-      })
-        .from(
-          "#index .text-wrapper p",
-          0.75,
-          {
-            x: 85,
-            autoAlpha: 0,
-            ease: Power2.easeOut
-          },
-          "-=.6"
-        )
-        .from(
-          "#index .btn-holder",
-          0.75,
-          {
-            x: 85,
-            autoAlpha: 0,
-            ease: Power2.easeOut
-          },
-          "-=.7"
-        );
+      const tl = new TimelineMax(),
+        time = !!this.$store.state.sidebarOpen ? 1.55 : 0;
+      TweenMax.delayedCall(time, () => {
+        tl.from("#index .text-box h1", 0.75, {
+          x: 85,
+          autoAlpha: 0,
+          ease: Power2.easeOut
+        })
+          .from(
+            "#index .text-wrapper p",
+            0.75,
+            {
+              x: 85,
+              autoAlpha: 0,
+              ease: Power2.easeOut
+            },
+            "-=.6"
+          )
+          .from(
+            "#index .btn-holder",
+            0.75,
+            {
+              x: 85,
+              autoAlpha: 0,
+              ease: Power2.easeOut
+            },
+            "-=.7"
+          );
+      });
     }
   },
   props: ["contentComponent"]
