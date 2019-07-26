@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import quotebg from "~/assets/img/qoutebg.webp";
+import quotebg from "~/assets/img/quotebg.webp";
 export default {
   name: "AboutQoute",
   data() {

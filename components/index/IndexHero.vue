@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header id="index" class="index index__container">
+    <header id="index" class="index">
       <div class="index__wrapper">
         <div class="text-box">
           <h1 class="heading-primary">
@@ -21,10 +21,9 @@
           </div>
         </div>
         <div class="index__svg-holder">
-          <MainSVG :class="'index__svg'" />
+          <MainSVG class="index__svg" />
         </div>
       </div>
-      <slot />
     </header>
   </div>
 </template>

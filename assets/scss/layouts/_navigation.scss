@@ -1,3 +1,15 @@
+/*===================
+// * Sidebar
+=====================*/
+.sidebar {
+    position: fixed;
+    right: 5rem;
+    top: 0;
+    height: 100vh;
+    width: calc(100vw - 3.7vw);
+    z-index: 100;
+}
+
 .toggleWrapper {
     position: fixed;
     left: 0;
@@ -10,15 +22,9 @@
     opacity: 0;
 }
 
-.sidebar {
-    position: fixed;
-    right: 5rem;
-    top: 0;
-    height: 100vh;
-    width: calc(100vw - 3.7vw);
-    z-index: 100;
-}
-
+/*===================
+// * Container
+=====================*/
 .container {
     width: 100vw;
     height: 100vh;
@@ -34,16 +40,19 @@
     width: 100vw;
 }
 
+/*===================
+// * Navbar
+=====================*/
 .navbar {
-    font-family: effra;
+    font-family: product-sans-regular;
     display: flex;
     align-items: center;
     height: calc(100% - 13vh);
     padding: 5rem;
 
     &__title {
-        font-size: 2.3rem;
-        font-style: bold;
+        font-size: 2.6rem;
+        font-family: product-sans-bold;
         text-transform: uppercase;
         color: $teal-vivid-050;
         letter-spacing: 1.5px;
@@ -78,14 +87,15 @@
             font-size: 1.6rem;
             margin-right: 2.25rem;
             padding: .5rem 0;
-            font-family: "product-sans-regular";
             letter-spacing: .1rem;
+            opacity: .8;
             color: $blue-grey-050 !important;
 
             &:hover {
                 color: $white !important;
                 padding-left: 2.25rem;
                 margin-right: 0;
+                opacity: 1;
             }
 
             &::before {
@@ -105,10 +115,13 @@
     }
 }
 
+/*===================
+// * Case-holder
+=====================*/
 .case-holder {
     position: relative;
     height: calc(100vh - 10%);
-    width: calc(55vw - 13rem);
+    width: calc(55vw - 18rem);
     margin-right: 3rem;
     margin-left: auto;
     overflow: hidden;
@@ -144,36 +157,34 @@
         height: calc(100% - 73%);
     }
 
-
-
     &__img {
         position: relative;
         display: flex;
+        margin-top: 2rem;
         height: calc(100vh - 20vh) !important;
         width: 170%;
         float: right;
         overflow: hidden;
     }
 
-
-
     &__group {
         color: $white;
         padding: 2.5rem 0 0 4rem;
 
         .h1 {
-            font-size: 3rem;
+            font-size: 2.6rem;
             text-transform: uppercase;
             line-height: 7rem;
             font-weight: 400;
-            letter-spacing: .05em;
+            letter-spacing: .1rem;
         }
 
         &--pre {
             display: block;
+            text-transform: capitalize;
             margin-top: -.25rem;
             letter-spacing: .1rem;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
         }
     }
 }

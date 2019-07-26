@@ -1,14 +1,13 @@
 .index {
-  font-size: 1.8rem;
-  font-family: product-sans-bold;
-  width: calc(100vw - 8vw) !important;
-  &__wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
-    height: 100vh;
-  }
+    width: calc(100vw - 8vw) !important;
 
-  &__svg-holder {
-    padding: 5rem 3rem;
-  }
+    &__wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        height: 100vh;
+    }
+
+    &__svg-holder {
+        padding: 5rem 3rem;
+    }
 }

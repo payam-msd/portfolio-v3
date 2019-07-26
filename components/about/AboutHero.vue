@@ -7,12 +7,12 @@
             <span class="header__title--pre">—</span>
             <span>{{headerData.name}}</span>
           </p>
-          <h1 class="heading-primary u-mt-small">
+          <div class="heading-primary">
             {{headerData.preTitle}}
             <br />
             {{headerData.title}}
-          </h1>
-          <div class="text-wrapper u-mt-large">
+          </div>
+          <div class="text-wrapper u-mt-medium u-mb-medium">
             <p>{{headerData.content}}</p>
             <br />
             <span>{{headerData.suffix}}</span>

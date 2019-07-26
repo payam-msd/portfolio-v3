@@ -2,23 +2,27 @@
   <div class="b-padding-medium">
     <section id="focus" class="focus">
       <div class="u-mt-medium">
-        <h2 class="heading-primary">{{header.title}}</h2>
+        <h1 class="heading-primary">{{header.title}}</h1>
         <div class="text-wrapper u-mt-small">
           <p class="focus__content">{{header.content}}</p>
         </div>
       </div>
       <ul class="ul-list u-mt-large">
         <li class="ul-list__item" v-for="item in listData" :key="item.id">
-          <h3 class="ul-list__title">
+          <h2 class="ul-list__title">
             <span class="ul-list__title--pre">—</span>
             {{item.title}}
-          </h3>
+          </h2>
           <p class="ul-list__text">{{item.content}}</p>
         </li>
       </ul>
       <div class="feather-holder" id="feather-trigger">
-        <div class="feather" id="feather">
-          <div class="feather-reflection" id="feather-reflection"></div>
+        <div class="feather" id="feather" :style="{backgroundImage: `url(${feather})`}">
+          <div
+            class="feather-reflection"
+            id="feather-reflection"
+            :style="{backgroundImage: `url(${feather})`}"
+          ></div>
         </div>
       </div>
     </section>
@@ -27,11 +31,13 @@
 
 <script>
 import { TimelineMax } from "gsap";
+import feather from "~/assets/svg/feather.svg";
 
 export default {
   name: "AboutFocus",
   data() {
     return {
+      feather,
       header: {
         title: "Focus",
         content:
@@ -119,7 +125,7 @@ export default {
         controller = new ScrollMagic.Controller(),
         t = document.querySelector("#focus .ul-list");
       tl.staggerFrom(
-        "#focus .ul-list li h3",
+        "#focus .ul-list li h2",
         0.75,
         {
           x: 75,

@@ -33,7 +33,7 @@
 
             <div class="case-holder__banner">
               <div ref="hGroup" class="case-holder__group">
-                <span class="h1">{{ data.title }}</span>
+                <h1 class="h1">{{ data.title }}</h1>
                 <span class="case-holder__group--pre">
                   —
                   {{ data.desc }}
@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { TimelineLite } from "gsap";
+import { TimelineMax } from "gsap";
 import socialMedia from "~/components/socialMedia/socialMedia";
 import dastanIran from "~/assets/img/Dastan-iran.webp";
 import digiMobile from "~/assets/img/Digii-mobile.webp";
@@ -135,36 +135,35 @@ export default {
   watch: {
     mouseHover: mouseHover => {
       const tl = new TimelineLite();
-      mouseHover
-        ? tl
-            .set(".case-holder__group span ", {
-              x: 80,
-              autoAlpha: 0
-            })
-            .to(
-              ".case-holder__group span ",
-              1,
-              {
-                x: 0,
-                autoAlpha: 1,
-                ease: Power1.easeInOut,
-                force3D: false
-              },
-              "+="
-            )
-            .fromTo(
-              ".case-holder__img div",
-              1,
-              { x: "5.3%", autoAlpha: 0.8 },
-              {
-                x: "25.3%",
-                autoAlpha: 1,
-                delay: -0.1,
-                ease: Power2.easeInOut
-              },
-              "-=.6"
-            )
-        : "";
+      if (mouseHover)
+        tl.set(".case-holder__group span, .case-holder__group h1 ", {
+          x: 80,
+          autoAlpha: 0
+        })
+          .staggerTo(
+            ".case-holder__group span, .case-holder__group h1 ",
+            1,
+            {
+              x: 0,
+              autoAlpha: 1,
+              ease: Power2.easeNone,
+              force3D: true
+            },
+            0.1
+          )
+          .fromTo(
+            ".case-holder__img div",
+            0.75,
+            { x: "5.3%", autoAlpha: 0 },
+            {
+              x: "25.3%",
+              force3D: false,
+              autoAlpha: 1,
+              delay: -0.6,
+              ease: Power2.easeNone
+            },
+            "-=.9"
+          );
     }
   }
 };
