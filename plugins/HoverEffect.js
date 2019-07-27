@@ -12,13 +12,16 @@ Vue.directive("data-case", {
           if (e.hoverCases[i][key] === 1 && e.mouseHover === 1) {
             e.hoverCases[i][key] = 0;
           }
+            binding.value === "DastanIran"
+              ? (e.hoverCases[0].hover = 1)
+              : binding.value === "DigiMobile"
+              ? (e.hoverCases[1].hover = 1)
+              : binding.value === "SickFit"
+              ? (e.hoverCases[2].hover = 1)
+              : "";
         }
       }
-      if (binding.value === "DastanIran") e.hoverCases[0].hover = 1;
-      else if (binding.value === "DigiMobile") e.hoverCases[1].hover = 1;
-      else if (binding.value === "SickFit") e.hoverCases[2].hover = 1;
     };
-
     el.onmouseout = () => {
       vnode.context.mouseHover = 0;
     };

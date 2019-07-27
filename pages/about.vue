@@ -4,7 +4,7 @@
     <about-focus />
     <about-quote />
     <about-principle />
-    <working-for :contentComponent="AddForm" />
+    <about-work :contentComponent="AddForm" />
   </div>
 </template>
 
@@ -14,7 +14,7 @@ import AboutHero from "~/components/about/AboutHero";
 import AboutFocus from "~/components/about/AboutFocus";
 import AboutQuote from "~/components/about/AboutQuote";
 import AboutPrinciple from "~/components/about/AboutPrinciple";
-import WorkingFor from "~/components/about/WorkingFor";
+import AboutWork from "~/components/about/AboutWork";
 import AddForm from "~/components/navigation/addForm";
 
 export default {
@@ -24,7 +24,7 @@ export default {
     css: false,
     enter(el, done) {
       const _vm = this,
-        tl = new TimelineMax({ dealy: 0.3 });
+        tl = new TimelineMax();
       TweenMax.delayedCall(1, () => {
         if (!!_vm.$store.state.sidebarOpen) _vm.$store.dispatch("toggle");
       });
@@ -36,8 +36,8 @@ export default {
               autoAlpha: 0,
               ease: Power2.easeOut,
               onComplete() {
-                tl.dealy(0.2);
                 done();
+                tl.delay(0.2);
                 tl.set(".navbar__list, .Social ul", {
                   xPercent: -40,
                   autoAlpha: 0,
@@ -56,7 +56,7 @@ export default {
               0.1,
               "socialOut+=.2"
             )
-        : tl.from(el, 1, {
+        : new TimelineMax().from(el, 1, {
             autoAlpha: 0,
             y: 150,
             ease: Power1.easeInOut,
@@ -64,16 +64,6 @@ export default {
               done();
             }
           });
-    },
-    leave(el, done) {
-      new TimelineMax().to(el, 1, {
-        autoAlpha: 0,
-        y: 150,
-        ease: Power1.easeInOut,
-        onComplete() {
-          done();
-        }
-      });
     }
   },
   mounted() {},
@@ -87,7 +77,7 @@ export default {
     AboutFocus,
     AboutQuote,
     AboutPrinciple,
-    WorkingFor
+    AboutWork
   },
   methods: {}
 };

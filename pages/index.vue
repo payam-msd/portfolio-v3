@@ -19,16 +19,15 @@ export default {
     enter(el, done) {
       const _vm = this,
         tl = new TimelineMax({ delay: 0.3 });
-
       tl.add("socialOut")
         .to(".Social, .Social ul , .navbar__title", 1, {
           xPercent: -40,
           autoAlpha: 0,
           ease: Power2.easeOut,
           onComplete() {
+            done();
             tl.delay(0.2);
             _vm.$store.dispatch("toggle");
-            done();
             tl.set(".navbar__list, .Social ul", {
               xPercent: -40,
               autoAlpha: 0,
@@ -47,16 +46,6 @@ export default {
           0.1,
           "socialOut+=.2"
         );
-    },
-    leave(el, done) {
-      new TimelineMax().to(el, 1, {
-        autoAlpha: 0,
-        y: 150,
-        ease: Power1.easeInOut,
-        onComplete() {
-          done();
-        }
-      });
     }
   },
 

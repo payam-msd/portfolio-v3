@@ -3,18 +3,21 @@
     <div class="b-padding-large">
       <h1 class="principle__title">{{title}}</h1>
       <p class="principle__content">{{content}}</p>
-      <ul class="principle-list">
+      <ul class="principle-list u-mt-xlarge">
         <li v-for="item in principles" :key="item.id">
           <div
             :style="{backgroundImage: `url(${item.svg })`,
-            height: '74px',
-            width: '74px',
-            margin: '0  0 2rem 1rem'
+            height: '64px',
+            width: '64px',
+            margin: '0  0 2rem .5rem'
         }"
           ></div>
           <h3>{{item.title}}</h3>
           <br />
-          <span>{{item.sustitle}}</span>
+          <h4>
+            <span class="parinciple-list__pre-title">—</span>
+            {{item.subtitle}}
+          </h4>
           <p>{{item.content}}</p>
         </li>
       </ul>
@@ -41,7 +44,7 @@ export default {
         {
           id: 1,
           title: "Combined knowledge",
-          subtitle: "— mutual trust",
+          subtitle: "mutual trust",
           content:
             "I trust in my clients’ knowledge about their branch. In return, I ask them to trust in my experience.",
           svg: knowledge
@@ -49,7 +52,7 @@ export default {
         {
           id: 2,
           title: "High quality ",
-          subtitle: "— reasonable costs",
+          subtitle: "reasonable costs",
           content:
             "Every little detail matters when you create a high-end website. Taking everything into account takes time.",
           svg: quality
@@ -57,7 +60,7 @@ export default {
         {
           id: 3,
           title: "Keeping focus ",
-          subtitle: "— sharing expertise",
+          subtitle: "sharing expertise",
           content:
             "I prefer to do what I do best. That’s why I work with a network of professionals for anything outside my focus.",
           svg: focus
@@ -72,41 +75,37 @@ export default {
     pricipleAnim() {
       const tl = new TimelineMax(),
         controller = new ScrollMagic.Controller();
+      TweenLite.defaultEase = Power2.easeOut;
 
-      tl.from("#principle .principle__title", 1, {
-        x: 85,
-        autoAlpha: 0,
-        ease: Power2.easeOut
-      })
-        .add("contentIn")
-        .from(
-          "#principle .principle__content",
+      tl.add("titleIn")
+        .staggerFrom(
+          ".principle__title, .principle__content",
           0.75,
           {
             x: 85,
-            autoAlpha: 0,
-            delay: -0.3,
-            ease: Power2.easeOut
+            autoAlpha: 0
           },
-          "-=.5"
+          0.1
         )
+        .add("headerIn")
         .staggerFrom(
-          " .principle-list span, .principle-list h3",
+          ".principel-list div , .principle-list h3, .principle-list h4",
           0.75,
-          { x: 85, autoAlpha: 0, delay: -0.5, ease: Power2.easeOut },
+          { x: 85, autoAlpha: 0 },
           0.1,
-          "contentIn-=.7"
+          "titleIn-=.7"
         )
         .staggerFrom(
           "#principle ul , .principle-list li , .principle-list p",
           0.75,
-          { x: 80, autoAlpha: 0, ease: Power2.easeOut },
+          { x: 80, autoAlpha: 0 },
           0.1,
-          "contentIn-=.5"
+          "headerIn+="
         );
 
       new ScrollMagic.Scene({
         triggerElement: "#principle",
+        offset: -200,
         reverse: !1
       })
         .setTween(tl)

@@ -6,13 +6,20 @@
 
     &__title {
         padding-bottom: 2rem;
-        font-size: 4rem;
+        display: block;
+        font-size: 4.3rem;
+        font-family: product-sans-bold;
+        text-transform: capitalize;
+        color: $blue-grey-100;
+        max-width: 100%;
+        line-height: 6rem;
+        letter-spacing: .2rem;
     }
 
     &__content {
         font-size: 1.6rem;
-        padding-bottom: 15rem;
         letter-spacing: .1rem;
+        font-family: proxima-regular;
         width: 35%;
     }
 }
@@ -22,12 +29,18 @@
     grid-template-columns: repeat(3, 1fr);
     list-style: none;
 
-    span {
-        letter-spacing: 1px;
+    h3,
+    h4 {
+        font-weight: normal !important;
+        letter-spacing: .1rem;
+        line-height: 1.8;
+        display: inline-block;
     }
 
     p {
         padding: 3rem 0;
+        line-height: 2;
+        font-family: proxima-regular;
         width: 80%;
         font-size: 1.6rem;
     }

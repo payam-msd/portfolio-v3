@@ -9,11 +9,11 @@ import { TimelineMax } from "gsap";
 export default {
   transition: {
     name: "contact",
-    mode: "out-in",
+    mode: "",
     css: false,
     enter(el, done) {
       const _vm = this,
-        tl = new TimelineMax({ delay: 0.3 });
+        tl = new TimelineMax();
       TweenMax.delayedCall(1, () => {
         if (!!_vm.$store.state.sidebarOpen) _vm.$store.dispatch("toggle");
       });
@@ -51,9 +51,7 @@ export default {
           });
     }
   },
-  mounted() {
-    this.$nextTick();
-  },
+  mounted() {},
   computed: {},
   components: {
     contactHero

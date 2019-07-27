@@ -1,20 +1,45 @@
 .work {
+    text-align: center;
+
     &__title {
-        font-size: 4rem;
-        color: $blue-grey-900;
-        text-align: center;
-        padding: 15rem 5rem 0 5rem;
+        padding-top: 5rem;
     }
 
     &__text {
-        text-align: center;
         padding: 2rem 5rem;
-        font-size: 2rem;
-        color: $blue-900;
+        margin: auto;
+        font-family: proxima-regular;
+        font-size: 1.6rem;
+        color: $blue-grey-600;
+        width: 50%;
+
+        @include first-child() {
+            width: 60%;
+        }
     }
 }
 
 .btn-holder {
-    text-align: center;
-    padding: 10rem 0 10rem 5rem;
+    padding: 8rem 0 10rem 7rem;
+}
+
+.client-logos-holder {
+    position: relative;
+    padding: 10rem 0;
+
+    ul {
+        display: block;
+        @include center(both);
+        width: 100%;
+    }
+
+    li {
+        display: inline-block;
+        padding: 2rem 8rem;
+    }
+
+    div {
+        height: 48px;
+        width: 48px;
+    }
 }

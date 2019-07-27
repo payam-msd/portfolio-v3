@@ -61,20 +61,21 @@ export default {
         time = !!this.$store.state.sidebarOpen ? 1.25 : 0;
       TweenMax.delayedCall(time, () => {
         tl.staggerFrom(
-          "#about .header__title, .text-box h1",
+          "#about .header__title, .heading-primary",
           1,
           {
             x: 85,
             autoAlpha: 0,
             ease: Power2.easeOut
           },
-          0.2
+          0.1
         ).from(
           "#about .text-wrapper",
           1,
           {
             x: 80,
             autoAlpha: 0,
+            delay: -0.2,
             ease: Power2.easeOut
           },
           "-=.7"

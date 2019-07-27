@@ -3,16 +3,12 @@
     <header id="contact " class="contact">
       <div class="header__container">
         <div class="text-box u-mt-large">
-          <div class="contact__title">
-            <h1>
-              {{title}}
-              <br />
-            </h1>
-            <p class="contact__title--pre">
-              <span>—</span>
-              {{titleSuf}}
-            </p>
-          </div>
+          <div class="heading-primary">{{title}}</div>
+          <br />
+          <p class="contact__title--pre">
+            <span>—</span>
+            {{titleSuf}}
+          </p>
           <div class="text-wrapper u-mt-small">
             <p>{{content}}</p>
           </div>
@@ -35,8 +31,8 @@
               <a :href="`${item.link}`">{{item.detail}}</a>
             </li>
           </ul>
+          <div class="header__img-holder"></div>
         </div>
-        <div class="header__img-holder"></div>
       </div>
     </header>
   </div>
